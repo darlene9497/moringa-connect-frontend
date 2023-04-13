@@ -1,9 +1,9 @@
 # Moringa Connect
 
 ## Contributors
-- Keith Kiama.
-- Leonard Mukanda.
+- Keith Kiama Maina
+- Leonard-Mukanda.
 - Susan Githaiga.
 - Darlene Nandabi.
-- Justine Limo Kipkoech.
-- Emmanuel Tururi
+- JUSTINE KIPKOECH LIMO.
+- Emmanuel Chacha.
