@@ -9,7 +9,6 @@ import {
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
-//   MDBBtn,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -29,6 +28,7 @@ export default function NavBar() {
               height='120'
               alt=''
               loading='lazy'
+              id='m-logo'
             />
         </MDBNavbarBrand>
 
@@ -56,7 +56,7 @@ export default function NavBar() {
                 <MDBDropdownMenu>
                   <MDBDropdownItem link>History</MDBDropdownItem>
                   <MDBDropdownItem link>Mission</MDBDropdownItem>
-                  <MDBDropdownItem link>Mission</MDBDropdownItem>
+                  <MDBDropdownItem link>Vision</MDBDropdownItem>
                   <MDBDropdownItem link>Executive Commitee</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
@@ -85,7 +85,7 @@ export default function NavBar() {
             </MDBNavbarItem> */}
             <MDBNavbarItem>
               <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
+                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-or'>
                   Events
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>

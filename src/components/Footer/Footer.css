@@ -2,7 +2,7 @@
     background-color: #00004d !important;
     color: white !important;
     padding-top: 2em;
-    padding-bottom: 8em;
+    padding-bottom: 5em;
 }
 #foot-img{
     height: 50px;
@@ -13,11 +13,28 @@
     padding-top: 3em;
     font-size: 10px;
 }
-.text-reset, .text-r, .me-2{
-    font-size: 23px !important;
+#contact-details{
+    justify-content: baseline;
 }
-.me-3, .me-2{
+.text-reset, .text-r, .me-2{
+    font-size: 20px !important;
+}
+.me-3{
     color: #ff5c33;
-    padding-top: 0.5em;
+    /* padding-top: 0.5em; */
     font-size: 15px;
+}
+.me-2{
+    color: #ff5c33;
+    font-size: 15px ;
+}
+.footer-icons{
+    /* margin-top: 1em; */
+    margin-bottom: none;
+    margin-right: none;
+    color: white;
+    margin-top: 2em;
+}
+#copyright{
+    margin-top: 3em;
 }
