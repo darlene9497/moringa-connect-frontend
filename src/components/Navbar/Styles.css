@@ -1,0 +1,15 @@
+.nav-main{
+    font-weight: bold;
+}
+#nav-or{
+    color: #ff5c33;
+    margin-left: 3em;
+}
+#nav-blue{
+    color: #00004d;
+    margin-left: 3em;
+}
+.nav-it{
+    padding-left: 8em !important;
+    font-size: 20px;
+}

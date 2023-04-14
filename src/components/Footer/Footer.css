@@ -1,0 +1,23 @@
+#footer{
+    background-color: #00004d !important;
+    color: white !important;
+    padding-top: 2em;
+    padding-bottom: 8em;
+}
+#foot-img{
+    height: 50px;
+    /* width: 90px; */
+    color: white;
+}
+#topics, #top{
+    padding-top: 3em;
+    font-size: 10px;
+}
+.text-reset, .text-r, .me-2{
+    font-size: 23px !important;
+}
+.me-3, .me-2{
+    color: #ff5c33;
+    padding-top: 0.5em;
+    font-size: 15px;
+}
