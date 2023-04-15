@@ -1,0 +1,31 @@
+.nav-main{
+    font-weight: bold;
+}
+#nav-or{
+    color: #ff5c33;
+    margin-left: 1em;
+}
+#nav-blue{
+    color: #00004d;
+    margin-left: 1em;
+}
+.nav-it{
+    padding-left: 8em !important;
+    font-size: 20px;
+}
+.logo{
+    margin-left: 6em;
+}
+#m-logo{
+    height: 50px;
+    margin-left: 6em;
+}
+
+/* display navbar as sidebar on minimizing window */
+/* .navbar-nav .nav-item .dropdown-menu {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    right: 20%;
+  }
+   */
