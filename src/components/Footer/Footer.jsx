@@ -8,33 +8,33 @@ export default function Footer() {
       <section >
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
-            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4' id='text-r'>
+            <MDBCol md="2" lg="4" xl="3" className='mx-auto mb-4' id='text-r'>
                 <img src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo-white.png' alt='logo' id='foot-img'/>
               <p id='topics'>
               </p>
-              <p>
+              {/* <p>
                 <a href='#!' className='text-reset'>
-                  Alumni
+                  Alumni 
                 </a>
-                </p>
+                </p> */}
                 <p>
                 <a href='#!' className='text-reset'>
-                  Careers
+                  Community
                 </a>                
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Contact Us
+                  Events
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                Events
+                Membership
                 </a>
               </p>
             </MDBCol>
 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4' id='contact-details'>
+            <MDBCol md="8" lg="3" xl="3" className='mx-auto mb-md-0 mb-4' id='contact-details'>
                 <p className='text-r'>
             <MDBIcon icon="home" className="me-2" />
                  Ngong Lane, Ngong Lane Plaza, 1st Floor, Nairobi Kenya
@@ -87,8 +87,7 @@ export default function Footer() {
             </MDBCol>
 
              <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-             <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"450px", frameborder:"0", style:"border:0"}} allowfullscreen></iframe>
-        
+              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"350px", frameborder:"0", style:"border:0"}} allowfullscreen></iframe>
             </MDBCol> 
           </MDBRow>
         </MDBContainer>

@@ -19,6 +19,13 @@
 .text-reset, .text-r, .me-2{
     font-size: 20px !important;
 }
+#text-r{
+    margin-right: 1px;
+}
+#contact-details{
+    /* margin-left: 1px; */
+}
+
 .me-3{
     color: #ff5c33;
     /* padding-top: 0.5em; */
