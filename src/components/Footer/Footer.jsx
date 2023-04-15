@@ -87,7 +87,7 @@ export default function Footer() {
             </MDBCol>
 
              <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"350px", frameborder:"0", style:"border:0"}} allowfullscreen></iframe>
+              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"350px", frameborder:"0", style:"border:0"}} allowFullScreen></iframe>
             </MDBCol> 
           </MDBRow>
         </MDBContainer>

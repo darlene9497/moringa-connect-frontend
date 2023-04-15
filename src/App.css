@@ -36,7 +36,7 @@
     transform: rotate(360deg);
   }
 }
-/* Page responsiveness */
+/* Page responsiveness
 /* styles for screens with a maximum width of 767px */
 @media only screen and (max-width: 767px) {
   /* your styles here */
@@ -50,4 +50,4 @@
 /* styles for screens with a minimum width of 992px */
 @media only screen and (min-width: 992px) {
   /* your styles here */
-}
+} 

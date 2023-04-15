@@ -1,6 +1,6 @@
-.card {
+
+  .card {
     display: inline-block;
     width: calc(33.33% - 10px);
     margin-right: 10px;
   }
-  
