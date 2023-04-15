@@ -1,0 +1,45 @@
+.hero-container {
+    position: relative;
+  }
+  
+  .hero-img {
+    position: relative;
+  }
+  
+  .hero-img img {
+    max-width: 100%;
+  }
+  
+  .hero-buttons {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-buttons button:first-child {
+    margin-right: 10px;
+  }
+  
+  
+  .hero-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+  }
+  
+  .hero-btn-orange {
+    background-color: #ff5c33;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hero-btn-orange:hover {
+    background-color: #ff5c33;
+  }
+  

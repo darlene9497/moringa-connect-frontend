@@ -100,9 +100,9 @@ export default function NavBar() {
                   Membership
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>Categories</MDBDropdownItem>
                   <MDBDropdownItem link>Register</MDBDropdownItem>
-                  <MDBDropdownItem link>Login</MDBDropdownItem>
+                  <MDBDropdownItem link>Membership Categories</MDBDropdownItem>
+                  <MDBDropdownItem link>Membership Benefits</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>

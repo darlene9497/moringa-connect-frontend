@@ -1,19 +1,21 @@
 import React from 'react';
 import './Home.css';
 import Cards from '../Cards';
+import Hero from '../Hero/Hero';
 
 export default function Home() {
-  const handleJoinClick = () => {
-    console.log('Join button clicked');
-  };
+//   const handleJoinClick = () => {
+//     console.log('Join button clicked');
+//   };
 
-  const handleLoginClick = () => {
-    console.log('Login button clicked');
-  };
+//   const handleLoginClick = () => {
+//     console.log('Login button clicked');
+//   };
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Hero />
+      {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className='card-home'>
           <div className='card-image-home'>
             <img
@@ -39,7 +41,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className='circles-container'>
         <div className='circle circle-1'>
