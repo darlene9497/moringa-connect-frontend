@@ -14,6 +14,7 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='/' element={<Demo />} />
+      <Route path='/home/#history' element={<History />} />
     </Routes>
     <Footer />
     </BrowserRouter>
