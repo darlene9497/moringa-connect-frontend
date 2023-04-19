@@ -3,11 +3,12 @@ import './App.css';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
-import Demo from './components/Demo';
+// import Demo from './components/Demo';
 import Home from './components/Home/Home'
 import Categories from './components/Membership/Categories';
 import Benefits from './components/Membership/Benefits';
 import History from './components/History/History';
+import About from './components/About';
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
     <NavBar />
     <Routes>
       <Route path='/' element={<Home />}/>
-      <Route path='/' element={<Demo />} />
+      {/* <Route path='/' element={<Demo />} /> */}
+      <Route path='/about' element={<About />}/>
       <Route path='/home/#history' element={<History />} />
       <Route path='/Membership/#Membership Categories' element={<Categories/>} />
       <Route path='/Membership/#Membership Benefits' element={<Benefits/>} />

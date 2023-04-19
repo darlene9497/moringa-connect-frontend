@@ -48,19 +48,24 @@ export default function NavBar() {
                 Home
               </MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue' >
                   About
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>History</MDBDropdownItem>
+                  <MDBDropdownItem href='/history'>History</MDBDropdownItem>
                   <MDBDropdownItem link>Mission</MDBDropdownItem>
                   <MDBDropdownItem link>Vision</MDBDropdownItem>
                   <MDBDropdownItem link>Executive Commitee</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/about' className='nav' id='nav-or'>
+                About
+              </MDBNavbarLink>
+            </MDBNavbarItem>            
             <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
