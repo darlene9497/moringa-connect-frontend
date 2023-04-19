@@ -9,6 +9,9 @@ import Categories from './components/Membership/Categories';
 import Benefits from './components/Membership/Benefits';
 import History from './components/History/History';
 import About from './components/About';
+import Chapters from './components/community/Chapters';
+import Alumni from './components/community/Alumni';
+import Mentor from './components/community/Mentor';
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
       <Route path='/home/#history' element={<History />} />
       <Route path='/Membership/#Membership Categories' element={<Categories/>} />
       <Route path='/Membership/#Membership Benefits' element={<Benefits/>} />
+      <Route path='/chapters' element={<Chapters />} />
+      <Route path='/chapters/alumni' element={<Alumni />} />
+      <Route path='/mentor' element={<Mentor />} />
     </Routes>
     <Footer />
     </BrowserRouter>

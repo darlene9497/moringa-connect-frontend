@@ -68,13 +68,14 @@ export default function NavBar() {
             </MDBNavbarItem>            
             <MDBNavbarItem>
               <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
+              <MDBDropdownToggle tag='a' className='nav-link dropdown-toggle' role='button' id='nav-blue' >
                   Community
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  {/* <MDBDropdownItem link>Alumni Chapters</MDBDropdownItem> */}
-                  <MDBDropdownItem link>Alumni Connect</MDBDropdownItem>
-                  <MDBDropdownItem link>Find a Mentor</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/chapters/alumni"; }}>Alumni Connect</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/chapters"; }}>Alumni Chapters</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/mentor"; }}>Find a Mentor</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/news"; }}>News</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
