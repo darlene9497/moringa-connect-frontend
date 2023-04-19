@@ -6,7 +6,6 @@
 }
 #foot-img{
     height: 50px;
-    /* width: 90px; */
     color: white;
 }
 #topics, #top{
@@ -22,13 +21,8 @@
 #text-r{
     margin-right: 1px;
 }
-#contact-details{
-    /* margin-left: 1px; */
-}
-
 .me-3{
     color: #ff5c33;
-    /* padding-top: 0.5em; */
     font-size: 15px;
 }
 .me-2{
@@ -36,7 +30,6 @@
     font-size: 15px ;
 }
 .footer-icons{
-    /* margin-top: 1em; */
     margin-bottom: none;
     margin-right: none;
     color: white;
@@ -45,3 +38,9 @@
 #copyright{
     margin-top: 3em;
 }
+/* responsiveness */
+/* @media (max-width: 768px) {
+    #footer{
+        justify-content: center;
+    }
+} */

@@ -1,3 +1,4 @@
+
 .nav-main{
     font-weight: bold;
 }
@@ -8,6 +9,7 @@
 #nav-blue{
     color: #00004d;
     margin-left: 1em;
+    display: block !important;
 }
 .nav-it{
     padding-left: 8em !important;
@@ -20,12 +22,19 @@
     height: 50px;
     margin-left: 6em;
 }
-
-/* display navbar as sidebar on minimizing window */
-/* .navbar-nav .nav-item .dropdown-menu {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    right: 20%;
+/* !!!!!!!!!!! */
+/* remove whitespace on navbar */
+.navbar-default {
+    box-shadow: none !important;
   }
-   */
+
+/* responsiveness */
+@media (max-width: 768px) {
+    /* remove whitespace on navbar */
+    .navbar-default {
+        box-shadow: none !important;
+    }
+    .navbar{
+        justify-content: center !important;
+    }
+}        

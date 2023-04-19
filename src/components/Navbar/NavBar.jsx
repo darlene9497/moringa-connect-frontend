@@ -41,7 +41,7 @@ export default function NavBar() {
           <MDBIcon icon='bars' fas />
         </MDBNavbarToggler>
 
-        <MDBCollapse navbar show={showBasic} className='nav-it'>
+        <MDBCollapse navbar show={showBasic} className='nav-it navbar-collapse'>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='/' className='nav' id='nav-or'>
@@ -50,11 +50,11 @@ export default function NavBar() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue' >
+                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'  >
                   About
                 </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>History</MDBDropdownItem>
+                <MDBDropdownMenu >
+                  <MDBDropdownItem link >History</MDBDropdownItem>
                   <MDBDropdownItem link>Mission</MDBDropdownItem>
                   <MDBDropdownItem link>Vision</MDBDropdownItem>
                   <MDBDropdownItem link>Executive Commitee</MDBDropdownItem>
@@ -63,13 +63,14 @@ export default function NavBar() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
+              <MDBDropdownToggle tag='a' className='nav-link dropdown-toggle' role='button' id='nav-blue' >
                   Community
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  {/* <MDBDropdownItem link>Alumni Chapters</MDBDropdownItem> */}
-                  <MDBDropdownItem link>Alumni Connect</MDBDropdownItem>
-                  <MDBDropdownItem link>Find a Mentor</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/chapters/alumni"; }}>Alumni Connect</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/chapters"; }}>Alumni Chapters</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/mentor"; }}>Find a Mentor</MDBDropdownItem>
+                  <MDBDropdownItem link onClick={() => { window.location.href = "/news"; }}>News</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
@@ -83,17 +84,21 @@ export default function NavBar() {
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem> */}
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-or'>
-                  Events
+                  Fundraisers
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>News</MDBDropdownItem>
-                  <MDBDropdownItem link>Reunions</MDBDropdownItem>
+                  <MDBDropdownItem link>Donations</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/' className='nav' id='nav-or'>
+                Donation
+              </MDBNavbarLink>
+            </MDBNavbarItem>            
             <MDBNavbarItem>
             <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
@@ -106,6 +111,11 @@ export default function NavBar() {
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/profile' className='nav' id='nav-or'>
+                Profile
+              </MDBNavbarLink>       
+            </MDBNavbarItem>                        
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>

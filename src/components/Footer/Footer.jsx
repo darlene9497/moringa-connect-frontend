@@ -12,11 +12,6 @@ export default function Footer() {
                 <img src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo-white.png' alt='logo' id='foot-img'/>
               <p id='topics'>
               </p>
-              {/* <p>
-                <a href='#!' className='text-reset'>
-                  Alumni 
-                </a>
-                </p> */}
                 <p>
                 <a href='#!' className='text-reset'>
                   Community
@@ -87,13 +82,12 @@ export default function Footer() {
             </MDBCol>
 
              <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"350px", frameborder:"0", style:"border:0"}} allowfullscreen></iframe>
+              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed"  title='Location' style={{width:"350px", height:"300px", frameborder:"0", style:"border:0"}} allowFullScreen></iframe>
             </MDBCol> 
           </MDBRow>
         </MDBContainer>
       </section>
    
-
       <div className='text-center p-4' id='copyright'>
         © 2023 Moringa School. All rights reserved.
       </div>
