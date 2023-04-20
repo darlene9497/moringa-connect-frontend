@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home'
 import Categories from './components/Membership/Categories';
 import Benefits from './components/Membership/Benefits';
-import History from './components/History/History';
 import SignUp from './components/signup/signup';
 import LoginForm from './components/login/loginForm';
 import Chapters from './components/community/Chapters';
@@ -35,8 +34,6 @@ export default function App() {
     <NavBar />
     <Routes>
       <Route path='/' element={<Home />}/>
-      {/* <Route path='/' element={<Demo />} /> */}
-      <Route path='/home/#history' element={<History />} />
       <Route path='/Membership/#Membership Categories' element={<Categories/>} />
       <Route path='/Membership/#Membership Benefits' element={<Benefits/>} />
       <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
