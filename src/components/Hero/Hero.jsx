@@ -1,21 +1,34 @@
 import React from 'react';
-import HeroImg from '../../assets/moringa.png';
-//import LogoImg from '../../assets/logo.png';
+import HeroImg from '../../assets/hero.png';
 import './Hero.css';
-import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
-  const navigate = useNavigate()
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  }
 
   return (
     <div className='hero-container'>
       <div className='hero-img'>
         <img alt='Moringa Connect' src={HeroImg} />
-        <div className='hero-buttons'>
-          <button className='hero-btn-orange' onClick={(navigate(`/login`))}>Login</button>
-          <button className='hero-btn-orange' onClick={(navigate(`/signup`))}>Join Us</button>
+        <div className='hero-text'>
+          <h1>Welcome to Moringa Connect:</h1>
+          <p>Reconnect | Experience | Opportunity</p>
         </div>
-        {/* <img alt='Moringa Logo' src={LogoImg} className='hero-logo' /> */}
+        <div className='arrow-container'>
+        <div className='explore-text'>
+            <p>Explore Page</p>
+          </div>
+          <div className='down-arrow-btn' onClick={handleScroll}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -136,7 +136,7 @@ export default function Footer() {
             <div className='mb-4'>
               <iframe
                 src='https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed'
-                style={{ width: '500px', height: '450px', border: '0' }}
+                style={{ width: '300px', height: '300px', border: '0' }}
                 allowFullScreen
               ></iframe>
             </div>
