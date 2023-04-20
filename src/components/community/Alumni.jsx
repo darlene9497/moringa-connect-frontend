@@ -154,7 +154,7 @@ export default function Alumni() {
                     </div>     
                 </div>                                       
         
-        <h2 className='titl-e'>Join our communities</h2>
+        {/* <h2 className='titl-e'>Join our communities</h2>
         <div className='stay-connected'>
             <MDBCard className='chapter-ca'>
                 <MDBCardImage src='https://media.licdn.com/dms/image/C5603AQG3WgYbx-ozMA/profile-displayphoto-shrink_800_800/0/1652101618147?e=2147483647&v=beta&t=J_fg14lvIXjPvzoMeto_6y7Bl4_sL5WoG5N2EZNEHOc' position='top' alt='...' id='image-bot' style={{order: '1', width: '50%'}} />
@@ -167,7 +167,9 @@ export default function Alumni() {
                             <MDBBtn href='/chapters' className='group-bt'>Connect with alumni</MDBBtn>
                     </MDBCardBody>
             </MDBCard> 
-        </div>
+        </div> */}
+
+        
 
     </> 
   );
