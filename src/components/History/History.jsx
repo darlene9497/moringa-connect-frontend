@@ -2,13 +2,13 @@ import React from 'react';
 import './History.css';
 import HistoryImg from '../../assets/history.png'
 
-function HeroImage() {
-  return (
-    <div className="hero-image">
-    <img src={HistoryImg} alt=''  />
-    </div>
-  );
-}
+// function HeroImage() {
+//   return (
+//     <div className="hero-image">
+//     <img src={HistoryImg} alt=''  />
+//     </div>
+//   );
+// }
 
 function ImageAndText(props) {
   return (
@@ -41,10 +41,10 @@ function ImageAndTextReverse(props) {
 function History() {
   return (
     <div>
-        <HeroImage
+        {/* <HeroImage
         image=""
         altText="Hero image"
-      />
+      /> */}
       <ImageAndText
         image="https://media.istockphoto.com/id/1303837116/photo/group-of-five-african-college-students.jpg?s=612x612&w=0&k=20&c=06l5h2EBy6QVdnS6XEiykb-vtMIb3gFfAxrJQy7TdLA="
         altText="Placeholder image"

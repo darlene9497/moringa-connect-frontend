@@ -1,114 +1,47 @@
-import './Styles.css'
-import React, { useState } from 'react';
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBCollapse,
-} from 'mdb-react-ui-kit';
+import React from 'react';
+import { Link, Outlet } from "react-router-dom";
 
-export default function NavBar() {
-  const [showBasic, setShowBasic] = useState(false);
-  
+const NavBar = () => {
   return (
-    <MDBNavbar expand='lg' light bgColor='light' className='navbar'>
-      <MDBContainer fluid  className='nav-main'>
-        <MDBNavbarBrand className='logo'>
-        <img
+    <>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid ">
+          <div className="d-flex align-items-center" style={{marginLeft: '4rem'}}>
+            <Link to='/' className="nav-link active">
+            <img className="logo me-4 mr-4" alt="logo"
               src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo.png'
-              height='120'
-              alt=''
+              height='70'
               loading='lazy'
               id='m-logo'
             />
-        </MDBNavbarBrand>
-
-        <MDBNavbarToggler
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-          onClick={() => setShowBasic(!showBasic)}
-        >
-          <MDBIcon icon='bars' fas />
-        </MDBNavbarToggler>
-
-        <MDBCollapse navbar show={showBasic} className='nav-it'>
-          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='/' className='nav' id='nav-or'>
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue' >
-                  About
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>History</MDBDropdownItem>
-                  <MDBDropdownItem link>Mission</MDBDropdownItem>
-                  <MDBDropdownItem link>Vision</MDBDropdownItem>
-                  <MDBDropdownItem link>Executive Commitee</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
+            </Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{marginRight: '4rem', fontSize: "24px"}}>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link to="/alumni" className="nav-link active me-4" aria-current="page" style={{color: '#00004d'}}>
+                  Alumni
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/community" className="nav-link active me-4" aria-current="page" style={{color: '#ff5c33'}}>
                   Community
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  {/* <MDBDropdownItem link>Alumni Chapters</MDBDropdownItem> */}
-                  <MDBDropdownItem link>Alumni Connect</MDBDropdownItem>
-                  <MDBDropdownItem link>Find a Mentor</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-            {/* <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-or'>
-                  Careers
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Job Board</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem> */}
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-or'>
-                  Events
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>News</MDBDropdownItem>
-                  <MDBDropdownItem link>Reunions</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-            <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button' id='nav-blue'>
-                  Membership
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Register</MDBDropdownItem>
-                  <MDBDropdownItem link>Membership Categories</MDBDropdownItem>
-                  <MDBDropdownItem link>Membership Benefits</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/projects" className="nav-link active me-4" aria-current="page" style={{color: '#00004d'}}>
+                  Projects
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <Outlet />
+    </>
   );
-}
+};
+export default NavBar;
