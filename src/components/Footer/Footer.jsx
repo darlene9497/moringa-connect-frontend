@@ -23,9 +23,9 @@ export default function Footer() {
                 </a>                
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                {/* <a href='#!' className='text-reset'>
                   Events
-                </a>
+                </a> */}
               </p>
               <p>
                 <a href='#!' className='text-reset'>
@@ -87,7 +87,7 @@ export default function Footer() {
             </MDBCol>
 
              <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width:"400px", height:"350px", frameborder:"0", style:"border:0"}} allowFullScreen></iframe>
+              <iframe src="https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed" style={{width: '100%', height:"100%", frameborder:"0"}} allowFullScreen></iframe>
             </MDBCol> 
           </MDBRow>
         </MDBContainer>
