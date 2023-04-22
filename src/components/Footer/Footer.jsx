@@ -110,8 +110,9 @@ export default function Footer() {
           <div className='col-md-3'>
             <img src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo-white.png' alt='logo' className='mb-4' width='275' height='70'/>
             <ul className='list-unstyled'>
-              <li><a href='/community' className='text-reset'>Community</a></li>
-              <li><a href='#!' className='text-reset'>Membership</a></li>
+              <li><a href='/alumni' className='text-reset'>Community</a></li>
+              <li><a href='/community' className='text-reset'>Alumni</a></li>
+              <li><a href='/projects' className='text-reset'>Projects</a></li>
             </ul>
           </div>
           <div className='col-md-6'>
