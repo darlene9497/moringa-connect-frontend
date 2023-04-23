@@ -1,8 +1,14 @@
-import React from 'react'
-// import BackgroundImagePage from './CommunityHero'
+import {React, useState, useEffect} from 'react'
 import BackgroundImagePage from './BackgroundImagePage'
 import './Community.css'
 export default function Community() {
+  const [events, setEvents] =useState([]);
+
+  useEffect( () =>{
+    fetch('/events')
+    .then(res =>res.json())
+    .then(data => setEvents(data));
+  }, [])
   return (
     <div style={{overflowX: 'hidden'}}>
         <BackgroundImagePage />
@@ -156,7 +162,7 @@ export default function Community() {
         {/* <BodyHero /> */}
         <div id='item-5'>
         <div style={{width: '100%', position: 'relative'}}>
-            <img src="https://afritechnews.com/wp-content/uploads/2020/05/christina-wocintechchat-com-UcZcsHSp8o4-unsplash.jpg" class="container-fluid " alt="Responsive" style={{maxHeight: '50em'}} />
+            <img src="https://bit.ly/3UYfeGS" class="container-fluid " alt="Responsive" style={{maxHeight: '100% !important'}} />
             {/* overlay  */}
             <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 77, 0.8)', 
             display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white',
@@ -185,135 +191,50 @@ export default function Community() {
             <p style={{fontSize: '20px', paddingLeft: '4em'}}>We’re working hard to bring your search<br /> for alumni events under one roof.<br /> Until then, you can browse alumni events here:</p>
           </div>
           
-          <div className='card mb-3' style={{ paddingTop: '2em', paddingBottom: '2em'}}>
+          <div>
+          {/* slice first 5 events */}
+          {events.slice(0, 5).map((event) => (
+            <div className='card mb-3' style={{ paddingTop: '2em', paddingBottom: '2em'}}>
 
-              <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-                <div className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
-                    <div class="row g-0">
-                      {/* <div class="col-md-4" style={{ display: 'flex', alignItems: 'center', borderRight: '3px solid #007ACC' }}>
-                        <p class="card-text" style={{ fontSize: '24px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i> 21st June </p> */}
-                        <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVTiGs9lBydVDTKjzvMkkU-zzMpCQpC6MNA&usqp=CAU" class="img-fluid rounded-start" alt="..."  width='100%'/>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}>Event </h5>
-                          <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i>  21st June </p>
-                          <p class="card-text" style={{ color: '#00004D' }}>Description: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> 6:30 pm </p>
-                          <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> Location </p>
-                          <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p>
+                <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
+                  <div key={event.id} className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
+                  <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
+                      <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src={event.image} class="img-fluid rounded-start" alt="..."  width='100%' height='50%'/>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}> {event.name}</h5>
+                            <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.date}</p>
+                            <p class="card-text" style={{ color: '#00004D' }}>{event.description}</p>
+                            <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.time}</p>
+                            <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.venue}</p>
+                            {/* <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p> */}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-              </div>    
-            </div>            
-          
-          <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-                <div className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVTiGs9lBydVDTKjzvMkkU-zzMpCQpC6MNA&usqp=CAU" class="img-fluid rounded-start" alt="..."  width='100%'/>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}>Event </h5>
-                          <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i>  21st June </p>
-                          <p class="card-text" style={{ color: '#00004D' }}>Description: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> 6:30 pm </p>
-                          <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> Location </p>
-                          <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>    
-            </div> 
-                {/* irrelevant info, for design only */}
-            <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-                <div className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVTiGs9lBydVDTKjzvMkkU-zzMpCQpC6MNA&usqp=CAU" class="img-fluid rounded-start" alt="..."  width='100%'/>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}>Event </h5>
-                          <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i>  21st June </p>
-                          <p class="card-text" style={{ color: '#00004D' }}>Description: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> 6:30 pm </p>
-                          <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> Location </p>
-                          <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>    
-            </div> 
+                </div>    
+              </div>           
+            </div>
+            ))} 
 
-              <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-                <div className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVTiGs9lBydVDTKjzvMkkU-zzMpCQpC6MNA&usqp=CAU" class="img-fluid rounded-start" alt="..."  width='100%'/>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}>Event </h5>
-                          <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i>  21st June </p>
-                          <p class="card-text" style={{ color: '#00004D' }}>Description: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> 6:30 pm </p>
-                          <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> Location </p>
-                          <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>    
-            </div>                         
-      
-          <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-            <div className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-            <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
-                <div class="row g-0">
-                <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpVTiGs9lBydVDTKjzvMkkU-zzMpCQpC6MNA&usqp=CAU" class="img-fluid rounded-start" alt="..."  width='100%'/>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title" style={{ fontStyle: 'italic', color: '#007ACC', fontWeight: 'bold' }}>Event </h5>
-                          <p class="card-text" style={{ fontSize: '20px', color: '#00004D', fontWeight: 'bold' }}><i class="fa fa-calendar" aria-hidden="true" style={{ color: '#007ACC' }}></i>  21st June </p>
-                      <p class="card-text" style={{ color: '#00004D' }}>Description: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><i class="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> 6:30 pm </p>
-                      <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> Location </p>
-                      <p class="card-text"><i class="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>    
-            </div>  
-            {/* pagination */}
-            <nav aria-label="Page navigation example" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-              <ul class="pagination justify-content-end">
-                {/* <li class="page-item disabled">
-                  <a class="page-link">Previous</a>
-                </li> */}
-                <li class="page-item"><a class="page-link" href="/community/#events">1</a></li>
-                <li class="page-item"><a class="page-link" href="/community/eventsa">2</a></li>
-                {/* <li class="page-item"><a class="page-link" href="/community/eventsb">3</a></li> */}
-                <li class="page-item">
-                  <a class="page-link" href="/community/eventsa">Next</a>
-                </li>
-              </ul>
-            </nav>          
-          </div>
-        </div>
-    
-  )
+              {/* pagination */}
+              <nav aria-label="Page navigation example" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
+                <ul class="pagination justify-content-end">
+                  {/* <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                  </li> */}
+                  <li class="page-item"><a class="page-link" href="/community/#events">1</a></li>
+                  <li class="page-item"><a class="page-link" href="/community/eventsa">2</a></li>
+                  {/* <li class="page-item"><a class="page-link" href="/community/eventsb">3</a></li> */}
+                  <li class="page-item">
+                    <a class="page-link" href="/community/eventsa">Next</a>
+                  </li>
+                </ul>
+              </nav>          
+            </div>
+          </div>    
+  );
 }
