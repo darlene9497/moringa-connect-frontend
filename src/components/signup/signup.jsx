@@ -22,7 +22,7 @@ function SignUp({setUserSignedIn}) {
         body: JSON.stringify(signUpDetails)
     }).then((res)=> {
         if(res.ok){
-            // navigate('/blogs', { replace: true })
+            navigate('/', { replace: true })
             res.json().then(setUserSignedIn)
         } else {
             res.json().then(e => setErrors(Object.entries(e.error).flat()))
