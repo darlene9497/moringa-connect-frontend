@@ -1,0 +1,35 @@
+.project-hero {
+    background: url("https://thumbs.dreamstime.com/z/business-team-to-calculate-financial-information-invest-new-projects-office-manager-meeting-euing-smart-phone-laptop-164182044.jpg");
+    background-size: cover;
+}
+.project-hero{
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding-bottom: 3em !important; */
+    position: relative;
+  }
+  .project-hero:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 77, 0.7);
+  }
+
+  #alumni-details{
+    font-size: 5em !important;
+    font-weight: bold;
+    /* padding-bottom: 2em; */
+  }
+  .projects{
+    
+  }
+  #project-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -130,7 +130,7 @@ export default function Community() {
         {/* Extra links */}
     <div className='links' style={{backgroundColor: '#f2f2f2', paddingTop: '7em', paddingBottom: '8em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" style={{width: '30rem', height:'15em'}}>
+        <div class="col" style={{width: '35rem', height:'15em'}}>
           <div class="card h-100">
             {/* <img src="..." class="card-img-top" alt="..." /> */}
             <div class="card-body">
@@ -139,22 +139,22 @@ export default function Community() {
             </div>
           </div>
         </div>
-        {/* <div class="col" style={{width: '30rem'}}>
+        <div class="col" style={{width: '35rem', height:'15em'}}>
           <div class="card h-100">
             <div class="card-body">
               <a class="card-title"><i class="fa fa-list-alt" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
               <a class="card-text" href='/projects' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Projects <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
             </div>
           </div>
-        </div> */}
-        {/* <div class="col" style={{width: '30rem'}}>
+        </div>
+        <div class="col" style={{width: '35rem', height:'15em'}}>
           <div class="card h-100">
             <div class="card-body">
               <a class="card-title"><i class="fa fa-user-circle" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
               <a class="card-text" href='/membership' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Membership <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
             </div>
           </div>
-        </div> */}
+        </div> 
       </div>
     </div>
         {/* <BodyHero /> */}
@@ -199,7 +199,7 @@ export default function Community() {
                   <div class="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
                       <div class="row g-0">
                           <div class="col-md-4">
-                            <img src={event.image} class="img-fluid rounded-start" alt="..."  width='100%' height='50%'/>
+                            <img src={event.image} class="img-fluid rounded-start" alt="..."  width='80%' />
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
