@@ -1,0 +1,126 @@
+.subheading{
+color: white;
+}
+/* top */
+.subheading{
+    font-size: 3em !important;
+    /* padding-top: 2em; */
+    line-height: 1.5;
+    font-weight: bold;
+}
+/* animate subheading */
+.subheading{
+    position: relative;
+    animation-name: slide-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+ 
+  @keyframes slide-in {
+    from {
+      right: -100%;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+  
+.subheading span {
+  margin-right: 10px;
+  display: inline-block;
+  animation-name: appear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: calc(var(--i) * 0.4s);
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+/* 
+  .subheading span {
+    animation: animate 1s linear forwards;
+  }
+
+  .subheading span:nth-child(2) {
+    animation-delay: 2s;
+  }
+
+  @keyframes animate {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  } */
+
+
+  /* hero */
+.bg-2{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT64THcFeLh-qaEjEFIzl73DUHqr-iUMeGXFlWyukQeMfEqm8SqBTPYHKLxDyUCMb0wLWw&usqp=CAU");
+}
+.bg-2{
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em !important;
+  position: relative;
+}
+.bg-2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 77, 0.8);
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.overlay-text p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#alumni-details{
+  font-size: 3em;
+  /* color: #FF5C33; */
+  /* color: white; */
+  font-weight: bold;
+  padding-bottom: 2em;
+}
+
+/* scrollspan */
+.alumni-list{
+    margin-top: 5em;
+    margin-bottom:8em;
+    margin-left: 8em;
+    margin-right: 10em;
+}
+.welcome-p{
+  font-size: 20px;
+  line-height: 2;
+}

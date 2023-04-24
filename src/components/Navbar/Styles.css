@@ -1,4 +1,40 @@
-/* .d-flex{ */
-  /* margin-right: 5rem !important; */
-  /* margin-left: 4rem ;
-} */
+
+.nav-main{
+    font-weight: bold;
+}
+#nav-or{
+    color: #ff5c33;
+    margin-left: 1em;
+}
+#nav-blue{
+    color: #00004d;
+    margin-left: 1em;
+    display: block !important;
+}
+.nav-it{
+    padding-left: 8em !important;
+    font-size: 20px;
+}
+.logo{
+    margin-left: 6em;
+}
+#m-logo{
+    height: 50px;
+    margin-left: 6em;
+}
+/* !!!!!!!!!!! */
+/* remove whitespace on navbar */
+.navbar-default {
+    box-shadow: none !important;
+  }
+
+/* responsiveness */
+@media (max-width: 768px) {
+    /* remove whitespace on navbar */
+    .navbar-default {
+        box-shadow: none !important;
+    }
+    .navbar{
+        justify-content: center !important;
+    }
+}        
