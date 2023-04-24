@@ -25,7 +25,7 @@ function LoginForm({setUserSignedIn}) {
     .then((res)=> {
         if(res.ok){
             res.json().then((user)=>{
-                // navigate('/blogs', { replace: true })
+                navigate('/', { replace: true })
                 setUserSignedIn(user)
             })
         } else{
