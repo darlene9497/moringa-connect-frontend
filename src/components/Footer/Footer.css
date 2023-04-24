@@ -4,20 +4,25 @@
     padding-top: 2em;
     padding-bottom: 5em;
 }
+
 #foot-img{
     height: 50px;
     color: white;
 }
+
 #topics, #top{
-    padding-top: 3em;
-    font-size: 10px;
+  padding-top: 3em;
+  font-size: 10px;
 }
+
 #contact-details{
-    justify-content: baseline;
+  justify-content: baseline;
 }
+
 .text-reset, .text-r, .me-2{
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
+
 #text-r{
     margin-right: 1px;
 }
@@ -25,18 +30,20 @@
     color: #ff5c33;
     font-size: 15px;
 }
+
 .me-2{
-    color: #ff5c33;
-    font-size: 15px ;
+  color: white;
 }
+
 .footer-icons{
     margin-bottom: none;
     margin-right: none;
     color: white;
     margin-top: 2em;
 }
-#copyright{
-    margin-top: 3em;
+
+.footer-icons a{
+  margin-right: 10px;
 }
 /* responsiveness */
 /* @media (max-width: 768px) {
