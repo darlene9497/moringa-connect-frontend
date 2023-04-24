@@ -3,13 +3,17 @@ import './App.css';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
-import Demo from './components/Demo';
-import Chapters from './components/community/Chapters';
+// import Home
+// import Demo from './components/Demo';
+// import Chapters from './components/community/Chapters';
 import Alumni from './components/community/Alumni';
-import Mentor from './components/community/Mentor';
+// import Mentor from './components/community/Mentor';
 import Projects from './components/Projects/Projects';
 import Community from './components/community/Community';
 import EventsA from './components/community/EventsA';
+import SignUp from './components/signup/signup';
+import LoginForm from './components/login/loginForm';
+import Home from './components/Home/Home';
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
  
@@ -30,14 +34,14 @@ export default function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Demo />} />
-        <Route path='/chapters' element={<Chapters />} />
-        <Route path='/chapters/alumni' element={<Alumni />} />
-        <Route path='/mentor' element={<Mentor />} />
+        {/* <Route path='/' element={<Demo />} /> */}
+        {/* <Route path='/chapters' element={<Chapters />} /> */}
+        <Route path='/alumni' element={<Alumni />} />
+        {/* <Route path='/mentor' element={<Mentor />} /> */}
         <Route path='/projects' element={<Projects />} />
         <Route path='/' element={<Home />}/>
-        <Route path='/Membership/#Membership Categories' element={<Categories/>} />
-        <Route path='/Membership/#Membership Benefits' element={<Benefits/>} />
+        {/* <Route path='/Membership/#Membership Categories' element={<Categories/>} />
+        <Route path='/Membership/#Membership Benefits' element={<Benefits/>} /> */}
         <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
         <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
         <Route path='/community' element={<Community />} />
