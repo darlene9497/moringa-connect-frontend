@@ -10,7 +10,7 @@ export default function Community() {
     .then(data => setEvents(data));
   }, [])
   return (
-    <div style={{overflowX: 'hidden'}}>
+    <div style={{overflowX: 'hidden'}} id='comm'>
         <BackgroundImagePage />
         <div className='alumni-list'>
         <div class="row">
@@ -148,15 +148,14 @@ export default function Community() {
             </div>
           </div>
         </div>
-        <div class="col" style={{width: '35rem', height:'15em'}}>
+        {/* <div class="col" style={{width: '35rem', height:'15em'}}>
           <div class="card h-100">
-            {/* <img src="..." class="card-img-top" alt="..." /> */}
             <div class="card-body">
               <a class="card-title"><i class="fa fa-user-circle" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
               <a class="card-text" href='/membership' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Membership <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
         {/* <BodyHero /> */}
