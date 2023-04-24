@@ -25,26 +25,27 @@ export default function Footer() {
               <li style={{marginBottom: '1.5rem'}}><i className='fas fa-envelope me-3'></i>corporate@moringaschool.com</li>
               <li style={{marginBottom: '1.5rem'}}><i className='fas fa-envelope me-3'></i>P.O Box 28860 - 00100, Nairobi</li>
             </ul>
-          </div>
-          <div className='col-md-3'>
-            <div className='mb-4'>
-              <iframe
-                src='https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed'
-                style={{ width: '300px', height: '300px', border: '0' }}
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className='footer-icons'>
+            <div className='footer-icons' style={{display: 'flex', justifyContent: 'center', paddingTop: '2em'}}>
               <a href='https://web.facebook.com/moringaschool/?_rdc=1&_rdr' className='me-4 text-reset'>
                 <i className='fab fa-facebook-f' style={{ color: 'var(--bs-secondary)' }}></i>
               </a>
               <a href='https://www.linkedin.com/company/moringa-school' className='me-4 text-reset'>
-                <i className='fab fa-linkedin'></i>
+                <i className='fab fa-linkedin' style={{ color: 'var(--bs-secondary)' }}></i>
               </a>
               <a href='https://twitter.com/moringaschool' className='me-4 text-reset'>
                 <i className='fab fa-twitter' style={{ color: 'var(--bs-secondary)' }}></i>
               </a>
             </div>
+          </div>
+          <div className='col-md-3'>
+            <div className='mb-4'>
+              <iframe
+                src='https://maps.google.com/maps?q=MQXM+RR5,+Ngong+Ln,+Nairobi,+Kenya&output=embed'
+                style={{ width: '500px', height: '450px', border: '0' }}
+                allowFullScreen title='Location'
+              ></iframe>
+            </div>
+            <br />
           </div>
         </div>
         <hr />

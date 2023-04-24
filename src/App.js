@@ -8,7 +8,8 @@ import Chapters from './components/community/Chapters';
 import Alumni from './components/community/Alumni';
 import Mentor from './components/community/Mentor';
 import Projects from './components/Projects/Projects';
-
+import Community from './components/community/Community';
+import EventsA from './components/community/EventsA';
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
  
@@ -34,8 +35,15 @@ export default function App() {
         <Route path='/chapters/alumni' element={<Alumni />} />
         <Route path='/mentor' element={<Mentor />} />
         <Route path='/projects' element={<Projects />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/Membership/#Membership Categories' element={<Categories/>} />
+        <Route path='/Membership/#Membership Benefits' element={<Benefits/>} />
+        <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
+        <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
+        <Route path='/community' element={<Community />} />
+        <Route path='/community/eventsa' element={<EventsA />} />      
       </Routes>
-      <Footer />
+     <Footer />
     </BrowserRouter>
   );
 }
