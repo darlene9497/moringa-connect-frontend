@@ -34,9 +34,10 @@ export default function Community() {
               <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" className="scrollspy-example-2" tabindex="0">
                 <div id="item-1">
                   {/* <h4>Meet our alumni</h4> */}
-                  <p>
+                  {/* , marginBottom: '2em' */}
+                  <div style={{maxWidth: '80%'}}>
                     <iframe width="100%" height="450" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                    </p>
+                    </div>
                     <p className='welcome-p'>At Moringa, we take immense pride in our alumni community - a diverse and talented group of individuals who have gone on to achieve great things in the tech industry. We believe that strong professional relationships are key to success, and we're committed to fostering a lifelong connection with our alumni.</p>
                 </div>
                 <div id="item-1-1">
@@ -129,36 +130,28 @@ export default function Community() {
 
         {/* Extra links */}
         <div className='links' style={{backgroundColor: '#f2f2f2', paddingTop: '7rem', paddingBottom: '8em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-  <div className="row  g-4 d-flex justify-content-center">
-    <div className="col" style={{width: '35rem', height:'15rem',marginBottom: '5rem'}}>
-      <div className="card h-100">
-        {/* <img src="..." className="card-img-top" alt="..." /> */}
-        <div className="card-body">
-          <p className="card-title" href='#events'><i className="fa fa-users" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></p>
-          <p className="card-text" href='#events' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Alumni Events <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></p>
-        </div>
+          <div className="row  g-4 d-flex justify-content-center">
+            <div className="col" style={{width: '35rem', height:'15rem', marginBottom: '3rem'}}>
+              <div className="card h-100">
+                {/* <img src="..." className="card-img-top" alt="..." /> */}
+                <div class="card-body">
+                      <a class="card-title" href='/alumni'><i class="fa fa-users" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
+                      <a class="card-text" href='/alumni' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Alumni <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
+                    </div>
+              </div>
+            </div>
 
-        {/* <div class="col" style={{width: '35rem', height:'15em'}}>
-          <div class="card h-100">
-            <div class="card-body">
-              <a class="card-title"><i class="fa fa-user-circle" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
-              <a class="card-text" href='/membership' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Membership <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
+            <div className="col" style={{width: '35rem', height:'15rem',marginBottom: '5rem'}}>
+              <div className="card h-100">
+                {/* <img src="..." className="card-img-top" alt="..." /> */}
+                <div class="card-body">
+                      <a class="card-title"><i class="fa fa-list-alt" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
+                      <a class="card-text" href='/projects' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Projects <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
+                    </div>
+              </div>
             </div>
           </div>
-        </div> */}
-
-      </div>
-    </div>
-    <div className="col" style={{width: '35rem', height:'15em'}}>
-      <div className="card h-100">
-        <div className="card-body">
-          <p className="card-title"><i className="fa fa-user-circle" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></p>
-          <p className="card-text" href='/membership' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Membership <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></p>
         </div>
-      </div>
-    </div> 
-  </div>
-</div>
 
         {/* <BodyHero /> */}
         <div id='item-5'>
@@ -231,7 +224,7 @@ export default function Community() {
                   <li className="page-item"><a className="page-link" href="/community/eventsa">2</a></li>
                   {/* <li className="page-item"><a className="page-link" href="/community/eventsb">3</a></li> */}
                   <li className="page-item">
-                    <p className="page-link" href="/community/events">Next</p>
+                    <p className="page-link" href="/community/eventsa">Next</p>
                   </li>
                 </ul>
               </nav>          
