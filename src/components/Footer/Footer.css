@@ -6,7 +6,8 @@
 }
 
 #foot-img{
-  height: 50px;
+    height: 50px;
+    color: white;
 }
 
 #topics, #top{
@@ -23,12 +24,11 @@
 }
 
 #text-r{
-  margin-right: 1px;
+    margin-right: 1px;
 }
-
 .me-3{
-  color: #ff5c33;
-  font-size: 15px;
+    color: #ff5c33;
+    font-size: 15px;
 }
 
 .me-2{
@@ -36,54 +36,18 @@
 }
 
 .footer-icons{
-  display: center;
-  justify-content: center;
+    margin-bottom: none;
+    margin-right: none;
+    color: white;
+    margin-top: 2em;
 }
 
 .footer-icons a{
   margin-right: 10px;
 }
-
-@media screen and (max-width: 991px){
-  #text-r{
-    margin-right: 0px;
-  }
-}
-
-@media screen and (max-width: 768px){
-  #topics, #top{
-    padding-top: 1em;
-    font-size: 14px;
-  }
-  .text-reset, .text-r, .me-2{
-    font-size: 16px !important;
-  }
-  #foot-img{
-    height: 40px;
-  }
-  #contact-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  #contact-details p{
-    margin-bottom: 5px;
-  }
-  #contact-details .me-3{
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 576px){
-  #topics, #top{
-    padding-top: 0.5em;
-    font-size: 12px;
-  }
-  .text-reset, .text-r, .me-2{
-    font-size: 14px !important;
-  }
-  #foot-img{
-    height: 30px;
-  }
-}
+/* responsiveness */
+/* @media (max-width: 768px) {
+    #footer{
+        justify-content: center;
+    }
+} */
