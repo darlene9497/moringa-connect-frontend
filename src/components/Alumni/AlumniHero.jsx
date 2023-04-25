@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import alumniImage from "../../assets/alumni-image.jpeg";
+import alumniImage from "../../assets/alumni-image.png";
 import './Alumni.css'
 
 function AlumniHero() {

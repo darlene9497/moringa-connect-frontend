@@ -10,6 +10,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    opacity: 70%;
   }
 
   .hero-text {
