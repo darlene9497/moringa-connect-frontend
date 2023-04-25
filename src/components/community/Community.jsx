@@ -224,7 +224,7 @@ export default function Community() {
                   <li className="page-item"><a className="page-link" href="/community/eventsa">2</a></li>
                   {/* <li className="page-item"><a className="page-link" href="/community/eventsb">3</a></li> */}
                   <li className="page-item">
-                    <p className="page-link" href="/community/eventsa">Next</p>
+                  <a class="page-link" href="/community/eventsa">Next</a>
                   </li>
                 </ul>
               </nav>          
