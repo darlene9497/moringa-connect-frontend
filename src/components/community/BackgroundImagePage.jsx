@@ -5,7 +5,7 @@ const BackgroundImagePage = () => {
   return (
     <div className="bg-2">
       <div className="overlay-text">
-          <p className='subheading' id="alumni-details">
+          <p className='subheading' id="alumni-detail">
           {`Welcome to our Community!`.split(' ').map((word, index) => (
             <span key={index} style={{ '--i': index }}>
               {` ${word} `}

@@ -10,7 +10,7 @@ export default function Community() {
     .then(data => setEvents(data));
   }, [])
   return (
-    <div style={{overflowX: 'hidden'}}>
+    <div style={{overflowX: 'hidden'}} id='comm'>
         <BackgroundImagePage />
         <div className='alumni-list' style={{marginRight:'5rem'}}>
         <div className="row">
@@ -137,14 +137,16 @@ export default function Community() {
           <p className="card-title" href='#events'><i className="fa fa-users" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></p>
           <p className="card-text" href='#events' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Alumni Events <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></p>
         </div>
-      </div>
-    </div>
-    <div className="col" style={{width: '35rem', height:'15em'}}>
-      <div className="card h-100">
-        <div className="card-body">
-          <p className="card-title"><i className="fa fa-list-alt" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></p>
-          <p className="card-text" href='/projects' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Projects <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></p>
-        </div>
+
+        {/* <div class="col" style={{width: '35rem', height:'15em'}}>
+          <div class="card h-100">
+            <div class="card-body">
+              <a class="card-title"><i class="fa fa-user-circle" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
+              <a class="card-text" href='/membership' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Membership <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
+            </div>
+          </div>
+        </div> */}
+
       </div>
     </div>
     <div className="col" style={{width: '35rem', height:'15em'}}>
