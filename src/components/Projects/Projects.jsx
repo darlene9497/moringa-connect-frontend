@@ -13,7 +13,7 @@ export default function Projects() {
       <ProjectsHero />
       <div>
       <div className='my-cards'> 
-      <h5 style={{color: '#00004d', fontWeight: 'bold', fontSize: '38px', paddingTop: '4em', paddingLeft: '4em'}}>Projects</h5>
+      <h2 style={{color: '#00004d', fontWeight: 'bold', fontSize: '38px', paddingTop: '4em', paddingLeft: '4em'}}>Projects</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
         {projects.map((project) => (
           <div class="col">

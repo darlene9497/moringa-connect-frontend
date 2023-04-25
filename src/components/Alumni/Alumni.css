@@ -89,3 +89,8 @@
     color: #ff5c33;
     text-transform: uppercase;
   }
+
+  .text-alumni {
+    max-width: 1150px; 
+    margin: 50px auto 0; 
+  }

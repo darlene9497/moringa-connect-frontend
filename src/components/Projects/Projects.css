@@ -26,11 +26,11 @@
     font-weight: bold;
     /* padding-bottom: 2em; */
   }
-  .projects{
-    
-  }
+
   #project-cards{
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+  
