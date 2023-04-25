@@ -3,11 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer';
-// import Home
-// import Demo from './components/Demo';
-// import Chapters from './components/community/Chapters';
-import Alumni from './components/community/Alumni';
-// import Mentor from './components/community/Mentor';
+import Alumni from './components/Alumni/Alumni';
 import Projects from './components/Projects/Projects';
 import Community from './components/community/Community';
 import EventsA from './components/community/EventsA';

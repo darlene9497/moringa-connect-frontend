@@ -1,6 +1,7 @@
 #comm{
   overflow-x: hidden;
 }
+
 .subheading{
   color: white;
   }
@@ -86,6 +87,8 @@
   .overlay-text p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    margin-top: 10rem;
+    
   }
   
   #alumni-detail{
