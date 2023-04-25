@@ -15,7 +15,7 @@ export default function Card() {
           <CardData 
             image={Card1}
             heading='Alumni'
-            text="The Moringa Alumni are an important part of our institution's community, and their ongoing engagement can benefit both the alumni and the institution. Alumni can provide valuable feedback, mentorship, and support to current students and recent graduates, while the institution can provide resources, networking opportunities, and lifelong learning to alumni..."
+            text="The Moringa Alumni are an important part of our institution's community, and their ongoing engagement can benefit both the alumni and the institution. Alumni can provide valuable feedback, mentorship, and support to current students and recent graduates, while the institution can provide resources..."
             buttonLink='/alumni'
             buttonText='View more'
             />
@@ -23,7 +23,7 @@ export default function Card() {
           <CardData 
             image={Card2}
             heading='Community'
-            text="Moringa Connect community is a group of individuals who have a shared history and connection through their alma mater. The alumni community is an important part of our institution's legacy and ongoing success. We provide a platform for alumni to connect with each other and build meaningful relationships, mentorship and networking opportunities for current students and recent graduates..."
+            text="Moringa Connect community is a group of individuals who have a shared history and connection through their alma mater. The alumni community is an important part of our institution's legacy and ongoing success. We provide a platform for alumni to connect with each other and build meaningful..."
             buttonLink='/community'
             buttonText='View more'
             />

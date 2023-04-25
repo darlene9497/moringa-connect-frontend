@@ -1,8 +1,9 @@
 import React from 'react';
 import './Categories.css'
-import Footer from '../Footer/Footer';
+
 function Categories(){
-    return(<div className='body'> 
+    return(
+    <div className='body'> 
     
     <h1>Membership Categories</h1>
     <div className='body'>
@@ -22,8 +23,7 @@ function Categories(){
         <p><strong>3. Annual Membership – ksh 2,000 (20 USD)</strong></p>
     </blockquote>
         
-    </div>
-        <Footer/>
+    </div>     
     </div>)
 }
 export default Categories;

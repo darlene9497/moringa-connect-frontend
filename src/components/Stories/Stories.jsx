@@ -1,26 +1,11 @@
 import React from 'react'
 import './Stories.css'
-import Alumni from '../../assets/alumni.jpeg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import StoriesData from '../../data/stories'
 
 export default function Stories() {
   return (
     <div className='stories'>
-        <div className='wrapper'>
-            <div className='containers'>
-            <span>Top Rated</span>
-            <span>95% Approval Rating from Graduates</span>
-        </div>
-        
-        <img src={Alumni} alt='' />
-
-        <div className='containers'>
-            <span>3000+</span>
-            <span>Graduates</span>
-        </div>
-        </div>
-
         <div className='reviews'>Alumni testimonials</div>
 
         <div className='carousel'>

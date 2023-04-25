@@ -1,7 +1,8 @@
-.hero-image {
+  .hero-image {
     width: 100%;
     height: auto;
-
+    max-height: 500px;
+    opacity: 75%;
   }
   
   .hero {
@@ -24,7 +25,7 @@
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     line-height: 1.5;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: bold;
   }
   
 
@@ -52,23 +53,39 @@
   }
   
   .btn {
-    background-color: #ff5c33;
     color: white !important;
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
     border: none;
     border-radius: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     transition: all 0.2s ease-in-out;
+    background-color: #ff5c33 !important;
+  }
+
+  .card-alumni {
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
   
-  .btn:hover {
-    background-color: #ff5c33;
-    box-shadow: 4px 4px 6px rgba(0,0,0,0.3);
-    transform: translateY(-2px);
+  .card-img-top {
+    width: 100%;
   }
-  
-  
-  
-  
+
+  .card-alumni h5{
+    color: #ff5c33;
+  }
+
+  .card-alumni p{
+    color: #00004d;
+  }
+
+  .text-alumni p{
+    color: #00004d;
+  }
+
+  .text-alumni h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff5c33;
+    text-transform: uppercase;
+  }
