@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Styles.css'
 
 function SignUp({setUserSignedIn}) {
   const [password, setPassword] = useState('');
@@ -32,28 +33,41 @@ function SignUp({setUserSignedIn}) {
   };
 
   return (
-    <div className="container" style={{minHeight: "100vh"}}>
-    <div className="container reg-cont mt-5" >
-        <div className="reg-title">User Registration</div>
-        <form onSubmit={handleSubmit}>
+    <div className="container ps-0" style={{minHeight: "100vh"}}>
 
-            <div className="reg-input-box">
-                <span className='reg-details'>Email</span>
-                <input className="form-control form-control-sm" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+    <section className="Form ps-0 mt-5">
+        <div className="container">
+            <div className="row no-gutters">
+                <div className="col-lg-5">
+                    <img src="https://www.metroworldnews.com.br/resizer/OWMc913b2gr33Va96CQABGrfRkE=/1024x1024/filters:format(png):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/QI46U5TKG5EV5PYA2E4A6BVWME.png" alt="" className="img-fluid login-img" />
+                </div>
+                <div className="col-lg-7 px-5 pt-5">
+                    <h1 className="font-weight-bold py-3">Moringa Connect</h1>
+                    <h4>Create New Account</h4>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-row">
+                            <div className="col-lg-7">
+                                <input type="text" className="form-control my-5 p-2" placeholder="email" value={email} onChange={(event) => { return setEmail(event.target.value)}} />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="col-lg-7">
+                                <input type="password" className="form-control my-5 p-2" placeholder="******" value={password} onChange={(event) => { return setPassword(event.target.value);}} />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="col-lg-7">
+                                <button type="submit" className="login-btn" >Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                    {/* {errorMessage && <p>{errorMessage}</p>} */}
+                </div>
             </div>
-
-            <div className="reg-input-box">
-                <span className='reg-details'>Password</span>
-                <input className="form-control form-control-sm" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-
-            <div className="reg-button">
-                <button type="submit" style={{width: "100%", height: "100%", outline: "none", color: "#fff", border: "none", background: "linear-gradient(135deg, #71b7e6, #9b59b6)"}}>Sign Up</button>
-            </div>
-        </form>
-
-    </div>
-    </div>
+        </div>
+    </section>
+  
+</div>
   );
 }
 
