@@ -89,3 +89,17 @@
     color: #ff5c33;
     text-transform: uppercase;
   }
+
+  .text-alumni {
+    max-width: 1150px; 
+    margin: 50px auto 0; 
+  }
+  
+  .card-body a {
+    text-decoration: none;
+    color: #00004d;
+  }
+  
+  .card-body .link-to-page {
+    text-decoration: underline;
+  }
