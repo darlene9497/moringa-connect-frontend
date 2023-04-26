@@ -37,8 +37,6 @@ export default function App() {
         {/* <Route path='/mentor' element={<Mentor />} /> */}
         <Route path='/projects' element={<Projects />} />
         <Route path='/' element={<Home />}/>
-        {/* <Route path='/Membership/#Membership Categories' element={<Categories/>} />
-        <Route path='/Membership/#Membership Benefits' element={<Benefits/>} /> */}
         <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
         <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
         <Route path='/community' element={<Community />} />
@@ -46,6 +44,14 @@ export default function App() {
         <Route path='/search-alumni' element={<Search />} />  
       </Routes>
      <Footer />
+    <NavBar />
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
+      <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
+      <Route path='/projects' element={<Projects />} />
+    </Routes>
+    <Footer />
     </BrowserRouter>
   );
 }
