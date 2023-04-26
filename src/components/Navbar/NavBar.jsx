@@ -22,22 +22,22 @@ const NavBar = () => {
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ marginRight: '4rem', fontSize: "24px" }}>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li className="nav-item mt-5">
                 <Link to="/alumni" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
                   Alumni
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-5">
                 <Link to="/community" className="nav-link active me-4" aria-current="page" style={{ color: '#ff5c33' }}>
                   Community
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-5">
                 <Link to="/projects" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
                   Projects
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item mt-5">
                 <Link to="/dashboard" className="nav-link active me-4" >
                   <Profile />
                 </Link>
