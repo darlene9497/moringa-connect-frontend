@@ -26,6 +26,22 @@ const alumniData = [
     bio: "I'm a data scientist with expertise in analyzing complex data sets to identify patterns and insights that can drive business decisions. I have experience in developing statistical models, building predictive algorithms, and performing data mining and machine learning techniques",
     profession: "Data Scientist"
   },
+  {
+    name: "Jane Doe",
+    email: "jane.doe@example.com",
+    cohort: "2021",
+    profilePicture: "https://pbs.twimg.com/media/DdaJ12IWsAEu96t?format=jpg&name=small",
+    bio: "Data Scientist with strong math background and 3+ years of experience using predictive modeling, data processing, and data mining algorithms to solve challenging business problems. Involved in Python open source community and passionate about deep reinforcement learning.",
+    profession: "Data Scientist"
+  },
+  {
+    name: "Mercy Johnson",
+    email: "mercy.johnson@example.com",
+    cohort: "2021",
+    profilePicture: "https://pbs.twimg.com/profile_images/1251576944891658240/wumZP7Gr_400x400.jpg",
+    bio: "Experienced software engineer with expertise in full-stack development, including proficiency in JavaScript,Angular, React, and Ruby on Rails,Typescript.",
+    profession: "Software Engineer"
+  }
 ];
 
 const SearchAlumni = () => {
@@ -41,7 +57,7 @@ const SearchAlumni = () => {
 
   return (
     <div>
-      <input type="text" onChange={handleChange} placeholder="Search alumni" />
+      <input className="search" style={{width:'15rem', marginLeft:'30px', marginTop: '30px',height: '40px' }} type="text" onChange={handleChange} placeholder="Search alumni" />
       <table>
         <thead>
           <tr>
