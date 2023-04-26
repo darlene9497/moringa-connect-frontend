@@ -7,7 +7,8 @@ export default function Community() {
   useEffect( () =>{
     fetch('/events')
     .then(res =>res.json())
-    .then(data => setEvents(data));
+    .then(data => setEvents(data))
+    .catch(err => console.log(err));
   }, [])
   return (
     <div style={{overflowX: 'hidden'}} id='comm'>

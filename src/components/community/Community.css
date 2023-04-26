@@ -8,8 +8,6 @@
   /* top */
   .subheading{
       font-size: 3em !important;
-      /* padding-top: 2em; */
-      line-height: 1.5;
       font-weight: bold;
   }
   /* animate subheading */
@@ -50,27 +48,29 @@
       }
     }
   
-    /* hero */
-  .bg-2{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT64THcFeLh-qaEjEFIzl73DUHqr-iUMeGXFlWyukQeMfEqm8SqBTPYHKLxDyUCMb0wLWw&usqp=CAU");
-  }
-  .bg-2{
-    height: 50vh;
-    background-position: center;
+  /* hero */
+  .bg-2 {
+    background-image: url("https://bit.ly/3L76Ekv");
+    height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    width: 100%;
     padding-bottom: 3em !important;
     position: relative;
+    opacity: 0.8;
   }
-  .bg-2::before{
+  
+  .bg-2::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 77, 0.8);
+    opacity: 0.1;
   }
+  
   .overlay-text {
     position: absolute;
     top: 50%;
@@ -93,8 +93,6 @@
   
   #alumni-detail{
     font-size: 3em;
-    /* color: #FF5C33; */
-    /* color: white; */
     font-weight: bold;
     padding-bottom: 2em;
   }
@@ -108,7 +106,6 @@
   }
   .welcome-p{
     font-size: 20px;
-    line-height: 2;
   }
   /* page responsiveness */
   #navbar-example3 {
