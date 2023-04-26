@@ -46,14 +46,6 @@ export default function App() {
         <Route path='/search-alumni' element={<Search />} />
         <Route path='/dashboard' element={<Dashboard/>} /> 
       </Routes>
-     <Footer />
-    <NavBar />
-    <Routes>
-      <Route path='/' element={<Home />}/>
-      <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
-      <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
-      <Route path='/projects' element={<Projects />} />
-    </Routes>
     <Footer />
     </BrowserRouter>
   );
