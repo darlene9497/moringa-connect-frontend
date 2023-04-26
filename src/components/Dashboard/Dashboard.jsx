@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import userImage from "../../assets/userImage.png";
+import CreateProfile from "../Profile/CreateProfile";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState({});
@@ -67,9 +68,11 @@ const Dashboard = () => {
   };
 
   return (
+    
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-10">
+          <CreateProfile/>
           <div className="card">
             <div className="card-body">
               <div className="d-flex align-items-center">
