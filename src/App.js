@@ -11,6 +11,8 @@ import SignUp from './components/signup/signup';
 import LoginForm from './components/login/loginForm';
 import Home from './components/Home/Home';
 import Search from './components/Search/Search';
+import Dashboard from './components/Dashboard/Dashboard'
+
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
  
@@ -43,7 +45,8 @@ export default function App() {
         <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
-        <Route path='/search-alumni' element={<Search />} />  
+        <Route path='/search-alumni' element={<Search />} />
+        <Route path='/dashboard' element={<Dashboard/>} /> 
       </Routes>
      <Footer />
     </BrowserRouter>
