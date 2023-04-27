@@ -7,7 +7,7 @@
   }
   /* top */
   .subheading{
-      font-size: 3em !important;
+      /* font-size: 3em !important; */
       font-weight: bold;
   }
   /* animate subheading */
@@ -105,7 +105,7 @@
       margin-right: 10em;
   }
   .welcome-p{
-    font-size: 20px;
+    /* font-size: 20px; */
   }
   /* page responsiveness */
   #navbar-example3 {
@@ -125,22 +125,6 @@
       margin-left: none;
     }
   } 
-/* toggler button */
-.navbar-toggler {
-  border: none;
-  background-color: transparent;
-} 
-@media (max-width: 992px) {
-  .navbar-toggler {
-    display: block;
-  }
-}
-@media (max-width: 992px) {
-  #navbar-example3 .nav-link {
-    padding: 10px;
-  }
-}
-
 /* video responsiveness */
 iframe{
   width: 100%;

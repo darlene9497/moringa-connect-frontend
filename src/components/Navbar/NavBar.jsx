@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from "react-router-dom";
 import Profile from '../Profile/Profile'
-import './Styles.css'
+import './Navbar.css'
 
 const NavBar = () => {
   return (
