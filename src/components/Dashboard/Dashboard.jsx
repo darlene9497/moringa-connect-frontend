@@ -75,7 +75,6 @@ const Dashboard = () => {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-10">
-          <CreateProfile />
           <div className="card">
             <div className="card-body">
               <div className="d-flex align-items-center">
