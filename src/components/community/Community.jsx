@@ -151,32 +151,6 @@ export default function Community() {
             </div>
           </div>
         </div>
-
-        {/* <BodyHero /> */}
-        <div id='item-5'>
-          <div style={{width: '100%', position: 'relative'}}>
-            <img src="https://bit.ly/3UYfeGS" className="container-fluid " alt="Responsive" style={{maxHeight: '100% !important'}} />
-            {/* overlay  */}
-            <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 77, 0.8)', 
-            display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white',
-            fontSize: '30px', alignContent: 'center', fontWeight: 'bold', paddingBottom: '4em', fontStyle: 'italic'}}>
-              {/* overlay text */}
-              <br />
-              <i className="fa fa-quote-left" aria-hidden="true" style={{marginRight: '10px', alignSelf: 'center', paddingBottom: '9em', color: '#ff5c33'}}></i>
-              <p style={{textAlign: 'center'}}>
-                We are committed to fostering lifelong professional connections with our alumni to support <br />
-                their continued growth and success.Our commitment to building lasting relationships
-                and<br /> providing unwavering support means that you'll always have a home 
-                within the<br /> Moringa community, no matter where your journey takes you.<br /><br />
-                {/* button hover effecr */}
-                <a className="btn btn-primary" href="/alumni" role="button" style={{textTransform: 'capitalize', color: '#FF5C33', backgroundColor: 'transparent',
-                 border: '2px solid #FF5C33', borderRadius: '20px', fontSize: '20px', fontWeight: 'bold'}}>
-                 Connect with Alums</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* events */}
           <div className="container-fluid" style={{justifyContent: 'center', marginLeft: '3em', marginTop: '10em', paddingBottom: '2em' }} id='events'>
             <h1 style={{ color: '#00004D', fontWeight: 'bold'}}>Upcoming alumni <br />events</h1>         
