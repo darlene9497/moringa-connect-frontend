@@ -7,11 +7,11 @@ const CreateProfile = () => {
     bio:"",
     social_account: "",
     cohort: "",
+    graduation_year: "",
     profession: "",
     certificate: null,
     privacy: true,
     profile_picture: null,
-    votes: 0,
   });
 
   const handleChange = (event) => {
@@ -77,7 +77,7 @@ const CreateProfile = () => {
               <input
                 type="text"
                 className="form-control"
-                name="social_account"
+                name="bio"
                 value={formData.bio}
                 onChange={handleChange}
               />
@@ -103,21 +103,22 @@ const CreateProfile = () => {
               />
             </div>
             <div className="form-group mb-4">
+              <label>Cohort</label>
+              <input
+                type="number"
+                className="form-control"
+                name="graduation_year"
+                value={formData.graduation_year}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group mb-4">
               <label>Profession</label>
               <input
                 type="text"
                 className="form-control"
                 name="profession"
                 value={formData.profession}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group mb-4">
-              <label>Certificate</label>
-              <input
-                type="file"
-                className="form-control"
-                name="certificate"
                 onChange={handleChange}
               />
             </div>
