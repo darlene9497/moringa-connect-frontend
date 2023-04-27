@@ -45,7 +45,7 @@ function LoginForm({setUserSignedIn}) {
             <div className="container">
                 <div className="row no-gutters">
                     <div className="col-lg-5">
-                        <img src="https://www.metroworldnews.com.br/resizer/OWMc913b2gr33Va96CQABGrfRkE=/1024x1024/filters:format(png):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/QI46U5TKG5EV5PYA2E4A6BVWME.png" alt="" className="img-fluid login-img" />
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/78c4af118001599.608076cf95739.jpg" alt="" className="img-fluid login-img" />
                     </div>
                     <div className="col-lg-7 px-5 pt-5">
                         <h1 className="font-weight-bold py-3">Moringa Connect</h1>
