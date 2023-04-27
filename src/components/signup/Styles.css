@@ -75,3 +75,12 @@
     border: 1px solid;
     color: #f4f4f4;
   }
+  .link-btn {
+    background: none;
+    color: rgb(7, 10, 196);
+    border: none;
+    padding: 10px;
+    text-decoration: underline;
+    border-radius: 10px;
+
+  }
