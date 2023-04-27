@@ -4,6 +4,7 @@ const CreateProfile = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    bio:"",
     social_account: "",
     cohort: "",
     profession: "",
@@ -69,6 +70,16 @@ const CreateProfile = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
+              />
+            </div>
+            <div className="form-group mb-4">
+              <label>Bio</label>
+              <input
+                type="text"
+                className="form-control"
+                name="social_account"
+                value={formData.bio}
+                onChange={handleChange}
               />
             </div>
             <div className="form-group mb-4">
