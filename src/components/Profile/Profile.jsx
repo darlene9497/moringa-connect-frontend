@@ -31,7 +31,7 @@ const Profile = () => {
   }, [dropdownRef]);
 
   const handleProfileClick = () => {
-    setDropdownOpen(!dropdownOpen);
+    setDropdownOpen(prevState => !prevState);
   };
 
   const handleLogoutClick = () => {
