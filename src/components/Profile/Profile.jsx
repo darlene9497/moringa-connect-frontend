@@ -51,6 +51,10 @@ const Profile = () => {
             />
             {dropdownOpen && (
               <div ref={dropdownRef} className="dropdown-menu dropdown-menu-right show" style={{ marginTop: '0.5rem'}}>
+                 <Link to="/create profile" className="dropdown-item" style={{ color: 'inherit' }}>
+                  Create Profile
+                </Link>
+                <div className="dropdown-divider"></div>
                 <Link to="/dashboard" className="dropdown-item" style={{ color: 'inherit' }}>
                   Dashboard
                 </Link>

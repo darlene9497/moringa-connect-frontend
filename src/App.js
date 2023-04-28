@@ -12,6 +12,7 @@ import LoginForm from './components/login/loginForm';
 import Home from './components/Home/Home';
 import Search from './components/Search/Search';
 import Dashboard from './components/Dashboard/Dashboard'
+import CreateProfile from './components/Profile/CreateProfile'
 
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
@@ -33,10 +34,7 @@ export default function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        {/* <Route path='/' element={<Demo />} /> */}
-        {/* <Route path='/chapters' element={<Chapters />} /> */}
         <Route path='/alumni' element={<Alumni />} />
-        {/* <Route path='/mentor' element={<Mentor />} /> */}
         <Route path='/projects' element={<Projects />} />
         <Route path='/' element={<Home />}/>
         <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
@@ -45,6 +43,7 @@ export default function App() {
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
         <Route path='/dashboard' element={<Dashboard/>} /> 
+        <Route path='/create profile' element={<CreateProfile/>} /> 
       </Routes>
     <Footer />
     </BrowserRouter>
