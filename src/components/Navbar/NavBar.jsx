@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from "react-router-dom";
 import Profile from '../Profile/Profile'
+import './Navbar.css'
 
 const NavBar = () => {
   return (
@@ -21,27 +22,26 @@ const NavBar = () => {
             </button>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ marginRight: '4rem', fontSize: "24px" }}>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item mt-5">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item ">
                 <Link to="/alumni" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
                   Alumni
                 </Link>
               </li>
-              <li className="nav-item mt-5">
+              <li className="nav-item ">
                 <Link to="/community" className="nav-link active me-4" aria-current="page" style={{ color: '#ff5c33' }}>
                   Community
                 </Link>
               </li>
-              <li className="nav-item mt-5">
+              <li className="nav-item ">
                 <Link to="/projects" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
                   Projects
                 </Link>
               </li>
-              <li className="nav-item mt-5">
-                <Link to="/dashboard" className="nav-link active me-4" >
+              <li className="nav-item mt-6">
                   <Profile />
-                </Link>
               </li>
+              
             </ul>
           </div>
         </div>

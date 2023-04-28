@@ -1,4 +1,6 @@
-
+.navbar {
+    height: 90px;
+} 
 .nav-main{
     font-weight: bold;
 }
@@ -11,22 +13,30 @@
     margin-left: 1em;
     display: block !important;
 }
-.nav-it{
-    padding-left: 8em !important;
+.nav-item{
+    padding-left: 1em !important;
     font-size: 20px;
 }
+.nav-item  {
+    margin-top: 3.5rem !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+  }
+  
 .logo{
-    margin-left: 6em;
+    margin-left: 3em;
 }
 #m-logo{
     height: 50px;
-    margin-left: 6em;
+    margin-left: 3em;
 }
 /* !!!!!!!!!!! */
 /* remove whitespace on navbar */
 .navbar-default {
     box-shadow: none !important;
-  }
+}
 
 /* responsiveness */
 @media (max-width: 768px) {

@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from "react";
 import userImage from "../../assets/userImage.png";
-import CreateProfile from "../Profile/CreateProfile";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState({});
   const [isPublic, setIsPublic] = useState(true);
-  const [profileImage, setProfileImage] = useState(null);
-  const [certificate, setCertificate] = useState(null);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [profession,setProfession] = useState("")
-  const [socialAccount, setSocialAccount] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/profile")
+    fetch("/profiles")
       .then((response) => response.json())
       .then((data) => {
         setUserData(data);
         setIsPublic(data.privacy);
-        setName(data.name);
-        setEmail(data.email);
-        setProfession(data.profession)
-        setSocialAccount(data.social_account);
       })
       .catch((error) => console.log(error));
   }, []);
 
-  const handlePrivacyChange = () => {
+  const handlePrivacyToggle = () => {
     setIsPublic(!isPublic);
-    fetch("http://localhost:3000/profile", {
+    fetch("/profiles", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ privacy: !isPublic }),
@@ -38,41 +27,10 @@ const Dashboard = () => {
       .catch((error) => console.log(error));
   };
 
-  const handleProfileImageChange = (event) => {
-    setProfileImage(event.target.files[0]);
-  };
-
-  const handleCertificateChange = (event) => {
-    setCertificate(event.target.files[0]);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    if (profileImage) {
-      formData.append("profileImage", profileImage);
-    }
-    if (certificate) {
-      formData.append("certificate", certificate);
-    }
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("socialAccount", socialAccount);
-    fetch("http://localhost:3000/profile", {
-      method: "PUT",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => setUserData(data))
-      .catch((error) => console.log(error));
-  };
-
   return (
-    
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-10">
-          <CreateProfile/>
           <div className="card">
             <div className="card-body">
               <div className="d-flex align-items-center">
@@ -88,85 +46,76 @@ const Dashboard = () => {
                 </h5>
               </div>
               <hr className="my-4" />
-              <div className="row mb-4">
-                <div className="col-sm-3">Name:</div>
-                <div className="col-sm-9">
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Email:</div>
-                <div className="col-sm-9">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Profession:</div>
-                <div className="col-sm-9">
-                  <input
-                    type="email"
-                    value={profession}
-                    onChange={(e) => setProfession(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Social Account:</div>
-                <div className="col-sm-9">
-                  <input
-                    type="text"
-                    value={socialAccount}
-                    onChange={(e) => setSocialAccount(e.target.value)}
-                  />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Profile Picture:</div>
-                <div className="col-sm-9">
-                  <input type="file" onChange={handleProfileImageChange} />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Certificate:</div>
-                <div className="col-sm-9">
-                  <input type="file" onChange={handleCertificateChange} />
-                </div>
-              </div>
-              <div className="row mb-4">
-                <div className="col-sm-3">Public Profile:</div>
-                <div className="col-sm-9">
-                  <input
-                    type="checkbox"
-                    checked={isPublic}
-                    onChange={handlePrivacyChange}
-                  />
-                </div>
-              </div>
               <div className="row">
-                <div className="col-sm-12">
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    onClick={handleSubmit}
-                  >
-                    Save Changes
-                  </button>
-                </div>
+              <div className="col-lg-6 text-center">
+  <h6 className="mb-3 ">Personal Information</h6>
+  <div className="mb-3">
+    <label htmlFor="name" className="form-label">
+      Name
+    </label>
+    <div>{userData.name}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="email" className="form-label">
+      Email
+    </label>
+    <div>{userData.email}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="cohort" className="form-label">
+      Cohort
+    </label>
+    <div>{userData.cohort}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="graduation_year" className="form-label">
+      Graduation year
+    </label>
+    <div>{userData.graduation_year}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="profession" className="form-label">
+      Profession
+    </label>
+    <div>{userData.profession}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="socialAccount" className="form-label">
+      Social Account
+    </label>
+    <div>{userData.social_account}</div>
+  </div>
+  <div className="mb-3">
+    <label htmlFor="bio" className="form-label">
+      Bio
+    </label>
+    <div>{userData.bio}</div>
+  </div>
+</div>
+          <hr className="my-4" />
+          <div className="row">
+            <div className="col-lg-6">
+              <h6 className="mb-3">Privacy Settings</h6>
+              <div className="form-check mb-3">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  checked={isPublic}
+                  onChange={handlePrivacyToggle}
+                />
+                <label className="form-check-label">
+                  Make my profile public
+                </label>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  </div>
+</div>
+</div>
+);
 };
 
 export default Dashboard;

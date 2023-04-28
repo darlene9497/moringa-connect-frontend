@@ -13,14 +13,17 @@ export default function Community() {
   return (
     <div style={{overflowX: 'hidden'}} id='comm'>
         <BackgroundImagePage />
-        <div className='alumni-list' style={{marginRight:'5rem'}}>
+        <div className='container-fluid'>
         <div className="row">
-            <div className="col-4">
+            <div className="col-12">
               <nav id="navbar-example3" className="h-100 flex-column align-items-stretch pe-4 border-end">
                 <nav className="nav nav-pills flex-column">
-                <a className="nav-link" href="#item-1" style={{fontSize: '22px', fontWeight: 'bold'}}><span style={{color: '#FF5C33'}}>Discover</span>.<span style={{color: '#4D4D00'}}>Grow</span>.<span style={{color: '#007ACC'}}>Transform</span></a>
+                <a className="nav-link" href="#item-1" style={{fontWeight: 'bold'}}>
+                  <span style={{color: '#FF5C33'}}>Discover</span>
+                  <span style={{color: '#4D4D00'}}>.Grow.</span>
+                  <span style={{color: '#007ACC'}}>Transform</span>
+                </a>
                   <a className="nav-link" href="#item-1">Meet our Alumni</a>
-                  {/* <nav className="nav nav-pills flex-column"> */}
                     <a className="nav-link" href="#item-1-1">Our communities</a>
                     <a className="nav-link" href="#item-2">Alumni Relations</a>
                     <a className="nav-link" href="#item-3">Volunteer Opportunities</a>
@@ -30,19 +33,16 @@ export default function Community() {
                 </nav>
               </nav>
             </div>
-
-            <div className="col-8">
+            <div className="col-12">
               <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" className="scrollspy-example-2" tabindex="0">
                 <div id="item-1">
-                  {/* <h4>Meet our alumni</h4> */}
-                  {/* , marginBottom: '2em' */}
-                  <div style={{maxWidth: '80%'}}>
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                    </div>
+                  
+                    <iframe width="100%" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                   
                     <p className='welcome-p'>At Moringa, we take immense pride in our alumni community - a diverse and talented group of individuals who have gone on to achieve great things in the tech industry. We believe that strong professional relationships are key to success, and we're committed to fostering a lifelong connection with our alumni.</p>
                 </div>
                 <div id="item-1-1">
-                  <h5 style={{color: '#ff5c33', fontWeight: 'bold', fontSize: '34px'}}>Moringa communities and Groups <i className="fa fa-users" aria-hidden="true"></i></h5>
+                  <h5 style={{color: '#ff5c33'}}>Moringa communities and Groups <i className="fa fa-users" aria-hidden="true"></i></h5>
                   <p className='welcome-p'>
                       At Moringa School, we're dedicated to helping our alumni succeed throughout their careers. We provide a range of programs and resources designed to support our graduates at every stage of their professional journey.
                       As part of this commitment, we offer a variety of groups and communities where alumni can connect, collaborate, and learn from one another. Whether you're looking for job opportunities, mentorship, or simply a community of like-minded individuals,
@@ -52,20 +52,20 @@ export default function Community() {
                   </p>
                   </div>
                 <div id="item-2">
-                  <h5 style={{color: '#ff5c33', fontWeight: 'bold', fontSize: '34px'}}>Alumni Relations <i className="fa fa-graduation-cap" aria-hidden="true"></i></h5>
+                  <h5 style={{color: '#ff5c33'}}>Alumni Relations <i className="fa fa-graduation-cap" aria-hidden="true"></i></h5>
                   <p className='welcome-p'>
                     As an alumnus of Moringa, you are part of a community that values diversity, creativity, and growth. We are committed to helping you build your future with confidence and capability. Our team of talented mentors is always available to support you, 
                     whether you need help navigating the job market, developing new skills, or simply connecting with other professionals in your field 
                   </p>
                 </div>  
                 <div id="item-3">
-                  <h5 style={{color: '#ff5c33', fontWeight: 'bold', fontSize: '34px'}}>Volunteer Opportunities <i className="fa fa-handshake" aria-hidden="true"></i></h5>
+                  <h5 style={{color: '#ff5c33'}}>Volunteer Opportunities <i className="fa fa-handshake" aria-hidden="true"></i></h5>
                   <p className='welcome-p'>
                     As an alumnus, you have the unique opportunity to give back to your community by volunteering your time and skills to support the next generation of tech professionals.
                   </p>
                 </div>                                
                 <div id="item-4">
-                <h5 style={{color: '#ff5c33', fontWeight: 'bold', fontSize: '34px'}}>FAQs <i className="fa fa-question-circle"></i></h5>
+                <h5 style={{color: '#ff5c33'}}>FAQs <i className="fa fa-question-circle"></i></h5>
                   <p>
                   <div className="accordion" id="accordionExample">
                     <div className="accordion-item">
@@ -75,7 +75,7 @@ export default function Community() {
                         </button>
                       </h2>
                       <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={{fontSize: '20px',style: 'none'}}>
+                        <div className="accordion-body">
                           The Moringa alumni community values <span id='discover'>diversity, creativity, and growth</span>. 
                           As an alumnus, you are part of a community that is dedicated to helping each other succeed in the tech industry.
                         </div>
@@ -88,7 +88,7 @@ export default function Community() {
                         </button>
                       </h2>
                       <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={{fontSize: '20px',style: 'none'}}>
+                        <div className="accordion-body">
                           Moringa School provides ongoing support and resources to help its alumni succeed in the tech industry. 
                           This includes <span  style={{color: '#ff5c33'}}>mentorship, job market navigation assistance, skills development, networking opportunities</span>, and more.
                         </div>
@@ -101,7 +101,7 @@ export default function Community() {
                         </button>
                       </h2>
                       <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={{fontSize: '20px',style: 'none'}}>
+                        <div className="accordion-body">
                           Moringa School provides opportunities for alumni to connect with each other through networking <a href='/events' style={{color: '#ff5c33'}}> events</a>, social media, and other online platforms.
                           Alumni can also participate in <a href='/mentor' style={{color: '#ff5c33'}}>mentorship programs</a> and speak at <a href='/events' style={{color: '#ff5c33'}}> events</a> to <a href='/chapters'  style={{color: '#ff5c33'}}> connect</a> with other professionals in their field.
                         </div>
@@ -114,7 +114,7 @@ export default function Community() {
                         </button>
                       </h2>
                       <div id="collapseFour" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body"  style={{fontSize: '20px',style: 'none'}}>
+                        <div className="accordion-body">
                           Yes, Moringa alumni are encouraged to attend industry <a href='#events' style={{color: '#ff5c33'}}> events</a> and stay connected with the school's community.
                           The school provides resources and support to help alumni stay up-to-date with the latest industry trends 
                           and connect with other professionals in their field.
@@ -134,7 +134,6 @@ export default function Community() {
           <div className="row  g-4 d-flex justify-content-center">
             <div className="col" style={{width: '35rem', height:'15rem', marginBottom: '3rem'}}>
               <div className="card h-100">
-                {/* <img src="..." className="card-img-top" alt="..." /> */}
                 <div class="card-body">
                       <a class="card-title" href='/alumni'><i class="fa fa-users" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
                       <a class="card-text" href='/alumni' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Alumni <i class="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
@@ -144,7 +143,6 @@ export default function Community() {
 
             <div className="col" style={{width: '35rem', height:'15rem',marginBottom: '5rem'}}>
               <div className="card h-100">
-                {/* <img src="..." className="card-img-top" alt="..." /> */}
                 <div class="card-body">
                       <a class="card-title"><i class="fa fa-list-alt" aria-hidden="true" style={{color: '#00004D', fontSize: '3em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}></i></a>
                       <a class="card-text" href='/projects' style={{ color: '#00004D', fontSize: '24px',paddingTop: '1.6em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Projects <i className="fa fa-long-arrow-right" aria-hidden="true" style={{color: '#00004D', marginLeft: '8px', transform: "rotate(-45deg)"}}></i></a>
@@ -153,44 +151,16 @@ export default function Community() {
             </div>
           </div>
         </div>
-
-        {/* <BodyHero /> */}
-        <div id='item-5'>
-        <div style={{width: '100%', position: 'relative'}}>
-            <img src="https://bit.ly/3UYfeGS" className="container-fluid " alt="Responsive" style={{maxHeight: '100% !important'}} />
-            {/* overlay  */}
-            <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 77, 0.8)', 
-            display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white',
-            fontSize: '30px', alignContent: 'center', fontWeight: 'bold', paddingBottom: '4em', fontStyle: 'italic'}}>
-              {/* overlay text */}
-              <br />
-              <i className="fa fa-quote-left" aria-hidden="true" style={{marginRight: '10px', alignSelf: 'center', paddingBottom: '9em', color: '#ff5c33'}}></i>
-              {/* <h1 style={{textAlign: 'center', color: '#FF5C33 ', fontWeight: 'bold', paddingBottom: '5em'}}> Stay Connected</h1> <br /> */}
-              <p style={{textAlign: 'center'}}>
-                We are committed to fostering lifelong professional connections with our alumni to support <br />
-                their continued growth and success.Our commitment to building lasting relationships
-                and<br /> providing unwavering support means that you'll always have a home 
-                within the<br /> Moringa community, no matter where your journey takes you.<br /><br />
-                {/* button hover effecr */}
-                <a className="btn btn-primary" href="/alumni" role="button" style={{textTransform: 'capitalize', color: '#FF5C33', backgroundColor: 'transparent',
-                 border: '2px solid #FF5C33', borderRadius: '20px', fontSize: '20px', fontWeight: 'bold'}}>
-                 Connect with Alums</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* events */}
           <div className="container-fluid" style={{justifyContent: 'center', marginLeft: '3em', marginTop: '10em', paddingBottom: '2em' }} id='events'>
-            <h1 style={{fontSize: '40px', color: '#00004D', fontWeight: 'bold', paddingLeft: '2em' }}>Upcoming alumni <br />events</h1>         
-            <p style={{fontSize: '20px', paddingLeft: '4em'}}>We’re working hard to bring your search<br /> for alumni events under one roof.<br /> Until then, you can browse alumni events here:</p>
+            <h1 style={{ color: '#00004D', fontWeight: 'bold'}}>Upcoming alumni <br />events</h1>         
+            <p>We’re working hard to bring your search<br /> for alumni events under one roof.<br /> Until then, you can browse alumni events here:</p>
           </div>
           
           <div>
           {/* slice first 5 events */}
           {events.slice(0, 5).map((event) => (
-            <div className='card mb-3' style={{ paddingTop: '2em', paddingBottom: '2em'}}>
-
+            <div className='mb-3'>
                 <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
                   <div key={event.id} className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
                   <div className="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
@@ -205,7 +175,6 @@ export default function Community() {
                             <p className="card-text" style={{ color: '#00004D' }}>{event.description}</p>
                             <p className="card-text"><i className="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.time}</p>
                             <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.venue}</p>
-                            {/* <p className="card-text"><i className="fa fa-link" aria-hidden="true" style={{ color: '#007ACC' }}></i> Virtual Meetup link </p> */}
                           </div>
                         </div>
                       </div>
@@ -215,21 +184,20 @@ export default function Community() {
             </div>
             ))} 
 
-              {/* pagination */}
-              <nav aria-label="Page navigation example" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                <ul className="pagination justify-content-end">
-                  {/* <li className="page-item disabled">
-                    <a className="page-link">Previous</a>
-                  </li> */}
-                  <li className="page-item"><a className="page-link" href="/community/#events">1</a></li>
-                  <li className="page-item"><a className="page-link" href="/community/eventsa">2</a></li>
-                  {/* <li className="page-item"><a className="page-link" href="/community/eventsb">3</a></li> */}
-                  <li className="page-item">
-                  <a class="page-link" href="/community/eventsa">Next</a>
-                  </li>
-                </ul>
-              </nav>          
-            </div>
-          </div>    
+          {/* pagination */}
+          <nav aria-label="Page navigation example" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
+            <ul className="pagination justify-content-end">
+              {/* <li className="page-item disabled">
+                <a className="page-link">Previous</a>
+              </li> */}
+              <li className="page-item"><a className="page-link" href="/community/#events">1</a></li>
+              <li className="page-item"><a className="page-link" href="/community/eventsa">2</a></li>
+              <li className="page-item">
+              <a class="page-link" href="/community/eventsa">Next</a>
+              </li>
+            </ul>
+          </nav>          
+        </div>
+      </div>    
   );
 }
