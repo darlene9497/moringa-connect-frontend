@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import userImage from '../../assets/userImage.png';
 
 const Profile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('/profile')
@@ -35,36 +36,47 @@ const Profile = () => {
   };
 
   const handleLogoutClick = () => {
-    // TODO: Implement logout logic
+    fetch('/logout', {
+      method: 'DELETE',
+      credentials: 'include', // send cookies to server
+    })
+      .then(response => {
+        if (response.ok) {
+          navigate('/login'); // redirect to login page
+        } else {
+          console.error('Failed to logout');
+        }
+      })
+      .catch(error => console.error(error));
   };
 
   return (
     <div className="container">
-        <div className="col-4" style={{ marginBottom: '3rem',marginRight: '2rem' }}>
-          <div style={{ position: 'relative' }}>
-            <img
-              style={{ width: '45px', height: '45px', verticalAlign: 'middle', cursor: 'pointer' }}
-              src={profilePicture || userImage}
-              alt="User profile"
-              className="rounded-circle profile-image"
-              onClick={handleProfileClick}
-            />
-            {dropdownOpen && (
-              <div ref={dropdownRef} className="dropdown-menu dropdown-menu-right show" style={{ marginTop: '0.5rem'}}>
-                 <Link to="/create profile" className="dropdown-item" style={{ color: 'inherit' }}>
-                  Create Profile
-                </Link>
-                <div className="dropdown-divider"></div>
-                <Link to="/dashboard" className="dropdown-item" style={{ color: 'inherit' }}>
-                  Dashboard
-                </Link>
-                <div className="dropdown-divider"></div>
-                <div className="dropdown-item" style={{ cursor: 'pointer' }} onClick={handleLogoutClick}>
-                  Logout
-                </div>
+      <div className="col-4" style={{ marginBottom: '3rem',marginRight: '2rem' }}>
+        <div style={{ position: 'relative' }}>
+          <img
+            style={{ width: '45px', height: '45px', verticalAlign: 'middle', cursor: 'pointer' }}
+            src={profilePicture || userImage}
+            alt="User profile"
+            className="rounded-circle profile-image"
+            onClick={handleProfileClick}
+          />
+          {dropdownOpen && (
+            <div ref={dropdownRef} className="dropdown-menu dropdown-menu-right show" style={{ marginTop: '0.5rem'}}>
+              <Link to="/create profile" className="dropdown-item" style={{ color: 'inherit' }}>
+                Create Profile
+              </Link>
+              <div className="dropdown-divider"></div>
+              <Link to="/dashboard" className="dropdown-item" style={{ color: 'inherit' }}>
+                Dashboard
+              </Link>
+              <div className="dropdown-divider"></div>
+              <div className="dropdown-item" style={{ cursor: 'pointer' }} onClick={handleLogoutClick}>
+                Logout
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

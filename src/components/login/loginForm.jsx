@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Nav } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import './Styles.css'
 
 
@@ -66,13 +65,13 @@ function LoginForm({setUserSignedIn}) {
                                     <button type="submit" className="login-btn" >Login</button>
                                 </div>
                             </div>
-                            <Nav.Link  href="/signup">
+                            <Link  to="/signup">
                             <div className="form-row">
                                 <div className="col-lg-7">
                                     <button  className ="link-btn" >Don't have an account ? Register Here</button>
                                 </div>
                             </div>
-                            </Nav.Link>
+                            </Link>
                             
                             
                         </form>

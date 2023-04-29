@@ -13,8 +13,9 @@ import Home from './components/Home/Home';
 import Search from './components/Search/Search';
 import Dashboard from './components/Dashboard/Dashboard'
 import DetailForm from './components/DetailForm/DetailForm';
-export const AppContext = createContext(null)
 import CreateProfile from './components/Profile/CreateProfile'
+export const AppContext = createContext(null)
+
 
 
 export default function App() {
