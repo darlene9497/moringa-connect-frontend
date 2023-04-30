@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import userImage from '../../assets/userImage.png';
 
-const Profile = () => {
+const Profile = (props) => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -35,6 +35,15 @@ const Profile = () => {
     setDropdownOpen(prevState => !prevState);
   };
 
+//   function handleLogOut() {
+//     fetch("/logout", { method: "DELETE" }).then((r) => {
+//       if (r.ok) {
+//         navigate('/', { replace: true })
+//         props.setUserSignedIn(false);
+//       }
+//     });
+// }
+
   const handleLogoutClick = () => {
     fetch('/logout', {
       method: 'DELETE',
@@ -43,6 +52,7 @@ const Profile = () => {
       .then(response => {
         if (response.ok) {
           navigate('/login'); // redirect to login page
+          props.setUserSignedIn(false);
         } else {
           console.error('Failed to logout');
         }
@@ -63,7 +73,7 @@ const Profile = () => {
           />
           {dropdownOpen && (
             <div ref={dropdownRef} className="dropdown-menu dropdown-menu-right show" style={{ marginTop: '0.5rem'}}>
-              <Link to="/create profile" className="dropdown-item" style={{ color: 'inherit' }}>
+              <Link to="/create-profile" className="dropdown-item" style={{ color: 'inherit' }}>
                 Create Profile
               </Link>
               <div className="dropdown-divider"></div>
