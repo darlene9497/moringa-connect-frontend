@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />
       <Routes>
         <Route path='/alumni' element={<Alumni />} />
         <Route path='/projects' element={<Projects />} />
@@ -47,8 +47,7 @@ export default function App() {
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
         <Route path='/dashboard' element={<Dashboard/>} />
-        <Route path='/details' element={<DetailForm />} />
-        <Route path='/create profile' element={<CreateProfile/>} /> 
+        <Route path='/create-profile' element={<DetailForm />} /> 
       </Routes>
     <Footer />
     </BrowserRouter>
