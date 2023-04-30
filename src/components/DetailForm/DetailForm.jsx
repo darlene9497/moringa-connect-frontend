@@ -37,46 +37,64 @@ function DetailForm() {
     }
 
   return (
-    <div>
-        <h1>File Form</h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
+<div className="container mt-5">
+  <div className="card p-4">
+    <h1 className="mb-4">Create Your Profile</h1>
+    <form onSubmit={(e) => handleSubmit(e)}>
+      <div className="row">
+        <div className="col-md-6">
+          <h3>Personal Information</h3>
+          <div className="form-group mb-3">
             <label htmlFor="name">Name</label>
-            <input value={name} onChange={(e)=> setName(e.target.value)} type="text" name='name' id='name' />
-            <br />
+            <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-control" name="name" id="name" />
+          </div>
 
-            <label htmlFor="email">email</label>
-            <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" name='email' id='email' />
-            <br />
+          <div className="form-group mb-3">
+            <label htmlFor="email">Email</label>
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" name="email" id="email" />
+          </div>
 
-            <label htmlFor="social_account">social_account</label>
-            <input value={social_account} onChange={(e)=> setSocialAccount(e.target.value)} type="text" name='social_account' id='social_account' />
-            <br />
+          <div className="form-group mb-3">
+            <label htmlFor="social_account">Social Account</label>
+            <input value={social_account} onChange={(e) => setSocialAccount(e.target.value)} type="text" className="form-control" name="social_account" id="social_account" />
+          </div>
 
-            <label htmlFor="cohort">cohort</label>
-            <input value={cohort} onChange={(e)=> setCohort(e.target.value)} type="text" name='cohort' id='cohort' />
-            <br />
+          <div className="form-group mb-3">
+            <label htmlFor="cohort">Cohort</label>
+            <input value={cohort} onChange={(e) => setCohort(e.target.value)} type="text" className="form-control" name="cohort" id="cohort" />
+          </div>
 
-            {/* <label htmlFor="is_active">is_active</label> */}
-            <input value={is_active} onChange={(e)=> setIsActive(e.target.value)} type="hidden" name='is_active' id='is_active' />
-            <br />
+          <div className="form-group mb-3">
+            <label htmlFor="image">Image</label>
+            <input onChange={(e) => setImage(e.target.files[0])} type="file" className="form-control-file" name="image" id="image" />
+          </div>
+        </div>
 
-            <label htmlFor="privacy">privacy</label>
-            <input value={privacy} onChange={(e)=> setPrivacy(e.target.value)} type="text" name='privacy' id='privacy' />
-            <br />
+        <div className="col-md-6">
+          <h3>Privacy Settings</h3>
+          <div className="form-group mb-3">
+            <label htmlFor="privacy">Profile Visibility</label>
+            <div className="form-check form-switch">
+              <input className="form-check-input" type="checkbox" id="privacy" checked={privacy === "public"} onChange={(e) => setPrivacy(e.target.checked ? "public" : "private")} />
+              <label className="form-check-label" htmlFor="privacy">{privacy === "public" ? "Public" : "Private"}</label>
+            </div>
+          </div>
+
+          <input value={is_active} onChange={(e) => setIsActive(e.target.value)} type="hidden" name="is_active" id="is_active" />
+
+          <input value={user_id} onChange={(e) => setUserId(e.target.value)} type="hidden" name="user_id" id="user_id" />
+
+          <button type="submit" className="btn btn-primary">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 
-            {/* <label htmlFor="user_id">user_id</label> */}
-            <input value={user_id} onChange={(e)=> setUserId(e.target.value)} type="hidden" name='user_id' id='user_id' />
-            <br />
-
-            <label htmlFor="image">image</label>
-            <input onChange={(e)=> setImage(e.target.files[0])} type="file" name='image' id='image' />
-            <br />
 
 
-            <button type='submit'>Create</button>
-        </form>
-    </div>
+
   )
 }
 
