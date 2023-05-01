@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardHeader, CardBody } from 'reactstrap';
+import { Card, CardHeader, CardBody } from 'reactbootstrap';
 import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {

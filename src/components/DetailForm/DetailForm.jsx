@@ -5,8 +5,9 @@ function DetailForm() {
     const [email, setEmail] = useState('')
     const [bio, setBio] = useState('')
     const [cohort, setCohort] = useState('')
+    const [profession,setProfession] = useState('')
     const [is_active, setIsActive] = useState(true)
-    const [privacy, setPrivacy] = useState('')
+    const [privacy, setPrivacy] = useState(true)
     const [user_id, setUserId] = useState('')
     const [image, setImage] = useState([])
    
@@ -20,6 +21,7 @@ function DetailForm() {
         data.append("[email]", email)
         data.append("[bio]", bio)
         data.append("[cohort]", cohort)
+        data.append("[profession]", profession)
         data.append("[is_active]", is_active)
         data.append("[privacy]", privacy)
         data.append("[user_id]", user_id)
@@ -38,69 +40,144 @@ function DetailForm() {
     }
 
   return (
-<div className="container mt-5">
-  <div className="card p-4">
-    <h1 className="mb-4">Create Your Profile</h1>
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <div className="row">
-        <div className="col-md-6">
-          <h3>Personal Information</h3>
-          <div className="form-group mb-3">
-            <label htmlFor="name">Name</label>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-control" name="name" id="name" required/>
-          </div>
+    <div className="container mt-5">
+      <div className="card p-4">
+        <h1 className="mb-4">Create Your Profile</h1>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="row">
+            <div className="col-md-6">
+              <h3>Personal Information</h3>
+              <div className="form-group mb-3">
+                <label htmlFor="name">Name</label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  id="name"
+                  required
+                />
+              </div>
 
-          <div className="form-group mb-3">
-            <label htmlFor="email">Email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" name="email" id="email" required/>
-          </div>
+              <div className="form-group mb-3">
+                <label htmlFor="email">Email</label>
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </div>
 
-          <div className="form-group mb-3">
-            <label htmlFor="bio">BIo</label>
-            <input value={bio} onChange={(e) => setBio(e.target.value)} type="text" className="form-control" name="bio" id="bio" />
-          </div>
+              <div className="form-group mb-3">
+                <label htmlFor="bio">Bio</label>
+                <input
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
+                  type="text"
+                  className="form-control"
+                  name="bio"
+                  id="bio"
+                />
+              </div>
 
-          <div className="form-group mb-3">
+              <div className="form-group mb-3">
                 <label htmlFor="cohort">Cohort</label>
-                <select value={cohort} onChange={(e) => setCohort(e.target.value)} className="form-control" name="cohort" id="cohort" required>
+                <select
+                  value={cohort}
+                  onChange={(e) => setCohort(e.target.value)}
+                  className="form-control"
+                  name="cohort"
+                  id="cohort"
+                  required
+                >
                   {cohorts.map((cohort) => (
-                    <option key={cohort} value={cohort}>{cohort}</option>
+                    <option key={cohort} value={cohort}>
+                      {cohort}
+                    </option>
                   ))}
                 </select>
               </div>
+              <div className="form-group mb-3">
+                <label htmlFor="profession">Profession</label>
+                <input
+                  value={profession}
+                  onChange={(e) => setProfession(e.target.value)}
+                  type="text"
+                  className="form-control"
+                  name="profession"
+                  id="profession"
+                />
+              </div>
+              <div className="form-group mb-3">
+                <label htmlFor="image">Image</label>
+                <input
+                  onChange={(e) => setImage(e.target.files[0])}
+                  type="file"
+                  className="form-control-file"
+                  name="image"
+                  id="image"
+                />
+              </div>
+            </div>
 
-          <div className="form-group mb-3">
-            <label htmlFor="image">Image</label>
-            <input onChange={(e) => setImage(e.target.files[0])} type="file" className="form-control-file" name="image" id="image" />
-          </div>
-        </div>
+            <div className="col-md-6">
+              <h3>Privacy Settings</h3>
+              <div className="form-group mb-3">
+                <label htmlFor="privacy">Profile Visibility</label>
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="privacy"
+                    checked={privacy === "public"}
+                    onChange={(e) =>
+                      setPrivacy(e.target.checked ? "public" : "private")
+                    }
+                  />
+                  <label className="form-check-label" htmlFor="privacy">
+                    {privacy === "public" ? "Public" : "Private"}
+                  </label>
+                </div>
+              </div>
 
-        <div className="col-md-6">
-          <h3>Privacy Settings</h3>
-          <div className="form-group mb-3">
-            <label htmlFor="privacy">Profile Visibility</label>
-            <div className="form-check form-switch">
-              <input className="form-check-input" type="checkbox" id="privacy" checked={privacy === "public"} onChange={(e) => setPrivacy(e.target.checked ? "public" : "private")} />
-              <label className="form-check-label" htmlFor="privacy">{privacy === "public" ? "Public" : "Private"}</label>
+              <div className="form-group mb-3">
+                <label htmlFor="is_active">Profile Status</label>
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="is_active"
+                    checked={is_active}
+                    onChange={() => setIsActive(!is_active)}
+                  />
+                  <label className="form-check-label" htmlFor="is_active">
+                    {is_active ? "Active" : "Inactive"}
+                  </label>
+                </div>
+              </div>
+
+              <input
+                value={user_id}
+                onChange={(e) => setUserId(e.target.value)}
+                type="hidden"
+                name="user_id"
+                id="user_id"
+              />
+
+              <button type="submit" className="btn btn-primary">
+                Create
+              </button>
             </div>
           </div>
-
-          <input value={is_active} onChange={(e) => setIsActive(e.target.value)} type="hidden" name="is_active" id="is_active" />
-
-          <input value={user_id} onChange={(e) => setUserId(e.target.value)} type="hidden" name="user_id" id="user_id" />
-
-          <button type="submit" className="btn btn-primary">Create</button>
-        </div>
+        </form>
       </div>
-    </form>
-  </div>
-</div>
-
-
-
-
-
-  )
+    </div>
+  );
 }
 
 export default DetailForm
