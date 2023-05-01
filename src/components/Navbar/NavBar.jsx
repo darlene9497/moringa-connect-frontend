@@ -40,8 +40,18 @@ const NavBar = (props) => {
                     Projects
                   </Link>
                 </li>
-                <li className="nav-item mt-6">
+
+                <li className="nav-item ">
+                  <Link to="/admin" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
+                    Admin
+                  </Link>
+                </li>
+
+                <li className="nav-item mt-6 me-0">
                     <Profile setUserSignedIn={props.setUserSignedIn} />
+                </li>
+                <li className="nav-item mt-6 ms-0">
+                    <small>{props.userSignedIn.email}</small>
                 </li>
                 
               </ul>
@@ -60,11 +70,6 @@ const NavBar = (props) => {
                 <li className="nav-item ">
                   <Link to="/projects" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
                     Projects
-                  </Link>
-                </li>
-                <li className="nav-item ">
-                  <Link to="/admin" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
-                    Admin
                   </Link>
                 </li>
               </ul>

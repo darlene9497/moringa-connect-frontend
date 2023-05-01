@@ -19,6 +19,7 @@ import Events from './components/Admin/Events';
 import ProjectList from './components/Admin/ProjectList';
 import Users from './components/Admin/Users'
 import EditDetail from './components/DetailForm/EditDetail';
+import MyDetails from './components/DetailForm/MyDetails';
 export const AppContext = createContext(null)
 
 
@@ -51,7 +52,7 @@ export default function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/dashboard' element={<Dashboard userSignedIn={userSignedIn} />} />
         <Route path='/create-profile' element={<DetailForm />} /> 
         <Route path='/admin' element={<Admin />} /> 
         <Route path='/eventlist' element={<Events />} /> 
