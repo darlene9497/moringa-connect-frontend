@@ -62,7 +62,11 @@ const NavBar = (props) => {
                     Projects
                   </Link>
                 </li>
-                
+                <li className="nav-item ">
+                  <Link to="/admin" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
+                    Admin
+                  </Link>
+                </li>
               </ul>
               )
             }
