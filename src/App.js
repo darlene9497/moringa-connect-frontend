@@ -14,6 +14,10 @@ import Search from './components/Search/Search';
 import Dashboard from './components/Dashboard/Dashboard'
 import DetailForm from './components/DetailForm/DetailForm';
 import CreateProfile from './components/Profile/CreateProfile'
+import Admin from './components/Admin/Admin';
+import Events from './components/Admin/Events';
+import ProjectList from './components/Admin/ProjectList';
+import Users from './components/Admin/Users'
 export const AppContext = createContext(null)
 
 
@@ -48,6 +52,11 @@ export default function App() {
         <Route path='/search-alumni' element={<Search />} />
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/create-profile' element={<DetailForm />} /> 
+        <Route path='/admin' element={<Admin />} /> 
+        <Route path='/eventlist' element={<Events />} /> 
+        <Route path='/projectlist' element={<ProjectList />} /> 
+        <Route path='/userlist' element={<Users />} /> 
+        
       </Routes>
     <Footer />
     </BrowserRouter>
