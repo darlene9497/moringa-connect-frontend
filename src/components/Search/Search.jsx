@@ -5,9 +5,10 @@ function SearchAlumni() {
   const [filteredAlumni, setFilteredAlumni] = useState([]);
   const [selectedCohort, setSelectedCohort] = useState("");
   const [searchIconClicked, setSearchIconClicked] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch('/profiles')
+    fetch('/details')
       .then(response => response.json())
       .then(data => {
         setAlumni(data);
@@ -22,12 +23,13 @@ function SearchAlumni() {
       return alum.name.toLowerCase().includes(query);
     });
     setFilteredAlumni(filteredData);
+    setSearchQuery(query);
     setSearchIconClicked(false);
   }
 
   const handleCohortChange = (event) => {
     setSelectedCohort(event.target.value);
-    if (event.target.value === "") {
+    if (event.target.value === "All") {
       setFilteredAlumni(alumni);
     } else {
       const filteredData = alumni.filter((alum) => {
@@ -42,7 +44,7 @@ function SearchAlumni() {
     setSearchIconClicked(true);
   }
 
-  const cohortOptions = ["All", "SDF-T03", "SDT-713"];
+  const cohortOptions = ["All", "SDF-FT2", "SDF-FT3","SDF-FT4","PDF-FT2","SDF-FT2","CSF-PT1","SDF-FT5","SDF-PT3","PDF-FT3","SDF-PT4","SDF-FT6","PDF-FT4","SDF-FT7","CSF-FI2","SDF-PT5"];
 
   return (
     <div className="container">
@@ -54,7 +56,7 @@ function SearchAlumni() {
       <div className="row justify-content-center">
         <div className="col-md-4">
           <div className="input-group mt-4">
-            <label className="input-group-text" style={{ width: "auto",height: '40px' }}>
+            <label className="input-group-text" style={{ height: "40px" }}>
               Filter by cohort:
             </label>
             <select
@@ -77,10 +79,14 @@ function SearchAlumni() {
               className="form-control"
               onChange={handleSearch}
               placeholder="Search a name"
-              style={{height: '41px'}}
+              style={{ height: "41px" }}
             />
             <div className="input-group-append">
-              <button className="btn btn-secondary" type="button" onClick={handleSearchIconClick}>
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={handleSearchIconClick}
+              >
                 <i style={{ fontSize: "24px" }} className="fa fa-search"></i>
               </button>
             </div>
@@ -88,24 +94,25 @@ function SearchAlumni() {
         </div>
       </div>
       <div className="row mt-4">
-        {searchIconClicked && filteredAlumni.map((alumni) => (
-          <div key={alumni.id} className="col-md-4 mb-4">
-            <div className="card">
-              <img
-                src={alumni.profilePicture}
-                alt={alumni.name}
-                className="card-img-top"
-              />
-              <div className="card-body">
-                <h5 className="card-title">{alumni.name}</h5>
-                <p className="card-text">Email: {alumni.email}</p>
-                <p className="card-text">Profession: {alumni.profession}</p>
-                <p className="card-text">Cohort: {alumni.cohort}</p>
-                <p className="card-text">Bio: {alumni.bio}</p>
+        {(searchIconClicked || searchQuery === "") &&
+          filteredAlumni.map((alumni) => (
+            <div key={alumni.id} className="col-md-4 mb-4">
+              <div className="card card-lg" style={{width:''}}>
+                <img
+                  src={alumni.image_url}
+                  alt={alumni.name}
+                  className="card-img-top"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{alumni.name}</h5>
+                  <p className="card-text">Email: {alumni.email}</p>
+                  <p className="card-text">Profession: {alumni.profession}</p>
+                  <p className="card-text">Cohort: {alumni.cohort}</p>
+                  <p className="card-text">Bio: {alumni.bio}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
