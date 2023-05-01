@@ -18,6 +18,7 @@ import Admin from './components/Admin/Admin';
 import Events from './components/Admin/Events';
 import ProjectList from './components/Admin/ProjectList';
 import Users from './components/Admin/Users'
+import EditDetail from './components/DetailForm/EditDetail';
 export const AppContext = createContext(null)
 
 
@@ -56,7 +57,7 @@ export default function App() {
         <Route path='/eventlist' element={<Events />} /> 
         <Route path='/projectlist' element={<ProjectList />} /> 
         <Route path='/userlist' element={<Users />} /> 
-        
+        <Route path='editprofile' element={<EditDetail />} />
       </Routes>
     <Footer />
     </BrowserRouter>
