@@ -48,7 +48,7 @@ const NavBar = (props) => {
               ) : (
                 <ul className="navbar-nav ms-auto">
                 <li className="nav-item ">
-                  <Link to="/alumni" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
+                  <Link to="/alumni" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d',marginBottom: '3rem' }}>
                     Alumni
                   </Link>
                 </li>
