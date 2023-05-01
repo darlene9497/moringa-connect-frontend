@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 export default function AlumniCard() {
   return (
     <div className='text-alumni'>
+      <div className='content'>
       <h2>Moringa Alumni</h2>
       <p>
         The Moringa Alumni are an important part of our institution's community,
@@ -19,6 +20,7 @@ export default function AlumniCard() {
         can provide resources, networking opportunities and lifelong learning
         to alumni.
       </p>
+      </div>
       <div className='row g-3'>
       <div className='col-md-3 col-6'>
         <div className='card-alumni'>

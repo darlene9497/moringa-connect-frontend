@@ -103,3 +103,14 @@
   .card-body .link-to-page {
     text-decoration: underline;
   }
+
+  @media (max-width: 425px) {
+    .text-alumni {
+      width: 100%;
+      height: 105rem;
+    }
+  
+    .content{
+      padding-left: 2.3rem;
+    }
+  }

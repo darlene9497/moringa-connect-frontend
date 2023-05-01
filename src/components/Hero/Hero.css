@@ -94,8 +94,8 @@
     }
   }
 
-  @media (max-width: 480px) {
-    iframe {
+  @media (max-width: 425px) {
+    .hero-text {
       width: 100%;
       height: 200px;
     }
