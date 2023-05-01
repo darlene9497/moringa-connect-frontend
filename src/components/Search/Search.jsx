@@ -1,92 +1,121 @@
-import React, { useState } from "react";
-import './Search.css'
+import { useEffect, useState } from 'react';
 
-const alumniData = [
-  {
-    name: "Mercy Nzau",
-    email: "mercy.nzau@example.com",
-    cohort: "2021",
-    profilePicture: "https://i.pinimg.com/236x/66/c3/31/66c331a7757b9d87397a05c46a678527.jpg",
-    bio: "Experienced software engineer with expertise in full-stack development, including proficiency in JavaScript, React, and Ruby on Rails.",
-    profession: "Software Engineer"
-  },
-  {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    cohort: "2018",
-    profilePicture: "https://i.pinimg.com/564x/47/91/f0/4791f027dcad85f85883359daf191c5d.jpg",
-    bio: " I'm a UI/UX designer with a passion for creating beautiful, intuitive interfaces that are both user-friendly and visually stunning. ",
-    profession: "UI/UX Designer"
-  },
-  {
-    name: "Amani Imani",
-    email: "amani.imani@example.com",
-    cohort: "2020",
-    profilePicture: "https://i.pinimg.com/236x/0a/de/3e/0ade3ec185e090494d4db87c30be7bac.jpg",
-    bio: "I'm a data scientist with expertise in analyzing complex data sets to identify patterns and insights that can drive business decisions. I have experience in developing statistical models, building predictive algorithms, and performing data mining and machine learning techniques",
-    profession: "Data Scientist"
-  },
-  {
-    name: "Jane Doe",
-    email: "jane.doe@example.com",
-    cohort: "2021",
-    profilePicture: "https://pbs.twimg.com/media/DdaJ12IWsAEu96t?format=jpg&name=small",
-    bio: "Data Scientist with strong math background and 3+ years of experience using predictive modeling, data processing, and data mining algorithms to solve challenging business problems. Involved in Python open source community and passionate about deep reinforcement learning.",
-    profession: "Data Scientist"
-  },
-  {
-    name: "Mercy Johnson",
-    email: "mercy.johnson@example.com",
-    cohort: "2021",
-    profilePicture: "https://pbs.twimg.com/profile_images/1251576944891658240/wumZP7Gr_400x400.jpg",
-    bio: "Experienced software engineer with expertise in full-stack development, including proficiency in JavaScript,Angular, React, and Ruby on Rails,Typescript.",
-    profession: "Software Engineer"
+function SearchAlumni() {
+  const [alumni, setAlumni] = useState([]);
+  const [filteredAlumni, setFilteredAlumni] = useState([]);
+  const [selectedCohort, setSelectedCohort] = useState("");
+  const [searchIconClicked, setSearchIconClicked] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    fetch('/details')
+      .then(response => response.json())
+      .then(data => {
+        setAlumni(data);
+        setFilteredAlumni(data);
+      })
+      .catch(error => console.error(error));
+  }, []);
+
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    const filteredData = alumni.filter((alum) => {
+      return alum.name.toLowerCase().includes(query);
+    });
+    setFilteredAlumni(filteredData);
+    setSearchQuery(query);
+    setSearchIconClicked(false);
   }
-];
 
-const SearchAlumni = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const handleCohortChange = (event) => {
+    setSelectedCohort(event.target.value);
+    if (event.target.value === "All") {
+      setFilteredAlumni(alumni);
+    } else {
+      const filteredData = alumni.filter((alum) => {
+        return alum.cohort === event.target.value;
+      });
+      setFilteredAlumni(filteredData);
+    }
+    setSearchIconClicked(false);
+  }
 
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  const handleSearchIconClick = () => {
+    setSearchIconClicked(true);
+  }
 
-  const filteredAlumni = alumniData.filter((alumni) =>
-    alumni.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const cohortOptions = ["All", "SDF-FT2", "SDF-FT3","SDF-FT4","PDF-FT2","SDF-FT2","CSF-PT1","SDF-FT5","SDF-PT3","PDF-FT3","SDF-PT4","SDF-FT6","PDF-FT4","SDF-FT7","CSF-FI2","SDF-PT5"];
 
   return (
-    <div>
-      <input className="search" style={{width:'15rem', marginLeft:'30px', marginTop: '30px',height: '40px' }} type="text" onChange={handleChange} placeholder="Search alumni" />
-      <table>
-        <thead>
-          <tr>
-            <th>Profile</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Profession</th> 
-            <th>Cohort</th>
-            <th>Bio</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredAlumni.map((alumni) => (
-            <tr key={alumni.email}>
-              <td className="profile-picture">
-                <img src={alumni.profilePicture} alt={alumni.name} />
-              </td>
-              <td>{alumni.name}</td>
-              <td>{alumni.email}</td>
-              <td>{alumni.profession}</td>
-              <td>{alumni.cohort}</td>
-              <td>{alumni.bio}</td>
-            </tr>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-6 text-center mt-4">
+          <h2>Search for an Alumni</h2>
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-md-4">
+          <div className="input-group mt-4">
+            <label className="input-group-text" style={{ height: "40px" }}>
+              Filter by cohort:
+            </label>
+            <select
+              className="form-select"
+              value={selectedCohort}
+              onChange={handleCohortChange}
+            >
+              {cohortOptions.map((cohort) => (
+                <option key={cohort} value={cohort}>
+                  {cohort}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="input-group mt-4">
+            <input
+              type="text"
+              className="form-control"
+              onChange={handleSearch}
+              placeholder="Search a name"
+              style={{ height: "41px" }}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-secondary"
+                type="button"
+                onClick={handleSearchIconClick}
+              >
+                <i style={{ fontSize: "24px" }} className="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-4">
+        {(searchIconClicked || searchQuery === "") &&
+          filteredAlumni.map((alumni) => (
+            <div key={alumni.id} className="col-md-4 mb-4">
+              <div className="card card-lg" style={{width:''}}>
+                <img
+                  src={alumni.image_url}
+                  alt={alumni.name}
+                  className="card-img-top"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{alumni.name}</h5>
+                  <p className="card-text">Email: {alumni.email}</p>
+                  <p className="card-text">Profession: {alumni.profession}</p>
+                  <p className="card-text">Cohort: {alumni.cohort}</p>
+                  <p className="card-text">Bio: {alumni.bio}</p>
+                </div>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
+      </div>
     </div>
   );
 };
 
-export default SearchAlumni; 
-
+export default SearchAlumni;

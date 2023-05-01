@@ -11,6 +11,7 @@ function DetailForm() {
     const [image, setImage] = useState([])
    
 
+    const cohorts = ["SDF-FT2", "SDF-FT3","SDF-FT4","PDF-FT2","SDF-FT2","CSF-PT1","SDF-FT5","SDF-PT3","PDF-FT3","SDF-PT4","SDF-FT6","PDF-FT4","SDF-FT7","CSF-FI2","SDF-PT5"];
     function handleSubmit(event){
         event.preventDefault();
         const data = new FormData();
@@ -60,9 +61,13 @@ function DetailForm() {
           </div>
 
           <div className="form-group mb-3">
-            <label htmlFor="cohort">Cohort</label>
-            <input value={cohort} onChange={(e) => setCohort(e.target.value)} type="text" className="form-control" name="cohort" id="cohort" />
-          </div>
+                <label htmlFor="cohort">Cohort</label>
+                <select value={cohort} onChange={(e) => setCohort(e.target.value)} className="form-control" name="cohort" id="cohort">
+                  {cohorts.map((cohort) => (
+                    <option key={cohort} value={cohort}>{cohort}</option>
+                  ))}
+                </select>
+              </div>
 
           <div className="form-group mb-3">
             <label htmlFor="image">Image</label>

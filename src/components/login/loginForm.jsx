@@ -69,7 +69,7 @@ function LoginForm({setUserSignedIn}) {
                             <Link  to="/signup">
                             <div className="form-row">
                                 <div className="col-lg-7">
-                                <Link to="/login" className ="link-btn" >Don't have an account ? Register Here</Link>
+                                <button className ="link-btn" >Don't have an account ? Register Here</button>
                                 </div>
                             </div>
                             </Link> 
