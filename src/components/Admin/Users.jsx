@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css'
-import SideNav from './SideNav';
 
 export default function Users() {
     const [profiles, setProfiles] = useState([]);
@@ -13,7 +12,6 @@ export default function Users() {
     }, []);
   return (
     <>
-    <SideNav />
     <div class="table-responsive-sm" style={{height: '70vh'}}>
       <h1 className='events-header'>Users</h1>
       <table class="table table-striped table-hover align-middle">

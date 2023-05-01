@@ -1,39 +1,48 @@
-body {
-  background-color: #fbfbfb;
-  }
-  @media (min-width: 991.98px) {
-  main {
-  padding-left: 240px;
-  }
-  }
-  
-  /* Sidebar */
-  .sidebar {
+/* Sidenav styles */
+.sidebar {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  padding: 58px 0 0; /* Height of navbar */
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-  width: 240px;
   z-index: 100;
-  }
-  
-  @media (max-width: 991.98px) {
-  .sidebar {
-  width: 100%;
-  }
-  }
-  .sidebar .active {
-  border-radius: 5px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  }
-  
-  .sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
+  padding: 48px 0;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  transition: all 0.3s;
+}
+
+.sidebar .list-group {
+  margin-bottom: 0;
+}
+
+.sidebar .list-group-item {
+  border-radius: 0;
+  font-weight: 600;
+  color: #333;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.sidebar .list-group-item:hover {
+  background-color: #eee;
+}
+
+.sidebar .list-group-item.active {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    padding-top: 64px;
+    width: 240px;
+    box-shadow: none;
   }
+  
+  .main {
+    margin-left: 240px;
+  }
+}

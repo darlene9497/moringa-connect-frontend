@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import './Admin.css'
 import { Modal } from 'bootstrap';
-import SideNav from "./SideNav";
+// import SideNav from "./SideNav";
 // import bootstrap from 'bootstrap';
 
 
@@ -59,7 +59,7 @@ export default function ProjectList() {
 
   return (
     <>
-    <SideNav />
+    {/* <SideNav /> */}
     <div class="table-responsive-md" style={{height: '70vh'}}>
     <h1 className='events-header'>Projects</h1>
     <table class="table table-striped table-hover">
