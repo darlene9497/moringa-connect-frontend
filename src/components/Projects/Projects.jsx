@@ -25,7 +25,7 @@ export default function Projects() {
       <ProjectsHero />
       
       <div>
-        <div
+        <div className="main-card"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -34,6 +34,7 @@ export default function Projects() {
         >
           <div
             class=" w-75"
+            id="main"
             style={{
               maxWidth: "60%",
               height: "500px",

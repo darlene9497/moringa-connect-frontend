@@ -31,3 +31,16 @@
   align-items: center;
 }
 
+@media (max-width: 425px) {
+  .main-card {
+    margin-top: 4em;
+    /* height: fit-content; */
+  }
+  .main{
+    /* height: 30em; */
+    width: 100%;
+  }
+  .project-hero{
+    height: 40vh;
+  }
+}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css'
+import AddEvent from './AddEvent';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
-  const[selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     fetch('/events')
@@ -12,7 +13,7 @@ export default function Events() {
       .catch(err => console.log(err));
   }, []);
 
-  const handleUpdateClick = (event) =>{
+  const handleUpdateClick = (event) => {
     setSelectedEvent(event);
   }
 
@@ -20,15 +21,15 @@ export default function Events() {
     fetch(`/events/${event.id}`, {
       method: 'DELETE'
     })
-    .then(res => {
-      if (res.ok) {
-        // Update the events state after successful deletion
-        setEvents(events.filter(e => e.id !== event.id));
-      } else {
-        throw new Error('Network response was not ok');
-      }
-    })
-    .catch(err => console.log(err));
+      .then(res => {
+        if (res.ok) {
+          // Update the events state after successful deletion
+          setEvents(events.filter(e => e.id !== event.id));
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(err => console.log(err));
   }
     // Define a function to handle the successful deletion of an event
     const handleSuccessfulDeletion = (deletedEventId) => {
@@ -36,8 +37,36 @@ export default function Events() {
       setEvents(events.filter(e => e.id !== deletedEventId));
     }
 
+  const handleUpdateEvent = () => {
+    const updatedEvent = {
+      ...selectedEvent,
+      name: document.getElementById('event-name').value,
+      description: document.getElementById('event-description').value,
+      date: document.getElementById('event-date').value,
+      venue: document.getElementById('event-venue').value,
+      time: document.getElementById('event-time').value,
+    };
+
+    fetch(`/events/${selectedEvent.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedEvent),
+    })
+      .then(res => res.json())
+      .then(data => {
+        // Replace the updated event in the events array
+        const updatedEvents = events.map(e => e.id === data.id ? data : e);
+        setEvents(updatedEvents);
+        setSelectedEvent(null);
+      })
+      .catch(err => console.log(err));
+  };
+
+
   return (
-    <>
+    <div style={{height: '600vh'}}>
     <div className="container-fluid mt-5">
       <h1 className='events-header'>Events</h1>
       <table className="table table-striped table-hover align-middle">
@@ -60,8 +89,8 @@ export default function Events() {
               <td>{event.venue}</td>
               <td>{event.time}</td>
               <td>
-                <button type="button" className="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
-                <button type="button" className="btn btn-danger" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
+                <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
+                <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
               </td>
             </tr>
           ))}
@@ -70,6 +99,7 @@ export default function Events() {
       <div className='btn-add'>
         <button type="button" className="btn btn-secondary" >Add Event</button>
       </div>
+      <AddEvent />
     </div>
 
     {/* Modal */}
@@ -93,7 +123,7 @@ export default function Events() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="event-date" className="form-label">Date:</label>
-                  <input type="date" className                ="form-control" id="event-date" value={selectedEvent.date} />
+                  <input type="date" className="form-control" id="event-date" value={selectedEvent.date} />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="event-venue" className="form-label">Venue:</label>
@@ -107,7 +137,7 @@ export default function Events() {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-primary" onClick={handleUpdateEvent}>Save changes</button>
             </div>
           </div>
         </div>
@@ -116,5 +146,7 @@ export default function Events() {
     </>
   );
 }
+
+                  
 
 
