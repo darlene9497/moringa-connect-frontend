@@ -37,8 +37,7 @@ export default function Events() {
     // Update the events state after successful deletion
     setEvents(events.filter(e => e.id !== deletedEventId));
   }
-  
-  
+
 
   return (
     < div style={{height: '600vh'}}>
@@ -47,6 +46,7 @@ export default function Events() {
       <table className="table table-striped table-hover align-middle">
         <thead>
           <tr>
+
             {/* <th scope="col">ID</th> */}
             <th scope="col">Name</th>
             <th scope="col">Description</th>
@@ -59,6 +59,7 @@ export default function Events() {
         <tbody className="table-group-divider">
           {events.map((event) => (
             <tr key={event.id}>
+
               {/* <td>{event.id}</td> */}
               <td>{event.name}</td>
               <td>{event.description}</td>
