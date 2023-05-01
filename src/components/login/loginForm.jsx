@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-=======
 import { useNavigate,Link } from "react-router-dom";
->>>>>>> 2245e3400f1558873ccc7fe6b4e2cb3b1bf87ff7
 import './Styles.css'
 
 
