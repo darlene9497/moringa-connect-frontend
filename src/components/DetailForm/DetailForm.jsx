@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function DetailForm() {
     const [name, setName] = useState('') 
     const [email, setEmail] = useState('')
-    const [social_account, setSocialAccount] = useState('')
+    const [bio, setBio] = useState('')
     const [cohort, setCohort] = useState('')
     const [is_active, setIsActive] = useState(true)
     const [privacy, setPrivacy] = useState('')
@@ -18,7 +18,7 @@ function DetailForm() {
 
         data.append("[name]", name)
         data.append("[email]", email)
-        data.append("[social_account]", social_account)
+        data.append("[bio]", bio)
         data.append("[cohort]", cohort)
         data.append("[is_active]", is_active)
         data.append("[privacy]", privacy)
@@ -56,8 +56,8 @@ function DetailForm() {
           </div>
 
           <div className="form-group mb-3">
-            <label htmlFor="social_account">Social Account</label>
-            <input value={social_account} onChange={(e) => setSocialAccount(e.target.value)} type="text" className="form-control" name="social_account" id="social_account" />
+            <label htmlFor="bio">BIo</label>
+            <input value={bio} onChange={(e) => setBio(e.target.value)} type="text" className="form-control" name="bio" id="bio" />
           </div>
 
           <div className="form-group mb-3">

@@ -30,7 +30,11 @@ export default function Events() {
     })
     .catch(err => console.log(err));
   }
-  
+    // Define a function to handle the successful deletion of an event
+    const handleSuccessfulDeletion = (deletedEventId) => {
+      // Update the events state after successful deletion
+      setEvents(events.filter(e => e.id !== deletedEventId));
+    }
 
   return (
     <>
@@ -39,7 +43,6 @@ export default function Events() {
       <table className="table table-striped table-hover align-middle">
         <thead>
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Date</th>
@@ -51,7 +54,6 @@ export default function Events() {
         <tbody className="table-group-divider">
           {events.map((event) => (
             <tr key={event.id}>
-              <td>{event.id}</td>
               <td>{event.name}</td>
               <td>{event.description}</td>
               <td>{event.date}</td>
@@ -59,7 +61,7 @@ export default function Events() {
               <td>{event.time}</td>
               <td>
                 <button type="button" className="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
-                <button type="button" className="btn btn-danger" onClick={() => setEvents(events.filter(e => e.id !== event.id))}><i className="fas fa-trash"></i></button>
+                <button type="button" className="btn btn-danger" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
               </td>
             </tr>
           ))}
