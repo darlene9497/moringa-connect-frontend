@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar';
@@ -12,6 +12,11 @@ import LoginForm from './components/login/loginForm';
 import Home from './components/Home/Home';
 import Search from './components/Search/Search';
 import Dashboard from './components/Dashboard/Dashboard'
+import DetailForm from './components/DetailForm/DetailForm';
+import CreateProfile from './components/Profile/CreateProfile'
+export const AppContext = createContext(null)
+
+
 
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
@@ -31,12 +36,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />
       <Routes>
-        {/* <Route path='/' element={<Demo />} /> */}
-        {/* <Route path='/chapters' element={<Chapters />} /> */}
         <Route path='/alumni' element={<Alumni />} />
-        {/* <Route path='/mentor' element={<Mentor />} /> */}
         <Route path='/projects' element={<Projects />} />
         <Route path='/' element={<Home />}/>
         <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
@@ -44,7 +46,8 @@ export default function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
-        <Route path='/dashboard' element={<Dashboard/>} /> 
+        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/create-profile' element={<DetailForm />} /> 
       </Routes>
     <Footer />
     </BrowserRouter>

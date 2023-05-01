@@ -13,9 +13,9 @@ export default function Community() {
   return (
     <div style={{overflowX: 'hidden'}} id='comm'>
         <BackgroundImagePage />
-        <div className='alumni-list' style={{marginRight:'5rem'}}>
+        <div className='container-fluid'>
         <div className="row">
-            <div className="col-4">
+            <div className="col-12">
               <nav id="navbar-example3" className="h-100 flex-column align-items-stretch pe-4 border-end">
                 <nav className="nav nav-pills flex-column">
                 <a className="nav-link" href="#item-1" style={{fontWeight: 'bold'}}>
@@ -33,12 +33,12 @@ export default function Community() {
                 </nav>
               </nav>
             </div>
-            <div className="col-8">
+            <div className="col-12">
               <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" className="scrollspy-example-2" tabindex="0">
                 <div id="item-1">
-                  <div style={{maxWidth: '80%'}}>
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                    </div>
+                  
+                    <iframe width="100%" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                   
                     <p className='welcome-p'>At Moringa, we take immense pride in our alumni community - a diverse and talented group of individuals who have gone on to achieve great things in the tech industry. We believe that strong professional relationships are key to success, and we're committed to fostering a lifelong connection with our alumni.</p>
                 </div>
                 <div id="item-1-1">
