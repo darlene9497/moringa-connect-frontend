@@ -11,7 +11,7 @@ function DetailForm() {
     const [image, setImage] = useState([])
    
 
-    const cohorts = ["SDF-FT2", "SDF-FT3","SDF-FT4","PDF-FT2","SDF-FT2","CSF-PT1","SDF-FT5","SDF-PT3","PDF-FT3","SDF-PT4","SDF-FT6","PDF-FT4","SDF-FT7","CSF-FI2","SDF-PT5"];
+    const cohorts = ["","SDF-FT2", "SDF-FT3","SDF-FT4","PDF-FT2","SDF-FT2","CSF-PT1","SDF-FT5","SDF-PT3","PDF-FT3","SDF-PT4","SDF-FT6","PDF-FT4","SDF-FT7","CSF-FI2","SDF-PT5"];
     function handleSubmit(event){
         event.preventDefault();
         const data = new FormData();
@@ -47,12 +47,12 @@ function DetailForm() {
           <h3>Personal Information</h3>
           <div className="form-group mb-3">
             <label htmlFor="name">Name</label>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-control" name="name" id="name" />
+            <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-control" name="name" id="name" required/>
           </div>
 
           <div className="form-group mb-3">
             <label htmlFor="email">Email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" name="email" id="email" />
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" name="email" id="email" required/>
           </div>
 
           <div className="form-group mb-3">
@@ -62,7 +62,7 @@ function DetailForm() {
 
           <div className="form-group mb-3">
                 <label htmlFor="cohort">Cohort</label>
-                <select value={cohort} onChange={(e) => setCohort(e.target.value)} className="form-control" name="cohort" id="cohort">
+                <select value={cohort} onChange={(e) => setCohort(e.target.value)} className="form-control" name="cohort" id="cohort" required>
                   {cohorts.map((cohort) => (
                     <option key={cohort} value={cohort}>{cohort}</option>
                   ))}

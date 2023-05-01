@@ -97,7 +97,7 @@ function SearchAlumni() {
         {(searchIconClicked || searchQuery === "") &&
           filteredAlumni.map((alumni) => (
             <div key={alumni.id} className="col-md-4 mb-4">
-              <div className="card card-lg" style={{width:''}}>
+              <div className="card card-lg" style={{width:'20rem'}}>
                 <img
                   src={alumni.image_url}
                   alt={alumni.name}
