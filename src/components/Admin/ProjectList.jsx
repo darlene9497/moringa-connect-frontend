@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Admin.css";
 import { Modal } from "bootstrap";
+import AddProject from "./AddProject";
 
 export default function ProjectList() {
   const [projects, setProjects] = useState([]);
@@ -80,7 +81,7 @@ export default function ProjectList() {
   return (
     <>
       {/* <SideNav /> */}
-      <div className="table-container">
+      <div className="table-responsive-md" style={{height: '140vh'}}>
         <h1 className="events-header">Projects</h1>
         <table className="table table-striped table-hover">
           <thead>
@@ -93,9 +94,10 @@ export default function ProjectList() {
               <th scope="col">Action</th>
             </tr>
           </thead>
+
           {projects.map((project) => (
           <tbody>
-              <tr key={project.id}>
+              <tr key={project.name}>
                 <td>{project.name}</td>
                 <td>{project.description}</td>
                 <td>{project.amount}</td>
@@ -116,10 +118,9 @@ export default function ProjectList() {
                     className="btn red-btn"
                     onClick={() => handleProjectDelete(project.id)}
                   >
-                    <i className="fas fa-trash-alt"></i>
+                    Delete
                   </button>
                 </td>
-              </tr>
               {/* Modal */}
               <div
                 className="modal fade"
@@ -261,9 +262,13 @@ export default function ProjectList() {
                   </div>
                 </div>
               </div>
+              </tr>
             </tbody>
           ))}
-        </table>
+         </table>
+        <div className='btn-add'>
+      <AddProject />
+      </div>
       </div>
     </>
   )

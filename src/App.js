@@ -13,14 +13,12 @@ import Home from './components/Home/Home';
 import Search from './components/Search/Search';
 import Dashboard from './components/Dashboard/Dashboard'
 import DetailForm from './components/DetailForm/DetailForm';
-import CreateProfile from './components/Profile/CreateProfile'
 import Admin from './components/Admin/Admin';
 import Events from './components/Admin/Events';
 import ProjectList from './components/Admin/ProjectList';
 import Users from './components/Admin/Users'
+import EditDetail from './components/DetailForm/EditDetail';
 export const AppContext = createContext(null)
-
-
 
 export default function App() {
   const [userSignedIn, setUserSignedIn] = useState(false);
@@ -50,13 +48,13 @@ export default function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/dashboard' element={<Dashboard userSignedIn={userSignedIn} />} />
         <Route path='/create-profile' element={<DetailForm />} /> 
         <Route path='/admin' element={<Admin />} /> 
         <Route path='/eventlist' element={<Events />} /> 
         <Route path='/projectlist' element={<ProjectList />} /> 
         <Route path='/userlist' element={<Users />} /> 
-        
+        <Route path='editprofile' element={<EditDetail />} />
       </Routes>
     <Footer />
     </BrowserRouter>

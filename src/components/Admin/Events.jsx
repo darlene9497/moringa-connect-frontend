@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css'
+import AddEvent from './AddEvent';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -30,12 +31,11 @@ export default function Events() {
       })
       .catch(err => console.log(err));
   }
-
-  // Define a function to handle the successful deletion of an event
-  const handleSuccessfulDeletion = (deletedEventId) => {
-    // Update the events state after successful deletion
-    setEvents(events.filter(e => e.id !== deletedEventId));
-  }
+    // Define a function to handle the successful deletion of an event
+    const handleSuccessfulDeletion = (deletedEventId) => {
+      // Update the events state after successful deletion
+      setEvents(events.filter(e => e.id !== deletedEventId));
+    }
 
   const handleUpdateEvent = () => {
     const updatedEvent = {
@@ -64,76 +64,86 @@ export default function Events() {
       .catch(err => console.log(err));
   };
 
+
   return (
-    <>
-      <div className="container-fluid mt-5">
-        <h1 className='events-header'>Events</h1>
-        <table className="table table-striped table-hover align-middle">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Date</th>
-              <th scope="col">Venue</th>
-              <th scope="col">Time</th>
-              <th scope="col">Action</th>
+    < div style={{height: '600vh'}}>
+    <div className="container-fluid mt-5">
+      <h1 className='events-header'>Events</h1>
+      <table className="table table-striped table-hover align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Venue</th>
+            <th scope="col">Time</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          {events.map((event) => (
+            <tr key={event.id}>
+              <td>{event.name}</td>
+              <td>{event.description}</td>
+              <td>{event.date}</td>
+              <td>{event.venue}</td>
+              <td>{event.time}</td>
+              <td>
+                <button type="button" className="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
+                <button type="button" className="btn btn-danger" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
+              </td>
             </tr>
-          </thead>
-          <tbody className="table-group-divider">
-            {events.map((event) => (
-              <tr key={event.id}>
-                <td>{event.name}</td>
-                <td>{event.description}</td>
-                <td>{event.date}</td>
-                <td>{event.venue}</td>
-                <td>{event.time}</td>
-                <td>
-                  <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => handleUpdateClick(event)}>Update</button>
-                  <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash-alt"></i></button>
-                    {/* Modal */}
-                    <div className="modal fade" id={`exampleModal-${event.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <h5 className="modal-title" id="exampleModalLabel">Update Event</h5>
-                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                          <div className="form-floating mb-3">
-                            <input type="text" className="form-control" id="event-name" placeholder="Name" defaultValue={selectedEvent?.name} />
-                            <label htmlFor="event-name">Name</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input type="text" className="form-control" id="event-description" placeholder="Description" defaultValue={selectedEvent?.description} />
-                            <label htmlFor="event-description">Description</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input type="date" className="form-control" id="event-date" placeholder="Date" defaultValue={selectedEvent?.date} />
-                            <label htmlFor="event-date">Date</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input type="text" className="form-control" id="event-venue" placeholder="Venue" defaultValue={selectedEvent?.venue} />
-                            <label htmlFor="event-venue">Venue</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input type="time" className="form-control" id="event-time" placeholder="Time" defaultValue={selectedEvent?.time} />
-                            <label htmlFor="event-time">Time</label>
-                          </div>
-                        </div>
-                        <div className="modal-footer">
-                          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" className="btn btn-primary" onClick={handleUpdateEvent}>Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
+      <div className='btn-add'>
+        <button type="button" className="btn btn-secondary" >Add Event</button>
       </div>
-    </>
+      <AddEvent />
+    </div>
+
+    {/* Modal */}
+    {selectedEvent && (
+      <div className="modal fade" id={`exampleModal-${selectedEvent.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Update Event Details</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="event-name" className="form-label">Event name:</label>
+                  <input type="text" className="form-control" id="event-name" value={selectedEvent.name} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="event-description" className="form-label">Description:</label>
+                  <textarea className="form-control" id="event-description" rows="3" value={selectedEvent.description}></textarea>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="event-date" className="form-label">Date:</label>
+                  <input type="date" className                ="form-control" id="event-date" value={selectedEvent.date} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="event-venue" className="form-label">Venue:</label>
+                  <input type="text" className="form-control" id="event-venue" value={selectedEvent.venue} />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="event-time" className="form-label">Time:</label>
+                  <input type="time" className="form-control" id="event-time" value={selectedEvent.time} />
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </div>
   );
 }
 
