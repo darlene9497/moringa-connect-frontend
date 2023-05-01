@@ -41,17 +41,27 @@ const NavBar = (props) => {
                   </Link>
                 </li>
 
+
+
                 <li className="nav-item ">
-                  <Link to="/admin" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
-                    Admin
-                  </Link>
+                  {
+                    props.userSignedIn.is_admin ? (
+                      <Link to="/admin" className="nav-link active me-4" aria-current="page" style={{ color: '#00004d' }}>
+                        Admin
+                      </Link>
+                    ):(
+                      <div> </div>
+                    )
+                  }
+                  
+                </li>
+
+                <li className="nav-item mt-6 ms-0">
+                    <small>{props.userSignedIn.email}</small>
                 </li>
 
                 <li className="nav-item mt-6 me-0">
                     <Profile setUserSignedIn={props.setUserSignedIn} />
-                </li>
-                <li className="nav-item mt-6 ms-0">
-                    <small>{props.userSignedIn.email}</small>
                 </li>
                 
               </ul>
