@@ -66,7 +66,7 @@ export default function Events() {
 
 
   return (
-    < div style={{height: '600vh'}}>
+    <div style={{height: '600vh'}}>
     <div className="container-fluid mt-5">
       <h1 className='events-header'>Events</h1>
       <table className="table table-striped table-hover align-middle">
@@ -89,8 +89,8 @@ export default function Events() {
               <td>{event.venue}</td>
               <td>{event.time}</td>
               <td>
-                <button type="button" className="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
-                <button type="button" className="btn btn-danger" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
+                <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
+                <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
               </td>
             </tr>
           ))}
@@ -123,7 +123,7 @@ export default function Events() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="event-date" className="form-label">Date:</label>
-                  <input type="date" className                ="form-control" id="event-date" value={selectedEvent.date} />
+                  <input type="date" className="form-control" id="event-date" value={selectedEvent.date} />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="event-venue" className="form-label">Venue:</label>
@@ -137,13 +137,13 @@ export default function Events() {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-primary" onClick={handleUpdateEvent}>Save changes</button>
             </div>
           </div>
         </div>
       </div>
     )}
-    </div>
+    </>
   );
 }
 
