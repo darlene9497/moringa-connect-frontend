@@ -3,17 +3,27 @@ import ProjectsHero from "./ProjectsHero";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
+  // paybill & acc_no modal
+  const [selectedProjectPay, setSelectedProjectPay] = useState("");
+  const [selectedProjectAccNo, setSelectedProjectAccNo] = useState("");  
+
+  
 
   useEffect(() => {
     fetch("/projects")
       .then((res) => res.json())
-      .then((data) => setProjects(data))
+      .then((data) => {
+        setProjects(data);
+        setSelectedProjectPay(data[0].paybill);
+        setSelectedProjectAccNo(data[0].acc_no);
+      })
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
 
   return (
-    <div className="projects" style={{ overflowX: "hidden" }}>
+    <div className="projects">
       <ProjectsHero />
+      
       <div>
         <div
           style={{
@@ -39,9 +49,8 @@ export default function Projects() {
                   src="https://cdn-icons-png.flaticon.com/512/4590/4590171.png"
                   class="img-fluid rounded-start"
                   alt="..."
-                  width="1000"
-                  height="1000"
-                  style={{}}
+                  width="100"
+                  height="100"
                 />
               </div>
               <div class="col-md-8">
@@ -77,11 +86,6 @@ export default function Projects() {
       <div className="my-cards" style={{ backgroundColor: "#f2f2f2" }}>
         <div
           class="row row-cols-1 row-cols-md-3 g-4"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
           {projects.map((project) => (
             <div class="card" style={{ width: "18rem" }}>
@@ -169,15 +173,18 @@ export default function Projects() {
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <label for="Enter amount" class="form-label">
-                    Paybill
+                  <label for="Enter amount" class="form-label" >
+                    Paybill:
                   </label>
                   <br />
+                  {selectedProjectPay}
                 </div>
                 <div class="mb-3 form-check">
                   <label for="Enter amount" class="form-label">
-                    Account Number
+                    Account Number:
                   </label>
+                  <br />
+                  {selectedProjectAccNo}
                 </div>
                 <div class="modal-footer">
                   <button
@@ -189,6 +196,7 @@ export default function Projects() {
                   </button>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
