@@ -1,0 +1,13 @@
+.events-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff5c33;
+    font-weight: bold;
+}
+.btn-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f2f2f2;
+}
