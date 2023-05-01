@@ -66,21 +66,13 @@ function LoginForm({setUserSignedIn}) {
                                     <button type="submit" className="login-btn" >Login</button>
                                 </div>
                             </div>
-<<<<<<< HEAD
-=======
                             <Link  to="/signup">
->>>>>>> 2245e3400f1558873ccc7fe6b4e2cb3b1bf87ff7
                             <div className="form-row">
                                 <div className="col-lg-7">
                                 <Link to="/login" className ="link-btn" >Don't have an account ? Register Here</Link>
                                 </div>
                             </div>
-<<<<<<< HEAD
-=======
-                            </Link>
->>>>>>> 2245e3400f1558873ccc7fe6b4e2cb3b1bf87ff7
-                            
-                            
+                            </Link> 
                         </form>
                         {errorMessage && <p>{errorMessage}</p>}
                     </div>
