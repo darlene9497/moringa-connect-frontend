@@ -13,7 +13,7 @@ const AdminDashboard = () => {
                 <h3 className="mb-0">Users</h3>
               </CardHeader>
               <CardBody>
-                <p className="mb-0">Manage user accounts and access.</p>
+                <p className="mb-0">Manage user accounts and access to the website.</p>
               </CardBody>
             </Card>
           </Link>

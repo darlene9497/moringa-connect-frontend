@@ -8,6 +8,18 @@
     margin-top: 2rem;
   }
   
+  .custom-button {
+    background-color: white !important;
+    color: #ff5c33 !important;
+    margin-bottom: 10px !important;
+  }  
+
+  .red-btn {
+    background-color: red !important;
+    border-color: red;
+    color: #fff;
+  }  
+  
   .table-group-divider > tr:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
