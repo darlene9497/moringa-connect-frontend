@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import './Admin.css'
 import { Modal } from 'bootstrap';
+import AddProject from "./AddProject";
 // import SideNav from "./SideNav";
 // import bootstrap from 'bootstrap';
 
@@ -60,12 +61,12 @@ export default function ProjectList() {
   return (
     <>
     {/* <SideNav /> */}
-    <div class="table-responsive-md" style={{height: '70vh'}}>
+    <div class="table-responsive-md" style={{height: '140vh'}}>
     <h1 className='events-header'>Projects</h1>
     <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            {/* <th scope="col">ID</th> */}
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Amount</th>
@@ -77,7 +78,7 @@ export default function ProjectList() {
         {projects.map((project) =>(
         <tbody>
           <tr key={project.name}>
-            <th scope="row">{project.id}</th>
+            {/* <th scope="row">{project.id}</th> */}
             <td>{project.name}</td>
             <td>{project.description}</td>
             <td>{project.amount}</td>
@@ -144,9 +145,10 @@ export default function ProjectList() {
         </tbody>
         ))}
       </table>
-      <div className='btn-add'>
+      {/* <div className='btn-add'>
         <button type="button" class="btn btn-secondary" >Add Project</button>
-      </div>
+      </div> */}
+      <AddProject />
       
     </div>
     </>

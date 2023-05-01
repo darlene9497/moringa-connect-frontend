@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css'
+import AddEvent from './AddEvent';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -22,27 +23,31 @@ export default function Events() {
     })
     .then(res => {
       if (res.ok) {
-        // Update the events state after successful deletion
-        setEvents(events.filter(e => e.id !== event.id));
+        // Call a function to handle the successful deletion of the event
+        handleSuccessfulDeletion(event.id);
       } else {
         throw new Error('Network response was not ok');
       }
     })
     .catch(err => console.log(err));
   }
-    // Define a function to handle the successful deletion of an event
-    const handleSuccessfulDeletion = (deletedEventId) => {
-      // Update the events state after successful deletion
-      setEvents(events.filter(e => e.id !== deletedEventId));
-    }
+  
+  // Define a function to handle the successful deletion of an event
+  const handleSuccessfulDeletion = (deletedEventId) => {
+    // Update the events state after successful deletion
+    setEvents(events.filter(e => e.id !== deletedEventId));
+  }
+
 
   return (
-    <>
+    < div style={{height: '600vh'}}>
     <div className="container-fluid mt-5">
       <h1 className='events-header'>Events</h1>
       <table className="table table-striped table-hover align-middle">
         <thead>
           <tr>
+
+            {/* <th scope="col">ID</th> */}
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Date</th>
@@ -54,6 +59,8 @@ export default function Events() {
         <tbody className="table-group-divider">
           {events.map((event) => (
             <tr key={event.id}>
+
+              {/* <td>{event.id}</td> */}
               <td>{event.name}</td>
               <td>{event.description}</td>
               <td>{event.date}</td>
@@ -67,9 +74,10 @@ export default function Events() {
           ))}
         </tbody>
       </table>
-      <div className='btn-add'>
+      {/* <div className='btn-add'>
         <button type="button" className="btn btn-secondary" >Add Event</button>
-      </div>
+      </div> */}
+      <AddEvent />
     </div>
 
     {/* Modal */}
@@ -113,7 +121,7 @@ export default function Events() {
         </div>
       </div>
     )}
-    </>
+    </div>
   );
 }
 
