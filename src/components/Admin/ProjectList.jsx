@@ -94,7 +94,6 @@ export default function ProjectList() {
               <th scope="col">Action</th>
             </tr>
           </thead>
-
           {projects.map((project) => (
           <tbody>
               <tr key={project.name}>

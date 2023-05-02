@@ -96,9 +96,6 @@ export default function Events() {
           ))}
         </tbody>
       </table>
-      <div className='btn-add'>
-        <button type="button" className="btn btn-secondary" >Add Event</button>
-      </div>
       <AddEvent />
     </div>
 
@@ -143,10 +140,6 @@ export default function Events() {
         </div>
       </div>
     )}
-    </>
+    </div>
   );
 }
-
-                  
-
-
