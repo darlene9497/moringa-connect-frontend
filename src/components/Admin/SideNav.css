@@ -1,0 +1,48 @@
+/* Sidenav styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  transition: all 0.3s;
+}
+
+.sidebar .list-group {
+  margin-bottom: 0;
+}
+
+.sidebar .list-group-item {
+  border-radius: 0;
+  font-weight: 600;
+  color: #333;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.sidebar .list-group-item:hover {
+  background-color: #eee;
+}
+
+.sidebar .list-group-item.active {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    padding-top: 64px;
+    width: 240px;
+    box-shadow: none;
+  }
+  
+  .main {
+    margin-left: 240px;
+  }
+}

@@ -59,3 +59,9 @@
     font-weight: bold;
   }
   
+  @media (max-width: 425px) {
+    .cardcard {
+      width: 120%;
+      height: 105rem;
+    }
+}

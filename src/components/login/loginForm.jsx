@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Styles.css'
 
 
@@ -68,12 +69,10 @@ function LoginForm({setUserSignedIn}) {
                             <Link  to="/signup">
                             <div className="form-row">
                                 <div className="col-lg-7">
-                                <Link to="/login" className ="link-btn" >Don't have an account ? Register Here</Link>
+                                <button className ="link-btn" >Don't have an account ? Register Here</button>
                                 </div>
                             </div>
-                            </Link>
-                            
-                            
+                            </Link> 
                         </form>
                         {errorMessage && <p>{errorMessage}</p>}
                     </div>

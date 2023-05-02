@@ -13,32 +13,35 @@ export default function Community() {
   return (
     <div style={{overflowX: 'hidden'}} id='comm'>
         <BackgroundImagePage />
-        <div className='container-fluid'>
+        {/* <div className='container-fluid'> */}
         <div className="row">
-            <div className="col-12">
-              <nav id="navbar-example3" className="h-100 flex-column align-items-stretch pe-4 border-end">
-                <nav className="nav nav-pills flex-column">
-                <a className="nav-link" href="#item-1" style={{fontWeight: 'bold'}}>
+        
+            {/* <div className="col-2"> */}
+              {/* <nav id="navbar-example3" className="navbar navbar-light bg-light"> */}
+                {/* <nav className="nav nav-pills flex-row">
+                
+
+                <div id="list-example" class="list-group">
+                  <a className="navbar-brand" href="#item-1" style={{fontWeight: 'bold'}}>
                   <span style={{color: '#FF5C33'}}>Discover</span>
                   <span style={{color: '#4D4D00'}}>.Grow.</span>
                   <span style={{color: '#007ACC'}}>Transform</span>
                 </a>
-                  <a className="nav-link" href="#item-1">Meet our Alumni</a>
-                    <a className="nav-link" href="#item-1-1">Our communities</a>
-                    <a className="nav-link" href="#item-2">Alumni Relations</a>
-                    <a className="nav-link" href="#item-3">Volunteer Opportunities</a>
-                    <a className="nav-link" href="#item-4">FAQs</a>
-                    <a className="nav-link" href="#item-5">Stay Connected</a>
-                    <a className="nav-link" href="#events">Events</a>
-                </nav>
-              </nav>
-            </div>
-            <div className="col-12">
-              <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" className="scrollspy-example-2" tabindex="0">
+                  <a className="list-group-item list-group-item-action" href="#item-1">Meet our Alumni</a>
+                    <a className="list-group-item list-group-item-action" href="#item-1-1">Our communities</a>
+                    <a className="list-group-item list-group-item-action" href="#item-2">Alumni Relations</a>
+                    <a className="list-group-item list-group-item-action" href="#item-3">Volunteer Opportunities</a>
+                    <a className="list-group-item list-group-item-action" href="#item-4">FAQs</a>
+                    <a className="list-group-item list-group-item-action" href="#item-5">Stay Connected</a>
+                    <a className="list-group-item list-group-item-action" href="#events">Events</a>
+                </div>
+                </nav> */}
+              {/* </nav> */}
+            {/* </div> */}
+            <div className="col-8">
+            <div data-spy="scroll" data-bs-target="#navbar-example3" data-offset="0">
                 <div id="item-1">
-                  
-                    <iframe width="100%" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                   
+                    <iframe width="80%" src="https://www.youtube.com/embed/eTmiWC3-L2E?list=PLSEr6vQWk10F-n5x6ps-TJgOWObECLwfO" title="Meet Moringa Alumni!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                     <p className='welcome-p'>At Moringa, we take immense pride in our alumni community - a diverse and talented group of individuals who have gone on to achieve great things in the tech industry. We believe that strong professional relationships are key to success, and we're committed to fostering a lifelong connection with our alumni.</p>
                 </div>
                 <div id="item-1-1">
@@ -126,11 +129,11 @@ export default function Community() {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
 
         {/* Extra links */}
-        <div className='links' style={{backgroundColor: '#f2f2f2', paddingTop: '7rem', paddingBottom: '8em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div className='links' style={{backgroundColor: '#f2f2f2', paddingBottom: '5em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <div className="row  g-4 d-flex justify-content-center">
             <div className="col" style={{width: '35rem', height:'15rem', marginBottom: '3rem'}}>
               <div className="card h-100">
@@ -152,7 +155,7 @@ export default function Community() {
           </div>
         </div>
         {/* events */}
-          <div className="container-fluid" style={{justifyContent: 'center', marginLeft: '3em', marginTop: '10em', paddingBottom: '2em' }} id='events'>
+          <div className="container-fluid " style={{marginLeft: '3em', marginTop: '5em'}} id='events'>
             <h1 style={{ color: '#00004D', fontWeight: 'bold'}}>Upcoming alumni <br />events</h1>         
             <p>We’re working hard to bring your search<br /> for alumni events under one roof.<br /> Until then, you can browse alumni events here:</p>
           </div>
@@ -161,12 +164,12 @@ export default function Community() {
           {/* slice first 5 events */}
           {events.slice(0, 5).map((event) => (
             <div className='mb-3'>
-                <div className='row g-0' style={{ display: "flex", justifyContent: "center"}}>
-                  <div key={event.id} className="card-container" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '4em'}}>
-                  <div className="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
+                <div className='row g-0'>
+                  <div key={event.id} className="card-container d-flex justify-content-center">
+                  <div className="card mb-3">
                       <div className="row g-0">
                           <div className="col-md-4">
-                            <img src={event.image} className="img-fluid rounded-start" alt="..."  width='80%' />
+                            <img src={event.image} className="img-fluid rounded-start" alt="..."  width='50%' />
                         </div>
                         <div className="col-md-8">
                           <div className="card-body">

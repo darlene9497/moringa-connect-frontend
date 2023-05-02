@@ -77,10 +77,6 @@ const Profile = (props) => {
                 Create Profile
               </Link>
               <div className="dropdown-divider"></div>
-              <Link to="/dashboard" className="dropdown-item" style={{ color: 'inherit' }}>
-                Dashboard
-              </Link>
-              <div className="dropdown-divider"></div>
               <div className="dropdown-item" style={{ cursor: 'pointer' }} onClick={handleLogoutClick}>
                 Logout
               </div>
