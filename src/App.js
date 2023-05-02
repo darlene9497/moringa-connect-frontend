@@ -11,7 +11,6 @@ import SignUp from './components/signup/signup';
 import LoginForm from './components/login/loginForm';
 import Home from './components/Home/Home';
 import Search from './components/Search/Search';
-import Dashboard from './components/Dashboard/Dashboard'
 import DetailForm from './components/DetailForm/DetailForm';
 import Admin from './components/Admin/Admin';
 import Events from './components/Admin/Events';
@@ -48,7 +47,6 @@ export default function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
-        <Route path='/dashboard' element={<Dashboard userSignedIn={userSignedIn} />} />
         <Route path='/create-profile' element={<DetailForm />} /> 
         <Route path='/admin' element={<Admin />} /> 
         <Route path='/eventlist' element={<Events />} /> 
