@@ -101,6 +101,7 @@ function SearchAlumni() {
                 <img
                   src={alumni.image_url}
                   alt={alumni.name}
+                  style={{ flex: "1 1 auto", objectFit: "cover" }}
                   className="card-img-top"
                 />
                 <div className="card-body">
