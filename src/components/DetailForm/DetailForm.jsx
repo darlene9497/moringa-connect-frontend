@@ -103,17 +103,6 @@ function DetailForm() {
                 </select>
               </div>
               <div className="form-group mb-3">
-                <label htmlFor="profession">Profession</label>
-                <input
-                  value={profession}
-                  onChange={(e) => setProfession(e.target.value)}
-                  type="text"
-                  className="form-control"
-                  name="profession"
-                  id="profession"
-                />
-              </div>
-              <div className="form-group mb-3">
                 <label htmlFor="image">Image</label>
                 <input
                   onChange={(e) => setImage(e.target.files[0])}

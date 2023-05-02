@@ -93,37 +93,44 @@ function SearchAlumni() {
           </div>
         </div>
       </div>
-  <div className="row">
-    {(searchIconClicked || searchQuery === "") &&
-      filteredAlumni.map((alumni) => (
-        <div key={alumni.id} className="col-md-4 mb-4">
-          <div className="card card-lg" style={{width:'20rem'}}>
-            <img
-              src={alumni.image_url}
-              alt={alumni.name}
-              className="card-img-top"
-            />
-            <div className="card-body">
-              <h5 className="card-title">{alumni.name}</h5>
-              <p className="card-text">Email: {alumni.email}</p>
-              <p className="card-text">Profession: {alumni.profession}</p>
-              <p className="card-text">Cohort: {alumni.cohort}</p>
-              <p className="card-text">Bio: {alumni.bio}</p>
-               {alumni.is_active ? (
-    <p className="card-text">
-      <i style={{ color: "green", fontSize: "24px" }} className="fa fa-check-circle"></i> Active
-    </p>
-  ) : (
-    <p className="card-text">
-      <i style={{ color: "red", fontSize: "24px" }} className="fa fa-times-circle"></i> Not active
-    </p>
-  )}
+      <div className="row">
+        {(searchIconClicked || searchQuery === "") &&
+          filteredAlumni.map((alumni) => (
+            <div key={alumni.id} className="col-md-4 mb-4">
+              <div className="card card-lg" style={{ width: "20rem" }}>
+                <img
+                  src={alumni.image_url}
+                  alt={alumni.name}
+                  className="card-img-top"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{alumni.name}</h5>
+                  <p className="card-text">Email: {alumni.email}</p>
+                  <p className="card-text">Cohort: {alumni.cohort}</p>
+                  <p className="card-text">Bio: {alumni.bio}</p>
+                  {alumni.is_active ? (
+                    <p className="card-text">
+                      <i
+                        style={{ color: "green", fontSize: "24px" }}
+                        className="fa fa-check-circle"
+                      ></i>{" "}
+                      Active
+                    </p>
+                  ) : (
+                    <p className="card-text">
+                      <i
+                        style={{ color: "red", fontSize: "24px" }}
+                        className="fa fa-times-circle"
+                      ></i>{" "}
+                      Not active
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
-  </div>
-</div>
+          ))}
+      </div>
+    </div>
   );
 };
 
