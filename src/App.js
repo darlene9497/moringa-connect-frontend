@@ -47,7 +47,7 @@ export default function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/community/eventsa' element={<EventsA />} />  
         <Route path='/search-alumni' element={<Search />} />
-        <Route path='/create-profile' element={<DetailForm />} /> 
+        <Route path='/creat-profile' element={<DetailForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} /> 
         <Route path='/admin' element={<Admin />} /> 
         <Route path='/eventlist' element={<Events />} /> 
         <Route path='/projectlist' element={<ProjectList />} /> 
