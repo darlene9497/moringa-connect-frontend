@@ -4,7 +4,7 @@ export default function AddEvent() {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [image_url, setImageUrl] = useState('');
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
   const [time, setTime] = useState('');
@@ -12,7 +12,7 @@ export default function AddEvent() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const eventDetails = {name, description, image, date, venue, time}
+    const eventDetails = {name, description, image_url, date, venue, time}
 
     fetch('/events', {
         method: 'POST',
@@ -49,7 +49,7 @@ export default function AddEvent() {
             <span>
                 image url
             </span>
-            <input type="text" className='form-control' value={image} onChange={(event) => setImage(event.target.value)} />
+            <input type="text" className='form-control' value={image_url} onChange={(event) => setImageUrl(event.target.value)} />
         </div>
 
         <div className="form-group my-5">

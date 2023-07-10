@@ -1,177 +1,143 @@
-import React, { useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
-import './Styles.css'
+import React from "react";
+import {useContext, useState} from 'react'
+import { AuthContext } from "../AuthContext/AuthContext";
+import { Link } from "react-router-dom";
 
-function SignUp({setUserSignedIn}) {
-    const [name, setName] = useState('') 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // const [bio, setBio] = useState('')
-    const [cohort, setCohort] = useState('')
-    const [is_active, setIsActive] = useState(true)
-    const [image, setImage] = useState([])
+function Signup () {
 
+    const {register} = useContext(AuthContext)
 
-  const navigate = useNavigate()
-  const [login, setLogin] = useState('')
-  const [errors, setErrors] = useState([])
-
-  function handleSubmit(event){
-    event.preventDefault();
-    const data = new FormData();
-
-    data.append("[name]", name)
-    data.append("[email]", email)
-    data.append("[password]", password)
-    // data.append("[bio]", bio)
-    data.append("[cohort]", cohort)
-    data.append("[is_active]", is_active)
-    data.append("[image]", image)
-
-    submitToApi(data)
-}
-
-
-  const submitToApi = (data) => {
-    fetch('/users', {
-        method: 'POST',
-        body: data
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
-    }).then((res)=> {
-        if(res.ok){
-            navigate('/', { replace: true })
-            res.json().then(setUserSignedIn)
-        } else {
-            res.json().then(e => setErrors(Object.entries(e.error).flat()))
-        }
-    })
+    const [email, setEmail] = useState('')
+    const [first_name, setFirstName]= useState('')
+    const [last_name, setLastName]= useState('')
+    const [is_admin, setIsAdmin] = useState(false)
+    const [is_alumni , setIsAlumni] = useState(false);
+    const [cohort , setCohort] = useState("");
+    const [password, setPassword] = useState('')
     
-  };
 
-  return (
-    <div className="container ps-0" style={{minHeight: "100vh"}}>
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        register(first_name, last_name, email, is_admin, is_alumni, cohort, password)
 
-    <section className="Form ps-0 mt-5">
-        <div className="container">
-            <div className="row no-gutters">
-                <div className="col-lg-5">
-                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/78c4af118001599.608076cf95739.jpg" alt="" className="img-fluid login-img" />
-                </div>
-                <div className="col-lg-7 px-5 pt-5">
-                    <h1 className="font-weight-bold py-3">Moringa Connect</h1>
-                    <h4>Create New Account</h4>
-                    <form onSubmit={(e) => handleSubmit(e)}>
-                        <div className="row">
-                            <div className="col-md-6">
-                            <h3>Personal Information</h3>
-                            <div className="form-group mb-3">
-                                <label htmlFor="name">Name</label>
-                                <input
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                type="text"
-                                className="form-control"
-                                name="name"
-                                id="name"
-                                required
-                                />
-                            </div>
+    }
 
-                            <div className="form-group mb-3">
-                                <label htmlFor="email">Email</label>
-                                <input
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                type="email"
-                                className="form-control"
-                                name="email"
-                                id="email"
-                                required
-                                />
-                            </div>
 
-                            <div className="form-group mb-3">
-                                <label htmlFor="password">password</label>
-                                <input
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                type="password"
-                                className="form-control"
-                                name="password"
-                                id="password"
-                                required
-                                />
-                            </div>
-
-                            {/* <div className="form-group mb-3">
-                                <label htmlFor="bio">Bio</label>
-                                <input
-                                value={bio}
-                                onChange={(e) => setBio(e.target.value)}
-                                type="text"
-                                className="form-control"
-                                name="bio"
-                                id="bio"
-                                />
-                            </div> */}
-
-                            <div className="form-group mb-3">
-                                <label htmlFor="cohort">Cohort</label>
-                                <input
-                                value={cohort}
-                                onChange={(e) => setCohort(e.target.value)}
-                                type="text"
-                                className="form-control"
-                                name="cohort"
-                                id="cohort"
-                                required
-                                />
-                                
-                            </div>
-
-                            <div className="form-group mb-3">
-                                {/* <label htmlFor="is_active">is_active</label> */}
-                                <input
-                                value={is_active}
-                                onChange={(e) => setIsActive(e.target.value)}
-                                type="hidden"
-                                className="form-control"
-                                name="is_active"
-                                id="is_active"
-                                required
-                                />
-                                
-                            </div>
-
-                            <div className="form-group mb-3">
-                                <label htmlFor="image">Choose Profile Image</label>
-                                <input
-                                onChange={(e) => setImage(e.target.files[0])}
-                                type="file"
-                                className="form-control-file"
-                                name="image"
-                                id="image"
-                                />
-                            </div>
-                            </div>
-
-                            <div className="col-md-6">
-                            <button type="submit" className="btn btn-primary">
-                                Create
-                            </button>
-                            </div>
-                        </div>
-                    </form>
-                    {/* {errorMessage && <p>{errorMessage}</p>} */}
-                </div>
+    return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', backgroundColor: '#F3F4F6' }}>
+        <form onSubmit={handleSubmit} className="flex flex-col bg-white p-10 rounded-lg shadow-lg">
+            <h1 className="text-2xl font-bold  text-center">Sign Up</h1>
+            <p className="text-gray-500 mb-3 text-center">Create an account</p>
+            <div className="mb-4">
+                <label htmlFor="first_name" className="block mb-1 font-medium text-gray-600">First Name</label>
+                <input
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="name"
+                    id="first_name"
+                    name="first_name"
+                    placeholder="First Name"
+                    
+                />
             </div>
-        </div>
-    </section>
-  
-</div>
-  );
+            <div className="mb-4">
+                <label htmlFor="last_name" className="block mb-1 font-medium text-gray-600">Last Name</label>
+                <input
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="name"
+                    id="last_name"
+                    name="last_name"
+                    placeholder="Last Name"
+                   
+                />
+            </div>
+            
+            <div className="mb-4">
+                <label htmlFor="email" className="block mb-1 font-medium text-gray-600">Email</label>
+                <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    
+                />
+            </div>
+
+            <div className="mb-4">
+                <label htmlFor="is_admin" className="block mb-1 font-medium text-gray-600">IsAdmin</label>
+                <input
+                    value={is_admin}
+                    onChange={(e) => setIsAdmin(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="text"
+                    id="is_admin"
+                    name="is_admin"
+                    placeholder="Email"
+                   
+                />
+            </div>
+
+            <div className="mb-4">
+                <label htmlFor="is_alumni" className="block mb-1 font-medium text-gray-600">Is Alumni</label>
+                <input
+                    value={is_alumni}
+                    onChange={(e) => setIsAlumni(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="text"
+                    id="is_alumni"
+                    name="is_alumni"
+                    placeholder="Name"
+                    
+                />
+            </div>
+
+            <div className="mb-4">
+                <label htmlFor="cohort" className="block mb-1 font-medium text-gray-600">Cohort</label>
+                <input
+                    value={cohort}
+                    onChange={(e) => setCohort(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="text"
+                    id="cohort"
+                    name="cohort"
+                    placeholder="Cohort"
+                    
+                />
+            </div>
+
+            
+
+            <div className="mb-4">
+                <label htmlFor="password" className="block mb-1 font-medium text-gray-600">Password</label>
+                <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    
+                />
+            </div>
+            <button
+                className="bg-black hover:bg-grey-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+            >
+                Sign Up
+            </button>
+            <p className="text-gray-600 text-center mt-5">
+            Already have an account? <Link to="/login" className="text-blue-500">Log In</Link>
+            </p>
+        </form>
+    </div>
+    )
 }
 
-export default SignUp;
+export default Signup;
