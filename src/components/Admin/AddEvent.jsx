@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function AddEvent() {
 
@@ -8,7 +9,7 @@ export default function AddEvent() {
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
   const [time, setTime] = useState('');
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,9 +23,11 @@ export default function AddEvent() {
         body: JSON.stringify(eventDetails)
     }).then((res)=> {
         alert("successfully created!")
-        // navigate('/projects')
+        navigate('/allevents')
         return res.json()
-    }).then((event)=> console.log(event))
+    }).then((event)=> {
+        console.log(event)
+    })
   }
 
 

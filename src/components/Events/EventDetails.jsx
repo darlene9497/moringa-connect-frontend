@@ -15,23 +15,18 @@ const EventDetails = () => {
     },[])
     return ( 
         <div>
-            {/* <div className="col-md-4"> */}
-                <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "70vh", width: "100%", objectFit: "cover"}} />
-            {/* </div> */}
+            <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "80vh", width: "100%", objectFit: "cover"}} />
             <div className="container p-3 m-0">
-                <span className="me-4 h3"><i class="bi bi-calendar-check"></i> {event.date}</span>|
-                <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {event.formatted_time}</span>|
+                <span className="me-4 h3"><i class="bi bi-calendar-check"></i> {event.date}</span> <span className="h1">|</span>
+                <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {event.formatted_time}</span> <span className="h1">|</span>
                 <span className="mx-4 h3"><i class="bi bi-geo-alt-fill"></i> {event.venue}</span>
                 <hr />
-                <h1>{event.name}</h1>
+                <h1 style={{color: "#F97004"}}>{event.name}</h1>
                 <hr />
                 <div className="">
                     <p className="ms-3">{event.description}</p>
-                    <p>{event.venue}</p>
                 </div>
             </div>
-
-
         </div>
      );
 }
