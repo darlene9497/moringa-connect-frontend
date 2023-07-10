@@ -29,7 +29,7 @@ const AllEvents = () => {
                                         <h5 className="card-title">{event.name}</h5>
                                         <p className="card-text">{event.description.substring(0, 90)}...</p>
                                         <span>{event.date}</span> |
-                                        <span>{event.time}</span> |
+                                        <span>{event.formatted_time}</span> |
                                         <span>{event.venue}</span>
                                     </div>
                                 </Link>

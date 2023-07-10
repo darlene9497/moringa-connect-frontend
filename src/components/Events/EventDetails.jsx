@@ -23,7 +23,7 @@ const EventDetails = () => {
                 <div className="">
                     <p className="ms-3">{event.description}</p>
                     <p>{event.date}</p>
-                    <p>{event.time}</p>
+                    <p>{event.formatted_time}</p>
                     <p>{event.venue}</p>
                 </div>
             </div>
