@@ -18,7 +18,15 @@ function Signup () {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        register(first_name, last_name, email, is_admin, is_alumni, cohort, password)
+        register({
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            is_admin: is_admin,
+            password: password,
+            is_alumni: is_alumni,
+            cohort: cohort,
+        })
 
     }
 
