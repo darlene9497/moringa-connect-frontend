@@ -17,44 +17,78 @@ import Events from './components/Admin/Events';
 import ProjectList from './components/Admin/ProjectList';
 import Users from './components/Admin/Users'
 import EditDetail from './components/DetailForm/EditDetail';
+import Post from './components/Posts/Post';
+import Signup from './components/signup/signup';
+import Login from './components/login/loginForm';
+import AuthProvider from './components/AuthContext/AuthContext';
+import AllEvents from './components/Events/allevents';
+import EventDetails from './components/Events/EventDetails';
 export const AppContext = createContext(null)
 
 export default function App() {
+
   const [userSignedIn, setUserSignedIn] = useState(false);
  
 
   useEffect(()=>{
-    fetch('/me')
+    fetch('http://localhost:3000/me')
     .then((res)=>{
       if(res.ok){
         
         res.json().then((user) => {
+          console.log(user)
           setUserSignedIn(user)
         })
       }
     })
   },[])
 
+
+
+  // const user = JSON.parse(sessionStorage.getItem('user'));
+  // const isLoggedIn = sessionStorage.getItem('jwtToken') ? true : false;
+  // // const navigate = useNavigate();
+  // // eslint-disable-next-line no-unused-vars
+  // const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const pathname = window.location.pathname;
+  
+  //   // check if the user is authenticated, except for the signup page
+  //   if (isLoggedIn && pathname !== '/signup') {
+  //     setLoading(false);
+  //   } else if (!isLoggedIn && pathname !== '/login' && pathname !== '/signup') {
+  //     // navigate('/login', { replace: true });
+  //     setLoading(false);
+  //   } else {
+  //     setLoading(false);
+  //   }
+  // }, [isLoggedIn]);
+
   return (
     <BrowserRouter>
-      <NavBar userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />
-      <Routes>
-        <Route path='/alumni' element={<Alumni />} />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/' element={<Home />}/>
-        <Route path='/signup' element={< SignUp setUserSignedIn={setUserSignedIn} />} />
-        <Route path='/login' element={<LoginForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='/community/eventsa' element={<EventsA />} />  
-        <Route path='/search-alumni' element={<Search />} />
-        <Route path='/creat-profile' element={<DetailForm userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} />} /> 
-        <Route path='/admin' element={<Admin />} /> 
-        <Route path='/eventlist' element={<Events />} /> 
-        <Route path='/projectlist' element={<ProjectList />} /> 
-        <Route path='/userlist' element={<Users />} /> 
-        <Route path='editprofile' element={<EditDetail />} />
-      </Routes>
-    <Footer />
+      <AuthProvider>
+        <NavBar userSignedIn={userSignedIn} />
+        <Routes>
+          <Route path='/alumni' element={<Alumni />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/' element={<Home />}/>
+          <Route path='/signup' element={< Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/community' element={<Community />} />
+          <Route path='/community/eventsa' element={<EventsA />} />  
+          <Route path='/search-alumni' element={<Search />} />
+          <Route path='/creat-profile' element={<DetailForm />} /> 
+          <Route path='/allevents' element={<AllEvents />} /> 
+          <Route path='/allevents/:id' element={<EventDetails />} /> 
+          <Route path='/admin' element={<Admin />} /> 
+          <Route path='/eventlist' element={<Events />} /> 
+          <Route path='/projectlist' element={<ProjectList />} /> 
+          <Route path='/userlist' element={<Users />} /> 
+          <Route path='editprofile' element={<EditDetail />} />
+          <Route path='chat' element={<Post />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }

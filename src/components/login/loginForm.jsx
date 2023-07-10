@@ -1,87 +1,63 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import './Styles.css'
+import { useContext, useState } from 'react'
+import { AuthContext } from "../AuthContext/AuthContext";
+
+function Login() {
+
+    const { login } = useContext(AuthContext)
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        login(email, password)
+    }
 
 
-function LoginForm({setUserSignedIn}) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate()
-  
-    
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const loginDetails = {email, password}
-    
-
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginDetails)
-    })
-    .then((res)=> {
-        if(res.ok){
-            res.json().then((user)=>{
-                navigate('/', { replace: true })
-                setUserSignedIn(user)
-            })
-        } else{
-            res.json().then((errors)=>{
-                console.error(errors)
-            })
-        }
-     })
-  };
-
-  return (
-    <div className="container ps-0" style={{minHeight: "100vh"}}>
-
-        <section className="Form ps-0 mt-5">
-            <div className="container">
-                <div className="row no-gutters">
-                    <div className="col-lg-5">
-                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/78c4af118001599.608076cf95739.jpg" alt="" className="img-fluid login-img" />
-                    </div>
-                    <div className="col-lg-7 px-5 pt-5">
-                        <h1 className="font-weight-bold py-3">Moringa Connect</h1>
-                        <h4>Login to Your Account</h4>
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-row">
-                                <div className="col-lg-7">
-                                    <input type="text" className="form-control my-5 p-2" placeholder="email" value={email} onChange={(event) => { return setEmail(event.target.value)}} />
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="col-lg-7">
-                                    <input type="password" className="form-control my-5 p-2" placeholder="******" value={password} onChange={(event) => { return setPassword(event.target.value);}} />
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="col-lg-7">
-                                    <button type="submit" className="login-btn" >Login</button>
-                                </div>
-                            </div>
-                            <Link  to="/signup">
-                            <div className="form-row">
-                                <div className="col-lg-7">
-                                <button className ="link-btn" >Don't have an account ? Register Here</button>
-                                </div>
-                            </div>
-                            </Link> 
-                        </form>
-                        {errorMessage && <p>{errorMessage}</p>}
-                    </div>
+    return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', backgroundColor: '#F3F4F6' }}>
+            <form onSubmit={handleSubmit} className="flex flex-col bg-white p-10 rounded-lg shadow-lg">
+                <h1 className="text-2xl font-bold  text-center">Login</h1>
+                <p className="text-gray-500 mb-3 text-center">Login to your account</p>
+                <div className="mb-5">
+                    <label htmlFor="email" className="block mb-2 font-medium text-gray-600">Email</label>
+                    <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-bg-black"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                    />
                 </div>
-            </div>
-        </section>
-      
-    </div>
-  );
+                <div className="mb-5">
+                    <label htmlFor="password" className="block mb-2 font-medium text-gray-600">Password</label>
+                    <input
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-bg-black"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                    />
+                </div>
+                <button
+                    className="bg-black hover:bg-grey-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit"
+                >
+                    Login
+                </button>
+                <p className="text-gray-600 text-center mt-5">
+                    Don't have an account? <Link to="/signup" className="text-blue-500">Sign Up</Link>
+                </p>
+            </form>
+        </div>
+    )
 }
-
-export default LoginForm;
+export default Login;
