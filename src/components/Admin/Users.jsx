@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './Admin.css'
 
 export default function Users() {
-    const [profiles, setProfiles] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-      fetch('/profiles')
+      fetch('/users')
         .then(res => res.json())
-        .then(data => setProfiles(data))
+        .then(data => setUsers(data))
         .catch(err => console.log(err));
     }, []);
   return (
@@ -18,22 +18,19 @@ export default function Users() {
         <thead>
           <tr>
             {/* <th scope="col">ID</th> */}
-            <th scope="col">Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Cohort</th>
-            <th scope="col">Graduation year</th>
-            <th scope="col">Profession</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
-        {profiles.map((profile) =>(
-          <tr key={profile.name}>
-            {/* <td>{profile.id}</td> */}
-            <td>{profile.name}</td>
-            <td>{profile.email}</td>
-            <td>{profile.cohort}</td>
-            <td>{profile.graduation_year}</td>
-            <td>{profile.profession}</td>
+        {users.map((user) =>(
+          <tr key={user.id}>
+            <td>{user.first_name}</td>
+            <td>{user.last_name}</td>
+            <td>{user.email}</td>
+            <td>{user.cohort}</td>
           </tr>
           ))}
         </tbody>
