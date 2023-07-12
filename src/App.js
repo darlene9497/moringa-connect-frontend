@@ -23,6 +23,7 @@ import Login from './components/login/loginForm';
 import AuthProvider from './components/AuthContext/AuthContext';
 import AllEvents from './components/Events/allevents';
 import EventDetails from './components/Events/EventDetails';
+import EditEvent from './components/Admin/EditEvent';
 export const AppContext = createContext(null)
 
 export default function App() {
@@ -80,6 +81,7 @@ export default function App() {
           <Route path='/creat-profile' element={<DetailForm />} /> 
           <Route path='/allevents' element={<AllEvents />} /> 
           <Route path='/allevents/:id' element={<EventDetails />} /> 
+          <Route path='/allevents/:id/edit' element={<EditEvent />}  />
           <Route path='/admin' element={<Admin />} /> 
           <Route path='/eventlist' element={<Events />} /> 
           <Route path='/projectlist' element={<ProjectList />} /> 

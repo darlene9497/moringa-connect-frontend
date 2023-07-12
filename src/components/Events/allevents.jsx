@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 const AllEvents = () => {
     const [events, setEvents] = useState([])
+    const [searchEvent, setSearchEvent] = useState('')
     let { id } = useParams();
 
     useEffect(()=>{
@@ -16,8 +17,23 @@ const AllEvents = () => {
     },[])
     return ( 
         <div className="row">
+            <div className="offcabas-body ">
+                <input type="text" className="form-control mx-4 mb-4" style={{width: '50%'}} placeholder="Search Event..." onChange={e => setSearchEvent(e.target.value)} />
+            </div>
+            
             {
-                events.map((event)=>{
+                events.filter((event) => {
+                    if (searchEvent === '') {
+                      return event;
+                    } else {
+                      // Convert the event object values to an array
+                      const eventValues = Object.values(event);
+                      // Check if any of the values includes the searchEvent
+                      return eventValues.some((value) =>
+                        String(value).toLowerCase().includes(searchEvent.toLowerCase())
+                      );
+                    }
+                  }).map((event)=>{
                     return(
                             <div key={event.id} className="card col-12 col-md-4 col-xl-3 col-xxl-2 text-start shadow ms-4 me-0 mb-5 p-0" style={{width: "22rem"}}>
                                 <Link to={`/allevents/${event.id}`} >
