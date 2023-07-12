@@ -16,14 +16,15 @@
 .nav-item{
     padding-left: 1em !important;
     font-size: 20px;
-}
-.nav-item  {
-    margin-top: 3.5rem !important;
+    position: relative;
+    top: -10px;
+    margin-top: 3.5rem;
 }
 
 .navbar-nav .nav-link {
     font-size: 18px;
-  }
+    color: #00004d;
+}
   
 .logo{
     margin-left: 3em;
