@@ -2,18 +2,18 @@
 
 ## Description
 
-Moringa Connect is a platform for Moringa Alumni to stay connected on different aspects and share their after-moringa success with the rest of the community. Having a connected and active community is one of the fundamental and savvy ways to grow and nurture talent in the tech-world by bringing together individuals with shared vision and common background and Moringa Connect is just the right place.
+Moringa Connect is a platform for Moringa Alumni to stay connected on different aspects and share their after-moringa success with the rest of the community. Having a connected and active community is one of the fundamental and savvy ways to grow and nurture talent in the tech world by bringing together individuals with a shared vision and common background and Moringa Connect is just the right place.
 
 ## Inspiration
 
-When we come together alot is achieved, helping each other financially ,technically and even connecting them to the employers ,hence there is a need of comming together after moringa school
+When we come together a lot is achieved, helping each other financially, and technically and even connecting them to employers, hence there is a need of coming together after moringa school
 
 # Objectives
 
     - To enable the user to successfully register and login
     - To  enable a registered to make donations (if willing to)
-    - To enable  the registered user connect with other Moringa alumni and family
-    -To enables the registered user receives updates on the tech events
+    - To enable  the registered users to connect with other Moringa alumni and family
+    - To enable the registered user to receive updates on the tech events
 
 ## Technology Used
 
