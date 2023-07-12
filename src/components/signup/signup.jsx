@@ -13,22 +13,14 @@ function Signup () {
     const [is_admin, setIsAdmin] = useState(false)
     const [is_alumni , setIsAlumni] = useState(false);
     const [cohort , setCohort] = useState("");
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('');
     
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        register({
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            is_admin: is_admin,
-            password: password,
-            is_alumni: is_alumni,
-            cohort: cohort,
-        })
-
-    }
+        e.preventDefault();
+        register(first_name, last_name, email, is_admin, password, is_alumni, cohort);
+      };
+      
 
 
     return (
@@ -121,19 +113,11 @@ function Signup () {
 
             
 
-            <div className="mb-4">
-                <label htmlFor="password" className="block mb-1 font-medium text-gray-600">Password</label>
-                <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="border-2 rounded-md border-gray-300 py-2 px-3 w-full focus:outline-none focus:border-black"
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    
-                />
+            <div className="reg-input-box">
+                <span className='reg-details'>Password</span>
+                <input className="form-control form-control-sm" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
+
             <button
                 className="bg-black hover:bg-grey-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"

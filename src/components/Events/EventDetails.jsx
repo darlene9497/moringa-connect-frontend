@@ -15,7 +15,7 @@ const EventDetails = () => {
     },[])
     return ( 
         <div>
-            <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "80vh", width: "100%", objectFit: "cover"}} />
+            <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "95%", width: "100%", objectFit: "cover"}} />
             <div className="container p-3 m-0">
                 <span className="me-4 h3"><i class="bi bi-calendar-check"></i> {event.date}</span> <span className="h1">|</span>
                 <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {event.formatted_time}</span> <span className="h1">|</span>

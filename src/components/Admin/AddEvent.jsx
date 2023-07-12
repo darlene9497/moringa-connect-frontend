@@ -77,7 +77,7 @@ export default function AddEvent() {
             <input type="time" className='form-control' value={time} onChange={(event) => setTime(event.target.value)} />
         </div> 
         
-        <button className='btn btn-primary my-2' type="submit">Create Project</button>
+        <button className='btn btn-primary my-2' type="submit">Create Event</button>
     </form>
 </div>
   )
