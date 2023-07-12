@@ -13,15 +13,15 @@ export default function Users() {
   return (
     <>
     <div class="table-responsive-sm" style={{height: '70vh'}}>
-      <h1 className='events-header'>Users</h1>
+      {/* <h1 className='events-header'>Users</h1> */}
       <table class="table table-striped table-hover align-middle">
         <thead>
           <tr>
             {/* <th scope="col">ID</th> */}
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Cohort</th>
+            <th scope="col" className='h4 fw-bold'>First Name</th>
+            <th scope="col" className='h4 fw-bold'>Last Name</th>
+            <th scope="col" className='h4 fw-bold'>Email</th>
+            <th scope="col" className='h4 fw-bold'>Cohort</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
