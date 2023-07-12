@@ -1,5 +1,6 @@
 import {React, useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function AddEvent() {
 
@@ -22,11 +23,28 @@ export default function AddEvent() {
         },
         body: JSON.stringify(eventDetails)
     }).then((res)=> {
-        alert("successfully created!")
-        navigate('/allevents')
         return res.json()
     }).then((event)=> {
         console.log(event)
+        if (event.error) {
+            // console.log(event.error)
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: event.error,
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
+          } else {
+            // setUser(event)
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Event Created Successfully!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/allevents");
+          }
     })
   }
 
