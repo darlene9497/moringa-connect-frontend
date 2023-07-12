@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Admin.css'
 import AddEvent from './AddEvent';
+import { useNavigate } from 'react-router-dom';
 
 export default function Events() {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/events')
@@ -90,7 +92,7 @@ export default function Events() {
               <td>{event.time}</td>
               <td>
                 <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
-                <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
+                <button type="button" className="btn red-btn" onClick={() => navigate(`/events/${event.id}/edit`)}><i className="fas fa-trash"></i></button>
               </td>
             </tr>
           ))}
@@ -98,48 +100,6 @@ export default function Events() {
       </table>
       <AddEvent />
     </div>
-
-    {/* Modal */}
-    {selectedEvent && (
-      <div className="modal fade" id={`exampleModal-${selectedEvent.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Update Event Details</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="event-name" className="form-label">Event name:</label>
-                  <input type="text" className="form-control" id="event-name" value={selectedEvent.name} />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="event-description" className="form-label">Description:</label>
-                  <textarea className="form-control" id="event-description" rows="3" value={selectedEvent.description}></textarea>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="event-date" className="form-label">Date:</label>
-                  <input type="date" className="form-control" id="event-date" value={selectedEvent.date} />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="event-venue" className="form-label">Venue:</label>
-                  <input type="text" className="form-control" id="event-venue" value={selectedEvent.venue} />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="event-time" className="form-label">Time:</label>
-                  <input type="time" className="form-control" id="event-time" value={selectedEvent.time} />
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" onClick={handleUpdateEvent}>Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    )}
     </div>
   );
 }
