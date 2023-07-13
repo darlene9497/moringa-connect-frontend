@@ -30,7 +30,7 @@ const AllEvents = () => {
                       const eventValues = Object.values(event);
                       // Check if any of the values includes the searchEvent
                       return eventValues.some((value) =>
-                        String(value).toLowerCase().includes(searchEvent.toLowerCase())
+                        String(value).toLowerCase().includes(searchEvent.toLowerCase().trim())
                       );
                     }
                   }).map((event)=>{
