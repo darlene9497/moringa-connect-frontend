@@ -26,7 +26,7 @@ export default function EventsA() {
           <div className="card mb-3" style={{ maxWidth: "80%", height: 'fitContent', borderStyle: 'none'}}>
             <div className="row g-0">
               <div className="col-md-4">
-              <img src={event.image} class="img-fluid rounded-start" alt="..."  width='80%' />
+              <img src={event.image_url} class="img-fluid rounded-start" alt="..."  width='80%' />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
