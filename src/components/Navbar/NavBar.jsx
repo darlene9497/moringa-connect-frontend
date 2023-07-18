@@ -5,7 +5,7 @@ import Profile from '../Profile/Profile'
 import './Navbar.css'
 
 const NavBar = ({userSignedIn}) => {
-  const {logout} = useContext(AuthContext)
+  const { user, logout} = useContext(AuthContext)
   const isLoggedIn = sessionStorage.getItem("jwtToken")
   const handleLogout = ()=>{
       logout()
@@ -33,64 +33,53 @@ const NavBar = ({userSignedIn}) => {
             {
               isLoggedIn ? (
                 <ul className="navbar-nav ms-auto">
-                <li className="nav-item ">
-                  <NavLink to="/alumni" className="nav-link active me-4" aria-current="page" >
-                    Alumni
-                  </NavLink>
-                </li>
-                
-                <li className="nav-item ">
-                  <NavLink to="/community" className="nav-link active me-4" aria-current="page" >
-                    Community
-                  </NavLink>
-                </li>
-                
-                <li className="nav-item ">
-                  <NavLink to="/projects" className="nav-link active me-4" aria-current="page" >
-                    Projects
-                  </NavLink>
-                </li>
-                
-                <li className="nav-item ">
-                  <NavLink to="/allevents" className="nav-link active me-4" aria-current="page" >
-                    All Events
-                  </NavLink>
-                </li>
 
-                <li className="nav-item">
-                  <NavLink to="/admin" className="nav-link active me-4" aria-current="page" >
-                    Admin
-                  </NavLink>
-                </li>
+                  <li className="nav-item">
+                    <small>{user && user.email}</small> {/* Display the user's email */}
+                  </li>
 
-                <li className="nav-item">
-                  {/* {userSignedIn.cohort} */}
-                </li>
-                <li className="nav-item mb-3">
-                  <button onClick={handleLogout} className='btn btn-warning'>logout</button>
-                </li>
-                {/* <li className="nav-item ">
-                  {
-                    props.userSignedIn.is_admin ? (
-                      <NavLink to="/admin" className="nav-link active me-4" aria-current="page" >
-                        Admin
-                      </NavLink>
-                    ):(
-                      <div> </div>
-                    )
-                  }
+                  <li className="nav-item ">
+                    <NavLink to="/alumni" className="nav-link active me-4" aria-current="page" >
+                      Alumni
+                    </NavLink>
+                  </li>
                   
-                </li> */}
+                  <li className="nav-item ">
+                    <NavLink to="/community" className="nav-link active me-4" aria-current="page" >
+                      Community
+                    </NavLink>
+                  </li>
+                  
+                  <li className="nav-item ">
+                    <NavLink to="/projects" className="nav-link active me-4" aria-current="page" >
+                      Projects
+                    </NavLink>
+                  </li>
+                  
+                  <li className="nav-item ">
+                    <NavLink to="/allevents" className="nav-link active me-4" aria-current="page" >
+                      All Events
+                    </NavLink>
+                  </li>
 
-                <li className="nav-item mt-6 ms-0">
-                    {/* <small>{props.userSignedIn.email}</small> */}
-                </li>
-
-                <li className="nav-item mt-6 me-0">
-                    {/* <Profile setUserSignedIn={props.setUserSignedIn} /> */}
-                </li>
-                
-              </ul>
+                  <li className="nav-item">
+                    {
+                      user.is_admin ? (
+                        <NavLink to="/admin" className="nav-link active me-4" aria-current="page" >
+                          Admin
+                        </NavLink>
+                      ):(
+                        <></>
+                      )
+                    }
+                    
+                  </li>
+                  
+                  <li className="nav-item mb-3">
+                    <button onClick={handleLogout} className='btn btn-warning'>logout</button>
+                  </li>
+                  
+                </ul>
               ) : (
                 <ul className="navbar-nav ms-auto">
                 <li className="nav-item ">

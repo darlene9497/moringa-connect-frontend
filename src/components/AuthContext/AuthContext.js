@@ -1,18 +1,14 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
-import NavBar from "../Navbar/NavBar";
+
 export const AuthContext = createContext();
+
 export default function AuthProvider({ children }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [change, setOnChange] = useState(false);
-  const [first_name, setFirstName]= useState('')
-  const [last_name, setLastName]= useState('')
-  const [is_admin, setIsAdmin] = useState(false)
-  const [username , setUserName] = useState("");
-  const [email , setEmail] = useState("");
-  const [password , setPassword] = useState("");
+
   // login
   const login = (email, password) => {
     fetch("http://localhost:3000/login", {
@@ -27,8 +23,6 @@ export default function AuthProvider({ children }) {
     })
       .then((res) => res.json())
       .then((response) => {
-        // console.log(email);
-        console.log(response);
         setOnChange(!change);
         sessionStorage.setItem("jwtToken", response.jwt);
         sessionStorage.setItem("user", JSON.stringify(response.user));
@@ -37,7 +31,6 @@ export default function AuthProvider({ children }) {
         document.cookie = `jwtToken=${response.jwt}; path=/`;
         document.cookie = `user=${JSON.stringify(response.user)}; path=/`;
         if (response.error) {
-          // console.log(response.error)
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -45,7 +38,7 @@ export default function AuthProvider({ children }) {
             footer: '<a href="">Why do I have this issue?</a>',
           });
         } else {
-          // setUser(response)
+          setUser(response.user); // Set the user in the state
           Swal.fire({
             position: "center",
             icon: "success",
@@ -57,7 +50,6 @@ export default function AuthProvider({ children }) {
         }
       });
   };
-
 
   // Register
   const register = (first_name, last_name, email, is_admin, password, is_alumni, cohort) => {
@@ -80,7 +72,6 @@ export default function AuthProvider({ children }) {
       .then((response) => {
         setOnChange(!change);
         if (response.error) {
-          // console.log(response.error)
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -88,7 +79,7 @@ export default function AuthProvider({ children }) {
             footer: '<a href="">Why do I have this issue?</a>',
           });
         } else {
-          // setUser(response)
+          setUser(response.user); // Set the user in the state
           Swal.fire({
             position: "center",
             icon: "success",
@@ -112,6 +103,26 @@ export default function AuthProvider({ children }) {
     navigate("/");
   };
 
+  // Fetch user details on initial mount and store it in the state
+  useEffect(() => {
+    const jwtToken = sessionStorage.getItem("jwtToken");
+    if (jwtToken) {
+      fetch("http://localhost:3000/users/me", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user details:", error);
+        });
+    }
+  }, []);
 
   const contextData = {
     user,
@@ -119,20 +130,7 @@ export default function AuthProvider({ children }) {
     register,
     logout,
   };
-  // fectch users
-  useEffect(() => {
-    fetch("http://localhost:3000/users", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-      });
-  }, []);
- 
+
   return (
     <>
       <AuthContext.Provider value={contextData}>
