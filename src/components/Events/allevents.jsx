@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import './events.css'
 
 const AllEvents = () => {
     const [events, setEvents] = useState([])
@@ -17,8 +18,15 @@ const AllEvents = () => {
     },[])
     return ( 
         <div className="row">
-            <div className="offcabas-body ">
-                <input type="text" className="form-control mx-4 mb-4" style={{width: '50%'}} placeholder="Search Event..." onChange={e => setSearchEvent(e.target.value)} />
+            <div className="d-flex justify-content-end ">
+                <input
+                    type="text" 
+                    className="form-control mx-4 mb-4 search-event border border-3 border-warning border-top-0 border-end-0 border-start-0" 
+                    style={{width: '50%'}} 
+                    placeholder="Search Event..." 
+                    onChange={e => setSearchEvent(e.target.value)}
+                />
+                
             </div>
             
             {
