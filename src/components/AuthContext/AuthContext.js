@@ -11,7 +11,7 @@ export default function AuthProvider({ children }) {
 
   // login
   const login = (email, password) => {
-    fetch("http://localhost:3000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export default function AuthProvider({ children }) {
 
   // Register
   const register = (first_name, last_name, email, is_admin, password, is_alumni, cohort) => {
-    fetch("http://localhost:3000/users", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const jwtToken = sessionStorage.getItem("jwtToken");
     if (jwtToken) {
-      fetch("http://localhost:3000/users/me", {
+      fetch("/me", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
