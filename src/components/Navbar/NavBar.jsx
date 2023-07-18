@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthContext/AuthContext';
 import Profile from '../Profile/Profile'
 import './Navbar.css'
 
-const NavBar = ({userSignedIn}) => {
+const NavBar = () => {
   const { user, logout} = useContext(AuthContext)
   const isLoggedIn = sessionStorage.getItem("jwtToken")
   const handleLogout = ()=>{
@@ -34,10 +34,6 @@ const NavBar = ({userSignedIn}) => {
               isLoggedIn ? (
                 <ul className="navbar-nav ms-auto">
 
-                  <li className="nav-item">
-                    <small>{user && user.email}</small> {/* Display the user's email */}
-                  </li>
-
                   <li className="nav-item ">
                     <NavLink to="/alumni" className="nav-link active me-4" aria-current="page" >
                       Alumni
@@ -64,12 +60,12 @@ const NavBar = ({userSignedIn}) => {
 
                   <li className="nav-item">
                     {
-                      user.is_admin ? (
+                      user && user.is_admin ? (
                         <NavLink to="/admin" className="nav-link active me-4" aria-current="page" >
                           Admin
                         </NavLink>
                       ):(
-                        <></>
+                        <span></span>
                       )
                     }
                     
