@@ -18,7 +18,7 @@ function Login() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', backgroundColor: '#F3F4F6' }}>
-            <form onSubmit={handleSubmit} className="flex flex-col bg-white p-10 rounded-lg shadow-lg">
+            <form onSubmit={handleSubmit} className="flex flex-col bg-white p-5 rounded-2 shadow-lg">
                 <h1 className="text-2xl font-bold  text-center">Login</h1>
                 <p className="text-gray-500 mb-3 text-center">Login to your account</p>
                 <div className="mb-5">

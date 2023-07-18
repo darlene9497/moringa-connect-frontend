@@ -16,7 +16,7 @@ function AlumniHero() {
           <div className="buttons">
             {
               isLoggedIn ? (
-                <h3>Hi, {user && user.first_name}</h3>
+                <h3>Hi, {user && user.first_name}!</h3>
               ):(
                 <>
                   <Link to="/login" className="btn">Log In</Link>

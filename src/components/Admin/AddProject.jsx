@@ -23,7 +23,7 @@ export default function AddProject() {
         body: JSON.stringify(projectDetails)
     }).then((res)=> {
         alert("successfully created!")
-        // navigate('/projects')
+        navigate('/projects')
         return res.json()
     }).then((project)=> console.log(project))
   }

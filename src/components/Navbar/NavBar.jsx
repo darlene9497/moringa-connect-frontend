@@ -65,7 +65,7 @@ const NavBar = () => {
                           Admin
                         </NavLink>
                       ):(
-                        <span></span>
+                        <></>
                       )
                     }
                     
