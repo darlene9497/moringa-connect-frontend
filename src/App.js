@@ -24,6 +24,7 @@ import AuthProvider from './components/AuthContext/AuthContext';
 import AllEvents from './components/Events/allevents';
 import EventDetails from './components/Events/EventDetails';
 import EditEvent from './components/Events/EditEvent';
+import EditProject from './components/Projects/EditProject';
 export const AppContext = createContext(null)
 
 export default function App() {
@@ -72,6 +73,7 @@ export default function App() {
         <Routes>
           <Route path='/alumni' element={<Alumni />} />
           <Route path='/projects' element={<Projects />} />
+          <Route path='/projects/:id/edit' element={<EditProject />} />
           <Route path='/' element={<Home />}/>
           <Route path='/signup' element={< Signup />} />
           <Route path='/login' element={<Login />} />

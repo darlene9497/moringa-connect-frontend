@@ -1,22 +1,36 @@
 import {React, useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-export default function AddProject() {
+export default function EditProject() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [start_date, setStartDate] = useState('');
   const [end_date, setEndDate] = useState('');
   const [paybill, setPaybill] = useState('');
   const [acc_no, setAccNo] = useState('');
+  const {id} = useParams()
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    fetch(`/projects/${id}`)
+    .then(res => res.json())
+    .then((data)=>{
+        setName(data.name)
+        setDescription(data.description)
+        setStartDate(data.start_date)
+        setEndDate(data.end_date)
+        setPaybill(data.paybill)
+        setAccNo(data.acc_no)
+    })
+}, [])
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const projectDetails = {name, description, start_date, end_date, paybill, acc_no}
 
-    fetch('/projects', {
-        method: 'POST',
+    fetch(`/projects/${id}`, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -24,7 +38,7 @@ export default function AddProject() {
     }).then((res)=> {
         return res.json()
     }).then((project)=> {
-
+        console.log(project)
         if (project.error) {
             // console.log(project.error)
             Swal.fire({
@@ -38,7 +52,7 @@ export default function AddProject() {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "project Created Successfully!",
+              title: "Project Successfully Updated!",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -99,7 +113,7 @@ export default function AddProject() {
                 <input type="text" className='form-control' value={acc_no} onChange={(event) => setAccNo(event.target.value)} />
             </div> 
             
-            <button className='btn btn-primary my-2' type="submit">Create Project</button>
+            <button className='btn btn-primary my-2' type="submit">Edit Project</button>
         </form>
     </div>
   )
