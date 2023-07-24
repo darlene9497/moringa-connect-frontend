@@ -1,11 +1,15 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import ProjectsHero from "./ProjectsHero";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext/AuthContext";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   // paybill & acc_no modal
   const [selectedProjectPay, setSelectedProjectPay] = useState("");
-  const [selectedProjectAccNo, setSelectedProjectAccNo] = useState("");  
+  const [selectedProjectAccNo, setSelectedProjectAccNo] = useState("");
+  const navigate = useNavigate()
+  const {user} = useContext(AuthContext) 
 
   
 
@@ -102,14 +106,14 @@ export default function Projects() {
                   {project.name}
                 </h5>
                 <p class="card-text">{project.description}</p>
-                <p class="card-text">
+                {/* <p class="card-text">
                   <i
                     class="fa-money"
                     aria-hidden="true"
                     style={{ color: "#007ACC" }}
                   ></i>{" "}
                   Project Amount: {project.amount}
-                </p>
+                </p> */}
                 <p class="card-text">
                   <i
                     class="fa fa-calendar"
@@ -126,20 +130,31 @@ export default function Projects() {
                   ></i>{" "}
                   Ends: {project.end_date}
                 </p>
-                <button
-                  type="button"
-                  class="btn btn-warning"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  style={{ fontSize: "15px" }}
-                >
-                  <i
-                    class="fa-s fa-donate"
-                    aria-hidden="true"
-                    style={{ color: "#007ACC" }}
-                  ></i>{" "}
-                  Donate
-                </button>
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="button"
+                    class="btn btn-warning mx-1"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    style={{ fontSize: "15px" }}
+                  >
+                    Donate
+                  </button>
+                  {
+                    user && user.is_admin? (
+                      <button
+                        type="button"
+                        class="btn btn-warning mx-1"
+                        style={{ fontSize: "15px" }}
+                        onClick={()=> navigate(`/projects/${project.id}/edit`)}
+                      >
+                        Edit
+                      </button>
+                    ):(
+                      <></>
+                    )
+                  }
+                </div>
               </div>
             </div>
           ))}
