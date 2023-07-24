@@ -23,7 +23,7 @@ import Login from './components/login/loginForm';
 import AuthProvider from './components/AuthContext/AuthContext';
 import AllEvents from './components/Events/allevents';
 import EventDetails from './components/Events/EventDetails';
-import EditEvent from './components/Admin/EditEvent';
+import EditEvent from './components/Events/EditEvent';
 export const AppContext = createContext(null)
 
 export default function App() {
