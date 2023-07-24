@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../AuthContext/AuthContext";
 
 const EventDetails = () => {
     const [event, setEvent] = useState([])
+    const {user} = useContext(AuthContext)
     let { id } = useParams();
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch(`http://localhost:3000/events/${id}`)
@@ -13,6 +16,7 @@ const EventDetails = () => {
             return setEvent(data)
         })
     },[])
+
     return ( 
         <div>
             <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "95%", width: "100%", objectFit: "cover"}} />
@@ -26,6 +30,15 @@ const EventDetails = () => {
                 <div className="">
                     <p className="ms-3">{event.description}</p>
                 </div>
+                {
+                    user && user.is_admin? (
+                        <div className="mt-5">
+                            <button className="me-5 btn btn-primary" onClick={()=> navigate(`/allevents/${event.id}/edit`)} >Edit</button>
+                        </div>
+                    ):(
+                        <></>
+                    )
+                }
             </div>
         </div>
      );

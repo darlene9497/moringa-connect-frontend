@@ -2,7 +2,7 @@ import {React, useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-export default function EditEvent() {
+export default function EditEvent(props) {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -13,23 +13,22 @@ export default function EditEvent() {
   const navigate = useNavigate()
   const {id} = useParams()
 
+  useEffect(()=>{
+    fetch(`/events/${id}`)
+    .then(res => res.json())
+    .then((data)=>{
+        setName(data.name)
+        setDescription(data.description)
+        setImageUrl(data.image_url)
+        setDate(data.date)
+        setVenue(data.venue)
+        setTime(data.time)
+    })
+}, [])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const eventDetails = {name, description, image_url, date, venue, time}
-
-    // useEffect(()=>{
-    //     fetch(`/events/${id}`)
-    //     .then(res => res.json())
-    //     .then((data)=>{
-    //         setName(data.name)
-    //         setDescription(data.description)
-    //         setImageUrl(data.image_url)
-    //         setDate(data.date)
-    //         setVenue(data.venue)
-    //         setTime(data.time)
-    //     })
-    // }, [])
-
 
     fetch(`/events/${id}`, {
         method: 'PUT',
@@ -54,7 +53,7 @@ export default function EditEvent() {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Event Created Successfully!",
+              title: "Event Successfully Updated!",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -110,7 +109,7 @@ export default function EditEvent() {
             <input type="time" className='form-control' value={time} onChange={(event) => setTime(event.target.value)} />
         </div> 
         
-        <button className='btn btn-primary my-2' type="submit">Create Event</button>
+        <button className='btn btn-primary my-2' type="submit">Update Event</button>
     </form>
 </div>
   )
