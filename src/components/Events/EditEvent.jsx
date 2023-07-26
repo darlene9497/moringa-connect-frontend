@@ -10,6 +10,7 @@ export default function EditEvent(props) {
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
   const [time, setTime] = useState('');
+  const [image, setImage] = useState(null)
   const navigate = useNavigate()
   const {id} = useParams()
 
@@ -26,16 +27,26 @@ export default function EditEvent(props) {
     })
 }, [])
 
-  const handleSubmit = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault();
-    const eventDetails = {name, description, image_url, date, venue, time}
+    const data = new FormData()
 
+    data.append("[name]", name)
+    data.append("[description]", description)
+    data.append("[image_url]", image_url)
+    data.append("[date]", date)
+    data.append("[venue]", venue)
+    data.append("[time]", time)
+    data.append("[image]", image)
+
+    submitToApi(data)
+
+  }
+
+  function submitToApi(data){
     fetch(`/events/${id}`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(eventDetails)
+        body: data
     }).then((res)=> {
         return res.json()
     }).then((event)=> {
@@ -53,12 +64,12 @@ export default function EditEvent(props) {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Event Successfully Updated!",
+              title: "Event Created Successfully!",
               showConfirmButton: false,
               timer: 1500,
             });
             navigate("/allevents");
-          }
+        }
     })
   }
 
@@ -85,6 +96,14 @@ export default function EditEvent(props) {
                 image url
             </span>
             <input type="text" className='form-control' value={image_url} onChange={(event) => setImageUrl(event.target.value)} />
+        </div>
+
+        <div className="form-group my-5">
+            <span>
+                <p>Or Choose</p>
+                Image
+            </span>
+            <input type="file" name='image' id='image' className='form-control' onChange={(event) => setImage(event.target.files[0])} />
         </div>
 
         <div className="form-group my-5">
