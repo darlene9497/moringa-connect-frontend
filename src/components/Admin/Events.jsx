@@ -14,7 +14,7 @@ export default function Events() {
   }
 
   useEffect(() => {
-    fetch('/events')
+    fetch('https://moringa-connect.onrender.com/events')
       .then(res => res.json())
       .then(data => setEvents(data))
       .catch(err => console.log(err));
@@ -25,7 +25,7 @@ export default function Events() {
   }
 
   const handleDeleteClick = (event) => {
-    fetch(`/events/${event.id}`, {
+    fetch(`https://moringa-connect.onrender.com/events/${event.id}`, {
       method: 'DELETE'
     })
       .then(res => {
@@ -54,7 +54,7 @@ export default function Events() {
       time: document.getElementById('event-time').value,
     };
 
-    fetch(`/events/${selectedEvent.id}`, {
+    fetch(`https://moringa-connect.onrender.com/events/${selectedEvent.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

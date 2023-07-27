@@ -30,7 +30,7 @@ export default function AddEvent() {
   }
 
   function submitToApi(data){
-    fetch('/events', {
+    fetch('https://moringa-connect.onrender.com/events', {
         method: 'POST',
         body: data
     }).then((res)=> {

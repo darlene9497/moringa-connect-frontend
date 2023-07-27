@@ -14,7 +14,7 @@ const EventDetails = () => {
     };
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/events/${id}`)
+        fetch(`https://moringa-connect.onrender.com/events/${id}`)
         .then((res)=> res.json())
         .then((data)=> {
             console.log(data)
