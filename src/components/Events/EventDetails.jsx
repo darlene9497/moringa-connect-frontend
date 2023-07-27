@@ -19,7 +19,16 @@ const EventDetails = () => {
 
     return ( 
         <div>
-            <img src={event.image_url} className="img-fluid" alt="photo" style={{height: "95%", width: "100%", objectFit: "cover"}} />
+            <img
+                src={event.img_url}
+                className="img-fluid"
+                alt="photo"
+                style={{
+                height: "35rem",
+                width: "100%",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add a box shadow for a nice effect
+                }}
+            />
             <div className="container p-3 m-0">
                 <span className="me-4 h3"><i class="bi bi-calendar-check"></i> {event.date}</span> <span className="h1">|</span>
                 <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {event.formatted_time}</span> <span className="h1">|</span>
