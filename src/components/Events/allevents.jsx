@@ -7,6 +7,12 @@ const AllEvents = () => {
     const [searchEvent, setSearchEvent] = useState('')
     let { id } = useParams();
 
+    const formatTime = (isoTime) => {
+        const date = new Date(isoTime);
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    };
+      
+
     useEffect(()=>{
         fetch('http://localhost:3000/events')
         .then(res => res.json())
@@ -50,7 +56,7 @@ const AllEvents = () => {
                                         <h5 className="card-title" style={{color: "#F97004", fontWeight: 'bold'}}>{event.name}</h5>
                                         <p className="card-text">{event.description.substring(0, 90)}...</p>
                                         <span className='me-1'><i class="bi bi-calendar-check"></i> {event.date}</span>|
-                                        <span className='mx-1'><i class="bi bi-clock-fill"></i> {event.formatted_time}</span>|
+                                        <span className='mx-1'><i class="bi bi-clock-fill"></i> {formatTime(event.time)}</span>|
                                         <span className='ms-1'><i class="bi bi-geo-alt-fill"></i> {event.venue}</span>
                                     </div>
                                 </Link>
