@@ -71,25 +71,26 @@ export default function App() {
       <AuthProvider>
         <NavBar userSignedIn={userSignedIn} />
         <Routes>
-          <Route path='/alumni' element={<Alumni />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/projects/:id/edit' element={<EditProject />} />
           <Route path='/' element={<Home />}/>
-          <Route path='/signup' element={< Signup />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/admin' element={<Admin />} /> 
+          <Route path='/alumni' element={<Alumni />} />
+          <Route path='chat' element={<Post />} />
           <Route path='/community' element={<Community />} />
           <Route path='/community/eventsa' element={<EventsA />} />  
-          <Route path='/search-alumni' element={<Search />} />
           <Route path='/creat-profile' element={<DetailForm />} /> 
           <Route path='/allevents' element={<AllEvents />} /> 
+          <Route path='/eventlist' element={<Events />} /> 
           <Route path='/allevents/:id' element={<EventDetails />} /> 
           <Route path='/allevents/:id/edit' element={<EditEvent />}  />
-          <Route path='/admin' element={<Admin />} /> 
-          <Route path='/eventlist' element={<Events />} /> 
+          <Route path='/eventlist/:id/edit' element={<EditEvent />} /> 
+          <Route path='/projects' element={<Projects />} />
           <Route path='/projectlist' element={<ProjectList />} /> 
+          <Route path='/projects/:id/edit' element={<EditProject />} />
+          <Route path='/signup' element={< Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/search-alumni' element={<Search />} />
           <Route path='/userlist' element={<Users />} /> 
           <Route path='editprofile' element={<EditDetail />} />
-          <Route path='chat' element={<Post />} />
         </Routes>
         <Footer />
       </AuthProvider>
