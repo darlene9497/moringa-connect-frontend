@@ -8,6 +8,11 @@ export default function Events() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const navigate = useNavigate()
 
+  const formatTime = (isoTime) =>{
+    const date = new Date(isoTime)
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  }
+
   useEffect(() => {
     fetch('/events')
       .then(res => res.json())
@@ -89,7 +94,7 @@ export default function Events() {
               <td>{event.description}</td>
               <td>{event.date}</td>
               <td>{event.venue}</td>
-              <td>{event.time}</td>
+              <td>{formatTime(event.time)}</td>
               <td>
                 <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => navigate(`/allevents/${event.id}/edit`)}>Update</button>
                 <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>

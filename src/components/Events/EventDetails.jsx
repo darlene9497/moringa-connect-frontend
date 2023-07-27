@@ -8,6 +8,11 @@ const EventDetails = () => {
     let { id } = useParams();
     const navigate = useNavigate()
 
+    const formatTime = (isoTime) => {
+        const date = new Date(isoTime);
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    };
+
     useEffect(()=>{
         fetch(`http://localhost:3000/events/${id}`)
         .then((res)=> res.json())
@@ -31,7 +36,7 @@ const EventDetails = () => {
             />
             <div className="container p-3 m-0">
                 <span className="me-4 h3"><i class="bi bi-calendar-check"></i> {event.date}</span> <span className="h1">|</span>
-                <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {event.formatted_time}</span> <span className="h1">|</span>
+                <span className="mx-4 h3"><i class="bi bi-clock-fill"></i> {formatTime(event.time)}</span> <span className="h1">|</span>
                 <span className="mx-4 h3"><i class="bi bi-geo-alt-fill"></i> {event.venue}</span>
                 <hr />
                 <h1 style={{color: "#F97004", fontWeight:'bolder'}}>{event.name}</h1>

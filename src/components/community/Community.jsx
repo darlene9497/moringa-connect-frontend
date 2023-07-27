@@ -7,6 +7,11 @@ export default function Community() {
   const isLoggedIn = sessionStorage.getItem("jwtToken")
   let navigate = useNavigate();
 
+  const formatTime = (isoTime) => {
+    const date = new Date(isoTime);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+};
+
   useEffect( () =>{
     fetch('/events')
     .then(res =>res.json())
@@ -170,7 +175,7 @@ export default function Community() {
               <div key={event.id} className="card event-card mx-5 p-0 shadow-lg" style={{maxWidth: "80vw", height: "18rem"}}>
                 <div className="row g-0 p-0 m-0">
                   <div className="col-md-4" style={{maxHeight: "15rem"}}>
-                      <img src={event.image_url} className="img-fluid rounded-start" alt="photo" style={{height: "18rem", width: "100%", objectFit: "cover"}} />
+                      <img src={event.img_url} className="img-fluid rounded-start" alt="photo" style={{height: "18rem", width: "100%", objectFit: "cover"}} />
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
@@ -182,7 +187,7 @@ export default function Community() {
                           }}
                             class='border-top-0 border-end-0 border-bottom-0 border-start-0 btn-outline-secondary fst-italic bg-body p-0'>more</button>
                         </p>
-                        <p className="card-text"><i className="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.formatted_time}</p>
+                        <p className="card-text"><i className="fa fa-clock" aria-hidden="true" style={{ color: '#007ACC' }}></i> {formatTime(event.time)}</p>
                         <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true" style={{ color: '#007ACC' }}></i> {event.venue}</p>
                     </div>
                   </div>
