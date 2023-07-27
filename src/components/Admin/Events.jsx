@@ -91,8 +91,8 @@ export default function Events() {
               <td>{event.venue}</td>
               <td>{event.time}</td>
               <td>
-                <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => setSelectedEvent(event)}>Update</button>
-                <button type="button" className="btn red-btn" onClick={() => navigate(`/events/${event.id}/edit`)}><i className="fas fa-trash"></i></button>
+                <button type="button" className="btn btn-primary me-3 custom-button" data-bs-toggle="modal" data-bs-target={`#exampleModal-${event.id}`} onClick={() => navigate(`/allevents/${event.id}/edit`)}>Update</button>
+                <button type="button" className="btn red-btn" onClick={() => handleDeleteClick(event)}><i className="fas fa-trash"></i></button>
               </td>
             </tr>
           ))}
