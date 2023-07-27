@@ -15,7 +15,7 @@ export default function EventsA() {
   // fetch events
   // slice from index -6
   useEffect( () =>{
-    fetch('/events')
+    fetch('https://moringa-connect.onrender.com/events')
     .then(res =>res.json())
     .then(data => setEvents(data.slice(4)))
     .catch(err => console.log(err));

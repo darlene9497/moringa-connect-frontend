@@ -15,7 +15,7 @@ export default function EditEvent(props) {
   const {id} = useParams()
 
   useEffect(()=>{
-    fetch(`/events/${id}`)
+    fetch(`https://moringa-connect.onrender.com/events/${id}`)
     .then(res => res.json())
     .then((data)=>{
         setName(data.name)
@@ -44,7 +44,7 @@ const handleSubmit = (event) => {
   }
 
   function submitToApi(data){
-    fetch(`/events/${id}`, {
+    fetch(`https://moringa-connect.onrender.com/events/${id}`, {
         method: 'PUT',
         body: data
     }).then((res)=> {
@@ -64,7 +64,7 @@ const handleSubmit = (event) => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Event Created Successfully!",
+              title: "Event Updated Successfully!",
               showConfirmButton: false,
               timer: 1500,
             });
