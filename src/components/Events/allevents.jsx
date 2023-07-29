@@ -49,7 +49,7 @@ const AllEvents = () => {
                     }
                   }).map((event)=>{
                     return(
-                            <div key={event.id} className="card col-12 col-md-4 col-xl-3 col-xxl-2 text-start shadow ms-4 me-0 mb-5 p-0" style={{width: "22rem"}}>
+                            <div key={event.id} className="card col-11 col-md-4 col-xl-3 col-xxl-2 text-start shadow ms-4 me-0 mb-5 p-0" /*style={{width: "22rem"}}*/>
                                 <Link to={`/allevents/${event.id}`} >
                                     <img src={event.img_url} className="card-img-top img-fluid img-fit" alt="..." style={{height: "14rem", width: "100%", objectFit: "cover"}} />
                                     <div className="card-body">

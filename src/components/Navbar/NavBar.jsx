@@ -14,9 +14,9 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <div className="d-flex align-items-center" style={{ marginLeft: '4rem' }}>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary p-0 m-0">
+        <div className="d-flex justify-content-between">
+          <div className="d-flex align-items-center p-0 m-0">
             <NavLink to='/' className="nav-link active">
               <img className="logo me-4 mr-4" alt="logo"
                 src='https://moringaschool.com/wp-content/themes/moringa/public/images/logo.png'
@@ -25,7 +25,7 @@ const NavBar = () => {
                 id='m-logo'
               />
             </NavLink>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler m-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
           </div>

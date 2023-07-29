@@ -34,7 +34,7 @@ export default function EventsA() {
             <div key={event.id} className="card mx-5 p-0 shadow-lg" style={{maxWidth: "80vw", height: "18rem"}}>
               <div className="row g-0 p-0 m-0">
                 <div className="col-md-4" style={{maxHeight: "15rem"}}>
-                    <img src={event.img_url} className="img-fluid rounded-start" alt="photo" style={{height: "18rem", width: "100%", objectFit: "cover"}} />
+                    <img src={event.img_url} alt="photo" className="img-fluid rounded-start"  style={{height: "18rem", width: "100%", objectFit: "cover"}} />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
