@@ -92,6 +92,7 @@ export default function App() {
           <Route path='/userlist' element={<Users />} /> 
           <Route path='editprofile' element={<EditDetail />} />
         </Routes>
+        <hr/>
         <Footer />
       </AuthProvider>
     </BrowserRouter>

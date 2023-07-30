@@ -48,7 +48,7 @@ export default function AddProject() {
   }
 
   return (
-    <div className="container" style={{minHeight: "100vh"}}>
+    <div className="container mb-5" style={{minHeight: "100vh"}}>
         <form onSubmit={handleSubmit}>
             <div className="form-group my-5" >
                 <span>

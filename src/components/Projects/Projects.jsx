@@ -90,10 +90,10 @@ export default function Projects() {
       </div>
       <div className="my-cards" style={{ backgroundColor: "#f2f2f2" }}>
         <div
-          class="row row-cols-1 row-cols-md-3 g-4"
+          class="row row-cols-1 row-cols-md-3 p-4 g-4"
         >
           {projects.map((project) => (
-            <div class="card" style={{ width: "18rem" }}>
+            <div class="card mx-4 col-md-5 p-0" style={{ width: "20rem" }}>
               <div class="card-body h-100">
                 <h5
                   class="card-title"
@@ -133,7 +133,7 @@ export default function Projects() {
                 <div className="d-flex justify-content-between">
                   <button
                     type="button"
-                    class="btn btn-warning mx-1"
+                    class="btn btn-warning ms-1 me-1"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
                     style={{ fontSize: "15px" }}
@@ -144,7 +144,7 @@ export default function Projects() {
                     user && user.is_admin? (
                       <button
                         type="button"
-                        class="btn btn-warning mx-1"
+                        class="btn btn-warning me-1"
                         style={{ fontSize: "15px" }}
                         onClick={()=> navigate(`/projects/${project.id}/edit`)}
                       >
