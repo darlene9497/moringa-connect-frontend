@@ -54,7 +54,7 @@ const NavBar = () => {
                   
                   <li className="nav-item ">
                     <NavLink to="/allevents" className="nav-link active me-4" aria-current="page" >
-                      All Events
+                      Events
                     </NavLink>
                   </li>
 

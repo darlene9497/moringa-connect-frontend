@@ -13,7 +13,7 @@ export default function Community() {
 };
 
   useEffect( () =>{
-    fetch('https://moringa-connect.onrender.com/events')
+    fetch('/events')
     .then(res =>res.json())
     .then(data => setEvents(data))
     .catch(err => console.log(err));
