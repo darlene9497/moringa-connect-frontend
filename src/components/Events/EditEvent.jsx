@@ -44,7 +44,7 @@ const handleSubmit = (event) => {
   }
 
   function submitToApi(data){
-    fetch(`https://moringa-connect.onrender.com/events/${id}`, {
+    fetch(`/events/${id}`, {
         method: 'PUT',
         body: data
     }).then((res)=> {

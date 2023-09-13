@@ -14,7 +14,7 @@ const EventDetails = () => {
     };
 
     useEffect(()=>{
-        fetch(`https://moringa-connect.onrender.com/events/${id}`)
+        fetch(`/events/${id}`)
         .then((res)=> res.json())
         .then((data)=> {
             console.log(data)
@@ -29,7 +29,7 @@ const EventDetails = () => {
                 className="img-fluid"
                 alt="photo"
                 style={{
-                height: "35rem",
+                height: "50rem",
                 width: "100%",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add a box shadow for a nice effect
                 }}
